@@ -6,14 +6,15 @@ class Database {
 
     public function __construct() {
         require_once __DIR__ . '/../constants/base.php';
-        $option = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_TIMEOUT => 600,
-            PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
-        ];
+        $option = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
         try {
-            $this->dbh = new PDO('pgsql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE, DB_USERNAME, DB_PASSWORD, $option);
+            $dsn = 'pgsql:host=' . DB_HOST ';port=' . DB_PORT ';dbname' . DB_NAME;
+            $this->dbh = new PDO($dsn, DB_USER, DB_PASSWORD, $option);
+
+            if ($this->dbh) {
+                echo "Connected to the database successfully!";
+            }
         } catch (PDOException $e) {
             die($e->getMessage());
         }

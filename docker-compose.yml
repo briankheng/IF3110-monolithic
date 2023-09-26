@@ -9,6 +9,14 @@ services:
       - ./scripts/server:/var/www/html/
     ports:
       - 8000:80
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    ports:
+      - '5432:5432'
+    env_file: .env
   
   frontend:
     build:
