@@ -1,7 +1,8 @@
 <?php
 
 // DATABASE
-define('DB_SERVER', 'ep-wandering-sound-44516679.ap-southeast-1.aws.neon.tech');
-define('DB_USERNAME', 'mikeleo03');
-define('DB_PASSWORD', '47EevsXYILOx');
-define('DB_DATABASE', 'neondb');
+define('DB_HOST', getenv('DB_HOST'));
+define('DB_PORT', getenv('DB_PORT'));
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
