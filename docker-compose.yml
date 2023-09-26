@@ -1,6 +1,21 @@
-version: '3.3'
+version: '3.8'
 services:
-  web:
-    image: tubes-1:latest
+  backend:
+    build:
+      context: ./
+      dockerfile: backend.Dockerfile
+    container_name: backend
+    volumes:
+      - ./scripts/server:/var/www/html/
     ports:
-      - 8008:80
+      - 8000:80
+  
+  frontend:
+    build:
+      context: ./
+      dockerfile: frontend.Dockerfile
+    container_name: frontend
+    volumes:
+      - ./scripts/client:/var/www/html/
+    ports:
+      - 8080:80
