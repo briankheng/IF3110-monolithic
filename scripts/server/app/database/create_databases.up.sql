@@ -1,0 +1,58 @@
+CREATE TABLE "user" (
+    id SERIAL PRIMARY KEY NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    isAdmin BOOLEAN NOT NULL,
+    balance INTEGER NOT NULL,
+    CONSTRAINT UC_IDUser UNIQUE (id)
+);
+
+CREATE TABLE category (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    CONSTRAINT UC_IDCategory UNIQUE (id)
+);
+
+CREATE TABLE product (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(500) NOT NULL,
+    image VARCHAR(255),
+    video VARCHAR(255),
+    description VARCHAR(255) NOT NULL,
+    idCategory INTEGER NOT NULL,
+    price INTEGER NOT NULL,
+    stock INTEGER NOT NULL,
+    FOREIGN KEY (idCategory) REFERENCES category(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDProduct UNIQUE (id)
+);
+
+CREATE TABLE buyHistory (
+    id SERIAL PRIMARY KEY NOT NULL,
+    idUser INTEGER NOT NULL,
+    idProduct INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    totalPrice INTEGER NOT NULL,
+    buyDate DATE NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    FOREIGN KEY (idProduct) REFERENCES product(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDBuyHistory UNIQUE (id)
+);
+
+CREATE TABLE topupHistory (
+    id SERIAL PRIMARY KEY NOT NULL,
+    idUser INTEGER NOT NULL,
+    nominal INTEGER NOT NULL,
+    topupDate DATE NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDTopupHistory UNIQUE (id)
+);
+
+CREATE TABLE favorite (
+    id SERIAL PRIMARY KEY NOT NULL,
+    idUser INTEGER NOT NULL,
+    idProduct INTEGER NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    FOREIGN KEY (idProduct) REFERENCES product(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDFavorite UNIQUE (id)
+);
