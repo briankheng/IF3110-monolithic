@@ -9,7 +9,7 @@ function infoNavbarAdded() {
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(this.responseText);
-            uname = document.getElementById("uname");
+            uname = document.getElementById("unameadmin");
             if (res['status']) {
                 if (res['data'].isAdmin) {
                     document.getElementById("unameadmin").innerHTML = res['data'].username;
@@ -19,7 +19,7 @@ function infoNavbarAdded() {
                 putNavbar(res['data'].isAdmin);
             } else {
                 uname.innerHTML = "Guest";
-                document.getElementById("loginout").innerHTML = "Login";
+                document.getElementById("logout").innerHTML = "Login";
                 putNavbar(false);
             }
         }

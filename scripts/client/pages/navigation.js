@@ -5,18 +5,18 @@ function infoNavbar(){
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(this.responseText);
-            uname = document.getElementById("uname");
-            if(res['status']){
+            uname = document.getElementById("unameadmin");
+            if (res['status']) {
                 if(res['data'].isAdmin){
-                    document.getElementById("uname").innerHTML = res['data'].username;
+                    document.getElementById("unameadmin").innerHTML = res['data'].username;
                 }else{
-                    document.getElementById("unameuwu").innerHTML = res['data'].username;
+                    document.getElementById("unameuser").innerHTML = res['data'].username;
                 }
                 putNavbar(res['data'].isAdmin);
             }
             else {
                 uname.innerHTML = "Guest";
-                document.getElementById("loginout").innerHTML = "Login";
+                document.getElementById("logout").innerHTML = "Login";
                 putNavbar(false);
             }
         }
