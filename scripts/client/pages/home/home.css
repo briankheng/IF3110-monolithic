@@ -1,0 +1,261 @@
+body {
+    background-color: black;
+    background-attachment: fixed;
+}
+
+.navCt, .navCtAdmin {
+    background-color: #33383a;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.navLeft {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    column-gap: 10vw;
+}
+
+.navLogoSide {
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.navLogo {
+    width: 40px;
+    height: 40px;
+}
+
+h1.navTitle {
+    font-size: 1.5em;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+}
+
+.navLogo:hover {
+    cursor: pointer;
+}
+
+.navSearch {
+    background-color: white;
+    border: 1px solid #6c6c6c;
+    border-radius: 20px;
+    width: 340px;
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.navSearch input {
+    border: none;
+    font-size: 15px;
+    font-family: "Arial";
+    text-align: left;
+    color: #888888;
+    width: 85%;
+}
+
+.navSearch input:focus {
+    outline: none;
+}
+
+.navSearchIcon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.navRight {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #B3B3B3;
+    column-gap: 5px;
+}
+
+.navItems {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 5px;
+    border-radius: 20px;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navItems:hover {
+    background-color: #44494c;
+    cursor: pointer;
+}
+
+.navIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.navText {
+    font-family: "Arial";
+    font-size: 18px;
+}
+
+.navCollapse {
+    float: right;
+    overflow: hidden;
+}
+
+.navCollapse, .navItems {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navDrop {
+    font-family: "Arial";
+    display: none;
+    position: absolute;
+    background-color: black;
+    outline: 5px solid black;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255,0.2);
+    z-index: 1;
+    border-radius: 20px;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.navDrop:hover {
+    background-color: #282828;
+    border-radius: 20px;
+    display: block;
+    cursor: pointer;
+}
+
+.navCollapse:hover .navDrop {
+    display: block;
+}
+
+.navChild:hover {
+    cursor: pointer;
+}
+
+.homeCt {
+    color: white;
+    padding: 20px
+}
+
+@media only screen and (max-width: 1200px) {
+    .navItems {
+        width: auto;
+        background-color: #535353;
+        border-radius: 20px;
+        padding: 5px;
+    }
+    .navIcon {
+        margin-left: 0;
+    }
+    .navText {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .navRight {
+        column-gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .navRight {
+        column-gap: 5px;
+    }
+    .navItems {
+        column-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navLeft {
+        column-gap: 5vw;
+    }
+    .navSearch {
+        width: 50vw;
+    }
+    .navSearch input {
+        width: 80%;
+    }
+    .navSearchIcon {
+        margin-left: 5px;
+    }
+    .navLogo {
+        width: 100px;
+        height: 30px;
+    }
+    .navSearch {
+        max-width: 35vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navLeft {
+        column-gap: 2.5vw;
+    }
+    .navSearchIcon {
+        margin-left: 2.5px;
+    }
+    .navLogo {
+        width: 75px;
+        height: 25px;
+    }
+    .navRight {
+        column-gap: 2px;
+    }
+    .navSearch input {
+        font-size: 10px;
+    }
+    .navSearch {
+        border-radius: 20px;
+        height: 30px;
+    }
+    .navSearch img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .navItems {
+        padding: 3px;
+    }
+    .navIcon {
+        width: 15px;
+        height: 15px;
+        margin-left: 2px;
+    }
+}
+
+.navSearchIcon:hover{
+    cursor: pointer;
+}
