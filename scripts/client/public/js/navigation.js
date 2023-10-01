@@ -39,29 +39,29 @@ function putNavbar(isAdmin) {
 }
 
 function redirectToHome(){
-    window.location.href = "http://localhost:8080/pages/home/home.html";
+    window.location.href = "http://localhost:8080/pages/home";
 }
 
 function redirectToProduct() {
-    window.location.href = "http://localhost:8080/pages/product/product.html";
+    window.location.href = "http://localhost:8080/pages/product";
 }
 
 function redirectToHistory() {
-    window.location.href = "http://localhost:8080/pages/history/history.html";
+    window.location.href = "http://localhost:8080/pages/history";
 }
 
 function redirectToTopup() {
-    window.location.href = "http://localhost:8080/pages/topup/topup.html";
+    window.location.href = "http://localhost:8080/pages/topup";
 }
 
 function redirectToEditProduct() {
-    window.location.href = "http://localhost:8080/pages/editproduct/editproduct.html";
+    window.location.href = "http://localhost:8080/pages/editproduct";
 }
 
 function redirectToHandleTopup() {
-    window.location.href = "http://localhost:8080/pages/handletopup/handletopup.html";
+    window.location.href = "http://localhost:8080/pages/handletopup";
 }
 
 function redirectToListUsers() {
-    window.location.href = "http://localhost:8080/pages/listusers/listusers.html";
+    window.location.href = "http://localhost:8080/pages/listusers";
 }

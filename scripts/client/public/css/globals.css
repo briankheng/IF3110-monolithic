@@ -9,6 +9,8 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-y: scroll;
+    background-color: black;
+    background-attachment: fixed;
 }
   
 body::-webkit-scrollbar {
