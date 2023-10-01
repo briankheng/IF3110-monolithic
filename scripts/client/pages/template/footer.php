@@ -1,0 +1,3 @@
+<script>
+	/* required scripts */
+</script>
