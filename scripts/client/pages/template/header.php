@@ -9,9 +9,10 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
         /* global css part */
-        <?php include 'public/css/globals.css'; ?>
+        <?php include '../../public/css/globals.css'; ?>
 
         /* components css part */
+        <?php include '../../public/css/components/navbar.css'; ?>
 
         /* page css part */
         
