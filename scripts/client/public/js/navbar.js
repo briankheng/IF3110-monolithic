@@ -39,7 +39,7 @@ function logout() {
             if (this.readyState == 4 && this.status == 200) {
                 let res = JSON.parse(this.responseText);
                 if (res['status']) {
-                    window.location.href = "http://localhost:8080/pages/home/home.html";
+                    window.location.href = "http://localhost:8080/pages/home";
                 }
             }
         };
