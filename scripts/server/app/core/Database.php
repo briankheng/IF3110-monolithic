@@ -11,10 +11,6 @@ class Database {
         try {
             $dsn = 'pgsql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
             $this->dbh = new PDO($dsn, DB_USER, DB_PASSWORD, $option);
-
-            if ($this->dbh) {
-                echo "Connected to the database successfully!";
-            }
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -72,7 +68,6 @@ class Database {
         try {
             return $this->stmt->execute();
         } catch (\Throwable $th) {
-            echo $th->getMessage();
             return false;
         }
     }

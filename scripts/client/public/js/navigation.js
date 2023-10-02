@@ -53,13 +53,13 @@ function redirectToTopup() {
 }
 
 function redirectToEditProduct() {
-    window.location.href = "http://localhost:8080/pages/editproduct";
+    window.location.href = "http://localhost:8080/pages/admin/edit-product";
 }
 
 function redirectToHandleTopup() {
-    window.location.href = "http://localhost:8080/pages/handletopup";
+    window.location.href = "http://localhost:8080/pages/admin/handle-top-up";
 }
 
-function redirectToListUsers() {
-    window.location.href = "http://localhost:8080/pages/listusers";
+function redirectToEditUser() {
+    window.location.href = "http://localhost:8080/pages/admin/edit-user";
 }
