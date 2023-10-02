@@ -52,8 +52,16 @@ function redirectToTopup() {
     window.location.href = "http://localhost:8080/pages/topup";
 }
 
-function redirectToEditProduct() {
-    window.location.href = "http://localhost:8080/pages/admin/edit-product";
+function redirectToAdminProduct() {
+    window.location.href = "http://localhost:8080/pages/admin/product";
+}
+
+function redirectToCreateProduct() {
+    window.location.href = "http://localhost:8080/pages/admin/product/create";
+}
+
+function redirectToEditProduct(id) {
+    window.location.href = "http://localhost:8080/pages/admin/product/edit?id=" + id;
 }
 
 function redirectToHandleTopup() {
