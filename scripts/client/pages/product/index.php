@@ -26,10 +26,15 @@
                 <div class="filterParent" type="button" onclick="queryProduct()">Apply Filter</div>
             </div>
         </div>
-        <div class="recentTitle">List of Products</div>
+        <div class="listTitle">List of Products</div>
         <div id="queryResultProduct" class="queryResultProduct"></div>
         <div class="pagination" id="pagenumProduct"></div>
 	</div>
 </section>
 
 <?php require_once __DIR__ . "/../template/footer.php" ?>
+
+<script>
+	/* required scripts */
+	<?php include '../../public/js/product.js'; ?>
+</script>

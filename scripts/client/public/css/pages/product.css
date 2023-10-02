@@ -1,0 +1,162 @@
+.queryCt {
+    font-size: 16px;
+    width: 76vw;
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.25vh;
+}
+
+.queryMenu {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 2vh 0;
+    column-gap: 3vw;
+    float: left;
+    overflow: hidden;
+}
+
+.queryMenu:hover {
+    cursor: pointer;
+}
+
+.filterChild {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.filterCollapse {
+    float: left;
+    overflow: hidden;
+}
+
+.filterCollapse:hover .filterParent {
+    border: 1px solid white;
+    color: white;
+}
+
+.filterParent {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    margin: 0;
+
+    border: 1px solid #6C6C6C;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #6C6C6C;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.filterDrop {
+    display: none;
+    position: absolute + 7px;
+    background-color: black;
+    outline: 5px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255,0.2);
+    z-index: 1;
+
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+
+.filterChild:hover {
+    background-color: var(--green);
+}
+
+.filterCollapse:hover .filterDrop {
+    display: block;
+}
+
+.queryResult {
+    color: white;
+    padding: 20px
+}
+
+.card {
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 12.5px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 12.5vw;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #1a1a1a;
+    scale: 1.05;
+}
+
+.card:active {
+    background-color: #000;
+}
+
+.cardImage {
+    width: 11.5vw;
+    height: 11.5vw;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.productTitle {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.price {
+    margin-bottom: 2.5px;
+}
+
+.stockCategory {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    margin: 5vh 0;
+}
+
+.page {
+    font-size: 16px;
+    color: #6C6C6C;
+    padding: 2px;
+    width: 24px;
+    text-align: center;
+    border: 1px solid #6C6C6C;
+    border-radius: 20px;;
+}
+
+.page:hover {
+    cursor: pointer;
+}
