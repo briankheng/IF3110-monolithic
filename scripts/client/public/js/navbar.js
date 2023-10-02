@@ -9,7 +9,7 @@ function infoNavbarAdded() {
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(this.responseText);
-            uname = document.getElementById("unameadmin");
+            uname = document.getElementById("unameuser");
             if (res['status']) {
                 if (res['data'].isAdmin) {
                     document.getElementById("unameadmin").innerHTML = res['data'].username;
@@ -32,7 +32,7 @@ function infoNavbarAdded() {
 
 function logout() {
     if (document.getElementById("logout").innerHTML == "Login") {
-        window.location.href = "http://localhost:8080/pages/login/login.html";
+        window.location.href = "http://localhost:8080/pages/login";
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
@@ -49,3 +49,33 @@ function logout() {
         xhttp.send();
     }
 }
+
+function searchProducts() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            products = JSON.parse(this.responseText);
+            appendData(products['data']);
+        }
+    };
+    xhttp.open("GET","http://localhost:8000/api/productapi/show10products",true);
+    xhttp.setRequestHeader("Accept", "application/json");
+    xhttp.withCredentials = true;
+    xhttp.send();
+}
+
+function searchProducts() {
+    query = document.getElementById("queryproduct").value;
+    window.location.href = "http://localhost:8080/pages/product?query=" + query;
+}
+
+document.getElementById("queryproduct")
+    .addEventListener("keyup", function(event) {
+    // console.log("searching");
+    event.preventDefault();
+    // If the user presses the "Enter" key on the keyboard
+    if (event.keyCode == 13) {
+        // Trigger the button element with a click
+        document.getElementById("productqueryimg").click();
+    }
+});
