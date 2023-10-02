@@ -68,7 +68,6 @@ class Database {
         try {
             return $this->stmt->execute();
         } catch (\Throwable $th) {
-            echo $th->getMessage();
             return false;
         }
     }
