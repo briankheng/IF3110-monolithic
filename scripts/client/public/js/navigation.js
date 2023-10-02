@@ -28,12 +28,11 @@ function infoNavbar(){
 
 function putNavbar(isAdmin) {
     if (isAdmin) {
-        document.getElementById("navCtAdmin").style.display = "block";
+        document.getElementById("navCtAdmin").style.display = "flex";
         document.getElementById("navCt").style.display = "none";
-    }
-    else {
+    } else {
         document.getElementById("navCtAdmin").style.display = "none";
-        document.getElementById("navCt").style.display = "block";
+        document.getElementById("navCt").style.display = "flex";
     }
 }
 
