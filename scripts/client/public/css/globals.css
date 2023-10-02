@@ -1,28 +1,35 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
+/* Basic Structure */
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
 }
 
 body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-y: scroll;
-    background-color: black;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     background-attachment: fixed;
 }
-  
-body::-webkit-scrollbar {
-    display: none;
-}
 
+/* Links */
 a {
+    color: var(--green);
+    text-decoration: none;
     cursor: pointer;
 }
 
+a:hover {
+    color: var(--green-hover);
+    text-decoration: none;
+}
+
+/* Navbar */
 .indexCt {
-    background-color: black;
+    background-color: var(--black);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,8 +44,50 @@ a {
     width: 5vw;
 }
 
+/* Redirection */
 .redirect {
     color: white;
     font-family: "Arial";
     font-size: 16px;
+}
+
+/* Responsive design */
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: block;
+    }
+}
+
+/* Main as section */
+section {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    section {
+        width: 90%;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-disabled);
+    border-radius: 5px;
 }
