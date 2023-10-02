@@ -1,5 +1,5 @@
 <body onload="initPage()">
-    <nav>
+    <nav class="navbar">
         <div class="navCt" id="navCt">
             <div class="navLeft">
                 <div class="navLogoSide">
@@ -7,7 +7,7 @@
                     <h1 class="navTitle">&nbsp;KBL</h1>
                 </div>
                 <div class="navSearch">
-                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png" onclick="searchProduct()"/>
+                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png" onclick="searchProducts()"/>
                     <input class="navSearchInput" type="text" id="queryproduct" placeholder="&nbsp;Search for products or categories" >
                 </div>
             </div>

@@ -1,12 +1,16 @@
 .navCt, .navCtAdmin {
     background-color: #33383a;
-    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     padding: 10px 20px;
     justify-content: space-between;
     overflow: hidden;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
 }
 
 .navLeft {
