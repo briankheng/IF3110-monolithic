@@ -14,3 +14,6 @@ define('NOT_LOGGED_IN', 'not_logged_in');
 // REGISTER API RESPONSE
 define('EMAIL_REGISTERED', 'email_registered');
 define('USERNAME_REGISTERED','username_registered');
+
+// PRODUCT API RESPONSE
+define('PRODUCT_NOT_FOUND','product_not_found');

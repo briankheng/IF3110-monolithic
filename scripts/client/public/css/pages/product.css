@@ -1,7 +1,7 @@
 .queryCt {
     font-size: 16px;
-    width: 76vw;
-    padding: 0px 32px;
+    width: 100%;
+    padding: 0px 0.75rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -18,7 +18,7 @@
     margin: 2vh 0;
     column-gap: 3vw;
     float: left;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .queryMenu:hover {
@@ -46,16 +46,14 @@
 
 .filterParent {
     font-size: 14px;
-    border: none;
-    outline: none;
     color: white;
     background-color: inherit;
     margin: 0;
 
-    border: 1px solid #6C6C6C;
+    border: 1px solid white;
     border-radius: 20px;
     font-size: 16px;
-    color: #6C6C6C;
+    color: white;
     padding: 10px;
     width: 100px;
     text-align: center;
