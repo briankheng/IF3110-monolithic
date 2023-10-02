@@ -18,6 +18,7 @@
         <?php include '../../public/css/components/navbar.css'; ?>
 
         /* page css part */
+        <?php include '../../public/css/pages/product.css'; ?>
         
     </style>
 
