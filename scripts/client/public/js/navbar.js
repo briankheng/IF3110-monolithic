@@ -32,7 +32,7 @@ function infoNavbarAdded() {
 
 function logout() {
     if (document.getElementById("logout").innerHTML == "Login") {
-        window.location.href = "http://localhost:8080/pages/login/login.html";
+        window.location.href = "http://localhost:8080/pages/login";
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
