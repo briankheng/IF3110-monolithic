@@ -36,13 +36,8 @@ window.onload = function() {
 function queryProduct() {
     param = '';
     query = document.getElementById("queryproduct").value;
-    if (query != "" && query != null) {
+    if (query != null && query != '') {
         param += 'query='+query+'&';
-    } else {
-        query = document.getElementById("queryproduct2").value;
-        if (query != null && query != '') {
-            param += 'query='+query+'&';
-        }
     }
     
     if (order_by_name != null && order_by_name != '' ){
@@ -62,15 +57,14 @@ function selectProduct(numPage) {
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(this.responseText);
-            currentPageAlbum = numPage;
+            currentPageProduct = numPage;
             if (res['status']) {
                 products = res['data'];
                 totalPageProduct = res['data']['pages'];
                 clearProduct();
-                appendData(products['product'], "queryResultProduct");
+                appendData(products['products'], "queryResultProduct");
             } else {
                 clearProduct();
-                appendData(productNotFound, "queryResultProduct");
             };
         }
     };
@@ -143,8 +137,8 @@ function rerouteproduct(id){
 function paginationProduct() {
     var pageProductContainer = document.getElementById("pagenumProduct");
     for (i = 0; i < totalPageProduct; i++) {
-        if (i == currentPageAlbum-1) {
-            pageProductContainer.innerHTML += '<div class="pageCurr" style="background-color: #282828; color: white;">' + (i+1) + '</div>';
+        if (i == currentPageProduct-1) {
+            pageProductContainer.innerHTML += '<div class="pageCurr" style="background-color: #282828; color: white; padding: 12px; border-radius: 50px">' + (i+1) + '</div>';
         }
         else {
             pageProductContainer.innerHTML += '<div class="page" onclick="selectProduct(' + (i+1) + ')">' + (i + 1) + '</div>';
@@ -161,8 +155,6 @@ function setCategory(inputCategory) {
         if (filter_category != null) {
             document.getElementById("filter"+filter_category).style.backgroundColor = "#282828";
         }
-        // document.getElementById("filterNone").style.backgroundColor = "#282828";
-        // document.getElementById("filter"+inputCategory).style.backgroundColor = "green";
         filter_category = inputCategory;
     }
 }
