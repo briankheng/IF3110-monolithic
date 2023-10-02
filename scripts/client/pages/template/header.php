@@ -10,6 +10,9 @@
     <style>
         /* global css part */
         <?php include '../../public/css/globals.css'; ?>
+        <?php include '../../public/css/colors.css'; ?>
+        <?php include '../../public/css/typography.css'; ?>
+        <?php include '../../public/css/animations.css'; ?>
 
         /* components css part */
         <?php include '../../public/css/components/navbar.css'; ?>

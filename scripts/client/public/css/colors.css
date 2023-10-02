@@ -1,0 +1,20 @@
+/* use var() to use variables */
+
+:root {
+    --bg-primary: #6e6e71;
+    --bg-primary-white: #FFFFFF;
+
+    --text-primary: #FFFFFF;
+    --text-primary-black: #2A2B30;
+    --text-secondary: #E1E1E2;
+    --text-advanced: #8A8C8F;
+    --text-disabled: rgba(138, 140, 143, 0.48);
+
+    --red: #FF646C;
+    --yellow: #FFDD3C;
+    --blue: #0C79F8;
+    --grey: #3F4044;
+    --black: #1E1F22;
+    --green: #16e957;
+    --green-hover: #128d35;
+}
