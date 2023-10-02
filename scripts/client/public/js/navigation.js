@@ -7,14 +7,13 @@ function infoNavbar(){
             let res = JSON.parse(this.responseText);
             uname = document.getElementById("unameadmin");
             if (res['status']) {
-                if(res['data'].isAdmin){
+                if (res['data'].isAdmin) {
                     document.getElementById("unameadmin").innerHTML = res['data'].username;
-                }else{
+                } else {
                     document.getElementById("unameuser").innerHTML = res['data'].username;
                 }
                 putNavbar(res['data'].isAdmin);
-            }
-            else {
+            } else {
                 uname.innerHTML = "Guest";
                 document.getElementById("logout").innerHTML = "Login";
                 putNavbar(false);
