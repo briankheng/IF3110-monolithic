@@ -35,7 +35,7 @@ CREATE TABLE buyHistory (
     quantity INTEGER NOT NULL,
     totalPrice INTEGER NOT NULL,
     buyDate DATE NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (idProduct) REFERENCES product(id) ON DELETE CASCADE,
     CONSTRAINT UC_IDBuyHistory UNIQUE (id)
 );
@@ -45,7 +45,7 @@ CREATE TABLE topupHistory (
     idUser INTEGER NOT NULL,
     nominal INTEGER NOT NULL,
     topupDate DATE NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
     CONSTRAINT UC_IDTopupHistory UNIQUE (id)
 );
 
@@ -53,7 +53,7 @@ CREATE TABLE favorite (
     id SERIAL PRIMARY KEY NOT NULL,
     idUser INTEGER NOT NULL,
     idProduct INTEGER NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES "user"(id) ON DELETE CASCADE,
+    FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (idProduct) REFERENCES product(id) ON DELETE CASCADE,
     CONSTRAINT UC_IDFavorite UNIQUE (id)
 );
