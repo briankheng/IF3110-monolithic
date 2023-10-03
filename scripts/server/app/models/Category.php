@@ -9,7 +9,7 @@ class Category {
     }
 
     public function showAllcategories() {
-        $this->db->query('SELECT * FROM' . $this-> table . ' ORDER BY id');
+        $this->db->query('SELECT * FROM ' . $this-> table . ' ORDER BY id');
 
         try {
             return $this->db->resultSet();

@@ -9,7 +9,7 @@
         <div class="queryMenu">
             <div class="filterCollapse">
                 <div class="filterParent">Filter</div>
-                <div class="filterDrop">
+                <div class="filterDrop" id="categoryFilter">
                     <!-- List of category -->
                 </div>
             </div>
@@ -37,4 +37,50 @@
 <script>
 	/* required scripts */
 	<?php include '../../public/js/product.js'; ?>
+</script>
+
+<script>
+    // Function to populate the category dropdown
+    function populateCategoryDropdown() {
+        $.ajax({
+            url: 'http://localhost:8000/api/productapi/showAllcategories',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Assuming the response data is an array of category names
+                var categoryDropdown = $('#categoryFilter');
+                
+                // Clear existing options
+                categoryDropdown.empty();
+
+                // Populate the dropdown with category names
+                $.each(data.data, function (index, category) {
+                    var categoryId = 'filter' + category.name;
+                    categoryDropdown.append($('<div>', {
+                        class: 'filterChild',
+                        id: categoryId,
+                        text: category.name
+                    }));
+
+                    // Create event listener for filter
+                    createFilterEventListener(category.name);
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching categories: ' + error.statusText);
+            }
+        });
+    }
+
+    function createFilterEventListener(categoryId) {
+    document.getElementById('filter'+categoryId)
+        .addEventListener('click', function () {
+            setCategory(categoryId);
+        });
+    }
+
+    // Call the function to populate the category dropdown when the page loads
+    $(document).ready(function () {
+        populateCategoryDropdown();
+    });
 </script>

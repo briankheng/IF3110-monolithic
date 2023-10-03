@@ -153,7 +153,7 @@ function setCategory(inputCategory) {
         document.getElementById("filterNone").style.backgroundColor = "green";
     } else {
         if (filter_category != null) {
-            document.getElementById("filter"+filter_category).style.backgroundColor = "#282828";
+            document.getElementById('filter'+inputCategory).style.backgroundColor = "#282828";
         }
         filter_category = inputCategory;
     }

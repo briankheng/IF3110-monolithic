@@ -1,6 +1,6 @@
-INSERT INTO category VALUES (1, 'produk iseng');
-INSERT INTO category VALUES (2, 'iseng lagi');
-INSERT INTO category VALUES (3, 'masih iseng');
+INSERT INTO category VALUES (1, 'produkIseng');
+INSERT INTO category VALUES (2, 'isengLagi');
+INSERT INTO category VALUES (3, 'masihIseng');
 
 INSERT INTO product VALUES (1, 'produk1', '/../public/assets/default.jpg', null, 'ini adalah produk1', 1, 20000, 5);
 INSERT INTO product VALUES (2, 'ini', '/../public/assets/default.jpg', null, 'ini adalah produk2', 1, 15000, 4);
