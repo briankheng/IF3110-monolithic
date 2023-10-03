@@ -1,0 +1,88 @@
+#settings {
+    display: flex;
+    background-color: #6e6e71;
+    justify-content: center;
+    align-items: center;  
+    height: 100vh;
+    
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+.acct-ctn {
+    background-color: #414142;
+    padding: 2% 2.5% 2%;
+    border-radius: 1.5%;
+
+    
+}
+
+.acct-title {
+    display: flex;
+    font-weight: 700;
+    margin-bottom: 3%;
+    justify-content: start;
+    font-size: x-large;
+    color: #f1f1f1;
+}
+
+.separator {
+    border-top: 2px solid #f1f1f1;
+    margin-bottom: 8%;
+}
+
+label {
+    color: #d1d1d1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5vh;
+    width: 65vh;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.grid-container > label {
+    grid-column: 1;
+    align-self: center;
+    font-size: medium;
+}
+
+.grid-container > input,
+.grid-container > button {
+    font-size: medium;
+    align-self: center;
+}
+
+#username, #balance {
+    border: 0.5px solid #414142;
+    padding: 2% 1%;
+    color: #d1d1d1;
+    background-color: #414142;
+}
+
+#name, #password, #confirm-password {
+    border: 0.5px solid #1F1F1F;
+    border-radius: 1%;
+    padding: 2% 3%;
+    background-color: #1F1F1F;
+    color: #d1d1d1;
+}
+
+button[type=submit] {
+    margin-top: 0%;
+    margin-bottom: 5%;
+    padding: 3% 0;
+    background-color: #1c893f;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    color: #FFFCF9;
+    grid-column: span 2;
+}
+
+button[type=submit]:hover {
+    background-color: #16702E;
+    
+}
