@@ -2,31 +2,31 @@
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
 <section id="product">
-    <div class="pageTitle">
-        <h1>Product page</h1>
-    </div>
     <div class="queryCt">
-        <div class="queryMenu">
-            <div class="filterCollapse">
-                <div class="filterParent">Filter</div>
-                <div class="filterDrop" id="categoryFilter">
-                    <!-- List of category -->
+        <div class="productMenu">
+            <div class="pageTitle">Product page</div>
+            <div class="queryMenu">
+                <div class="filterCollapse">
+                    <div class="filterParent">Filter</div>
+                    <div class="filterDrop" id="categoryFilter">
+                        <!-- List of category -->
+                    </div>
                 </div>
-            </div>
-            <div class="filterCollapse">
-                <div class="filterParent">Sort</div>
-                <div class="filterDrop">
-                    <div class="filterChild" id="sortnamaASC">Name (A to Z)</div>
-                    <div class="filterChild" id="sortnamaDESC">Name (Z to A)</div>
-                    <div class="filterChild" id="sorthargaASC">Price (Lowest First)</div>
-                    <div class="filterChild" id="sorthargaDESC">Price (Highest First)</div>
+                <div class="filterCollapse">
+                    <div class="filterParent">Sort</div>
+                    <div class="filterDrop" id="sortAttribute">
+                        <div class="filterChild" id="sortnamaASC">Name (A to Z)</div>
+                        <div class="filterChild" id="sortnamaDESC">Name (Z to A)</div>
+                        <div class="filterChild" id="sorthargaASC">Price (Lowest First)</div>
+                        <div class="filterChild" id="sorthargaDESC">Price (Highest First)</div>
+                    </div>
                 </div>
-            </div>
-            <div class="filterCollapse">
-                <div class="filterParent" type="button" onclick="queryProduct()">Apply Filter</div>
+                <div class="filterCollapse">
+                    <div class="filterParent" type="button" onclick="queryProduct()">Apply Filter</div>
+                </div>
             </div>
         </div>
-        <div class="listTitle">List of Products</div>
+        <div class="listTitle">Showing 14 items...</div>
         <div id="queryResultProduct" class="queryResultProduct"></div>
         <div class="pagination" id="pagenumProduct"></div>
 	</div>
@@ -50,7 +50,7 @@
                 // Assuming the response data is an array of category names
                 var categoryDropdown = $('#categoryFilter');
                 
-                // Clear existing options
+                // Clear existing divs
                 categoryDropdown.empty();
 
                 // Populate the dropdown with category names

@@ -111,11 +111,22 @@ function appendData(data, target) {
             mainContainer.innerHTML += 
                 '<div class="card" id='+ data[i].product_id+' onclick="rerouteproduct(this.id)"> \
                     <img src="' + data[i].image + '" class="cardImage"> \
-                    <div class="productTitle">' + data[i].product_name + '</div> \
-                    <div class="price">' + data[i].price + '</div> \
-                    <div class="stockCategory"> \
-                        <div class="category">' + data[i].category_name + '</div> \
-                        <div class="stock">' + data[i].stock + '</div> \
+                    <div class="productdesc"> \
+                        <div class="stockCategory"> \
+                            <div class="category"> \
+                                <img src="/public/images/category.png" class="cardIcon">'
+                                + data[i].category_name + 
+                            '</div> \
+                            <div class="stock"> \
+                                <img src="/public/images/quantity.png" class="cardIcon">' 
+                                + data[i].stock + 
+                            '</div> \
+                        </div> \
+                        <div class="productTitle">' + data[i].product_name + '</div> \
+                        <div class="price">' + data[i].price.toLocaleString("id-ID", {
+                            style: "currency",
+                            currency: "IDR",
+                        }); + '</div> \
                     </div> \
                 </div>';
         }
@@ -138,7 +149,7 @@ function paginationProduct() {
     var pageProductContainer = document.getElementById("pagenumProduct");
     for (i = 0; i < totalPageProduct; i++) {
         if (i == currentPageProduct-1) {
-            pageProductContainer.innerHTML += '<div class="pageCurr" style="background-color: #282828; color: white; padding: 12px; border-radius: 50px">' + (i+1) + '</div>';
+            pageProductContainer.innerHTML += '<div class="pageCurr">' + (i+1) + '</div>';
         }
         else {
             pageProductContainer.innerHTML += '<div class="page" onclick="selectProduct(' + (i+1) + ')">' + (i + 1) + '</div>';
@@ -150,7 +161,7 @@ function setCategory(inputCategory) {
     if (inputCategory == filter_category) {
         filter_category = null;
         document.getElementById("filter"+inputCategory).style.backgroundColor = "#282828";
-        document.getElementById("filterNone").style.backgroundColor = "green";
+        document.getElementById("filterNone").style.backgroundColor = "#16e957";
     } else {
         if (filter_category != null) {
             document.getElementById('filter'+inputCategory).style.backgroundColor = "#282828";
@@ -159,37 +170,35 @@ function setCategory(inputCategory) {
     }
 }
 
-function setOrder(type, order) {
+// Add an event listener to the select element
+function setOrder(type, order) { 
     if (order_by_price != null && order_by_price != '') {
         if (type == "nama") {
             document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "green";
+            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_price = null;
             order_by_name = order;
         } else {
             document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "green";
+            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
         }
-    } else if (order_by_name!=null && order_by_name != '') {
+    } else if (order_by_name != null && order_by_name != '') {
         if (type=="nama") {
             document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "green";
+            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_name = order;
         } else {
             document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "green";
+            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
             order_by_name = null;
         }
     } else {
         order_by_name = "ASC";
-        document.getElementById("sortnamaASC").style.backgroundColor = "green";
+        document.getElementById("sortnamaASC").style.backgroundColor = "#16e957";
     }
 }
-
-// Filter event handler
-
 
 // Sorting event handler
 document.getElementById("sortnamaASC")
