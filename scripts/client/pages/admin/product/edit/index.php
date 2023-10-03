@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+</head>
+
+<body>
+    <form id="editProductForm" enctype="multipart/form-data" onsubmit="editProduct(event)">
+        <label for="name">Name</label>
+        <input type="text" name="name">
+        <label for="price">Price</label>
+        <input type="text" name="price">
+        <label for="description">Description</label>
+        <input type="text" name="description">
+        <label for="stock">Stock</label>
+        <input type="text" name="stock">
+        <label for="idCategory">Category</label>
+        <input type="text" name="idCategory">
+        <label for="image">Image</label>
+        <input type="file" name="image">
+        <label for="video">Video</label>
+        <input type="file" name="video">
+        <input type="submit">
+    </form>
+
+
+</body>
+
+<script type="text/javascript" src="../../../../public/js/admin/product/edit-product.js"></script>
+
+</html>
