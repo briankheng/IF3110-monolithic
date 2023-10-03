@@ -1,11 +1,12 @@
-CREATE TABLE "user" (
+CREATE TABLE IF NOT EXISTS "user" (
     id SERIAL PRIMARY KEY NOT NULL,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
     name VARCHAR(50) NOT NULL,
     isAdmin BOOLEAN NOT NULL,
-    balance INTEGER NOT NULL,
-    CONSTRAINT UC_IDUser UNIQUE (id)
+    balance INTEGER NOT NULL DEFAULT 0,
+    CONSTRAINT UC_IDUser UNIQUE (id),
+    CONSTRAINT UC_Username UNIQUE (username)
 );
 
 CREATE TABLE category (
