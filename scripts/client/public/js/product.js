@@ -79,7 +79,7 @@ function selectProduct(numPage) {
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.withCredentials = true;
-    xhttp.send(JSON.stringify(data)); 
+    xhttp.send(JSON.stringify(data));
 }
 
 function clearProduct() {
@@ -98,24 +98,24 @@ function clearProduct() {
 function appendData(data, target) {
     var mainContainer = document.getElementById(target);
     for (var i = 0; i < data.length; i++) {
-        if (data[i].name == null) {
-            data[i].name = "-";
+        if (data[i].product_name == null) {
+            data[i].product_name = "-";
         }
-        if (data[i].category == null) {
-            data[i].category = "-";
+        if (data[i].category_name == null) {
+            data[i].category_name = "-";
         }
         if (data[i].image == null) {
             data[i].image = "";
         }
         if (target=='queryResultProduct') {
             mainContainer.innerHTML += 
-                '<div class="card" id='+ data[i].id+' onclick="rerouteproduct(this.id)"> \
+                '<div class="card" id='+ data[i].product_id+' onclick="rerouteproduct(this.id)"> \
                     <img src="' + data[i].image + '" class="cardImage"> \
-                    <div class="productTitle">' + data[i].name + '</div> \
+                    <div class="productTitle">' + data[i].product_name + '</div> \
                     <div class="price">' + data[i].price + '</div> \
                     <div class="stockCategory"> \
+                        <div class="category">' + data[i].category_name + '</div> \
                         <div class="stock">' + data[i].stock + '</div> \
-                        <div class="category">' + data[i].category + '</div> \
                     </div> \
                 </div>';
         }

@@ -1,12 +1,29 @@
 <?php
 
 class ProductAPI extends Controller {
-    public function show10products() {
+    public function showAllproducts($page = 1, $limit_page = 10) {
         if ($_SERVER['REQUEST_METHOD'] != 'GET') {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
-        $res = $this->model('Product')->show10products();
+        $res = $this->model('Product')->showAllproducts();
+        $total = count($res);
+        $res = array_slice($res, $page * $limit_page, $limit_page);
+
+        // Pagination
+        if ($res) {
+            json_response_success(array("products" => $res, "pages" => ceil($total/$limit_page)));
+        } else {
+            json_response_fail(PRODUCT_NOT_FOUND);
+        }
+    }
+
+    public function showAllcategories() {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        $res = $this->model('Category')->showAllcategories();
         if ($res) {
             json_response_success($res);
         } else {
