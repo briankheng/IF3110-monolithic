@@ -1,6 +1,19 @@
 <?php
 
 class ProductAPI extends Controller {
+    public function getProduct() {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        $res = $this->model('Product')->getProduct($_GET['product_id']);
+        if ($res) {
+            json_response_success($res);
+        } else {
+            json_response_fail(PRODUCT_NOT_FOUND);
+        }
+    }
+
     public function showAllproducts($page = 1, $limit_page = 10) {
         if ($_SERVER['REQUEST_METHOD'] != 'GET') {
             return json_response_fail(METHOD_NOT_ALLOWED);

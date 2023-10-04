@@ -2,15 +2,26 @@
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
 <section id="detailProduct">
-    <div class="productImage"></div>
-    <div class="productInfo">
-        <div class="productName"></div>
-        <div class="productStockCategory">
-            <div class="productStock"></div>
-            <div class="productCategory"></div>
+    <div class="detailContainer">
+        <div class="detailImage">
+            <img id="productImage"></img>
         </div>
-        <div class="productPrice"></div>
-        <div class="productDesc"></div>
+        <div class="productInfo">
+            <div id="productName"></div>
+            <div class="productStockCategory">
+                <div class="categorySec">
+                    <img src="/public/images/category.png" class="detailIcon">
+                    <div id="productCategory"></div>
+                </div>
+                <div class="stockSec">
+                    <img src="/public/images/quantity.png" class="detailIcon">
+                    <div id="productStock"></div>
+                </div>
+            </div>
+            <div id="productPrice"></div>
+            <div id="productDesc"></div>
+            <button type="button" class="buttonSec">Buy</button>
+        </div>
     </div>
 </section>
 

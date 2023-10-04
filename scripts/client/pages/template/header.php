@@ -19,6 +19,7 @@
 
         /* page css part */
         <?php include '../../public/css/pages/product.css'; ?>
+        <?php include '../../public/css/pages/detailProduct.css'; ?>
         <?php include '../../public/css/pages/signup.css'; ?>
         <?php include '../../public/css/pages/login.css'; ?>
         <?php include '../../public/css/pages/settings.css'; ?>

@@ -8,6 +8,29 @@ class Product {
         $this->db = new Database;
     }
 
+    public function getProduct($id) {
+        $this->db->query('SELECT 
+                            product.id AS product_id,
+                            product.name AS product_name,
+                            product.image,
+                            product.description,
+                            category.name AS category_name,
+                            price,
+                            stock
+                        FROM product
+                        INNER JOIN category ON product.idCategory = category.id
+                        WHERE product.id = :id
+                        ORDER BY product.name');
+        $this->db->bind(':id', (int) $id);
+
+        try {
+            $this->db->execute();
+            return $this->db->single();
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public function showAllproducts() {
         // SQL query with explicit JOIN and ordering by name.
         $sql = 'SELECT 
