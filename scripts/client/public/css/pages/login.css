@@ -65,7 +65,7 @@ label {
     font-size: small;
     background-color: #1F1F1F;
     color: #d1d1d1;
-    font-family: 'Roboto'; 
+    font-family: 'Poppins', Helvetica, sans-serif;
 }
 
 button[type=submit] {
