@@ -6,19 +6,28 @@
         <div class="productMenu">
             <div class="pageTitle">Product page</div>
             <div class="queryMenu">
-                <div class="filterCollapse">
-                    <div class="filterParent">Filter</div>
-                    <div class="filterDrop" id="categoryFilter">
+                <div class="dropdown1">
+                    <input class="filter-category" type="text" placeholder="Select filter category" readonly>
+                    <div class="options" id="categoryFilter">
                         <!-- List of category -->
                     </div>
                 </div>
-                <div class="filterCollapse">
-                    <div class="filterParent">Sort</div>
-                    <div class="filterDrop" id="sortAttribute">
-                        <div class="filterChild" id="sortnamaASC">Name (A to Z)</div>
-                        <div class="filterChild" id="sortnamaDESC">Name (Z to A)</div>
-                        <div class="filterChild" id="sorthargaASC">Price (Lowest First)</div>
-                        <div class="filterChild" id="sorthargaDESC">Price (Highest First)</div>
+                <div class="dropdown2">
+                    <input class="filter-price" type="text" placeholder="Select filter price" readonly>
+                    <div class="options" id="categoryFilter">
+                        <div onclick="showFilterPrice('< 5K')">< 5K</div>
+                        <div onclick="showFilterPrice('5K - 30K')">5K - 30K</div>
+                        <div onclick="showFilterPrice('30K - 100K')">30K - 100K</div>
+                        <div onclick="showFilterPrice('> 100K')">> 100K</div>
+                    </div>
+                </div>
+                <div class="dropdown3">
+                    <input class="sort-type" type="text" placeholder="Select sort method" readonly>
+                    <div class="options">
+                        <div onclick="showSort('Name (A to Z)')">Name (A to Z)</div>
+                        <div onclick="showSort('Name (Z to A)')">Name (Z to A)</div>
+                        <div onclick="showSort('Price (Lowest First)')">Price (Lowest First)</div>
+                        <div onclick="showSort('Price (Highest First)')">Price (Highest First)</div>
                     </div>
                 </div>
                 <div class="filterCollapse">
@@ -55,27 +64,17 @@
 
                 // Populate the dropdown with category names
                 $.each(data.data, function (index, category) {
-                    var categoryId = 'filter' + category.name;
                     categoryDropdown.append($('<div>', {
-                        class: 'filterChild',
-                        id: categoryId,
-                        text: category.name
+                        text: category.name,
+                        click: function () {
+                            showFilterCategory(category.name);
+                        }
                     }));
-
-                    // Create event listener for filter
-                    createFilterEventListener(category.name);
                 });
             },
             error: function (error) {
                 console.error('Error fetching categories: ' + error.statusText);
             }
-        });
-    }
-
-    function createFilterEventListener(categoryId) {
-    document.getElementById('filter'+categoryId)
-        .addEventListener('click', function () {
-            setCategory(categoryId);
         });
     }
 

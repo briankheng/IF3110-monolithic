@@ -36,14 +36,36 @@ class ProductController extends Controller {
 
         $data['name'] = $_POST['name'];
         $data['image'] = $_FILES['image']['name'];
-        $data['video'] = $_FILES['video']['name'];
         $data['description'] = $_POST['description'];
         $data['idCategory'] = $_POST['idCategory'];
         $data['price'] = $_POST['price'];
         $data['stock'] = $_POST['stock'];
 
         // TODO: sanitize input
+
         
+        // Move uploaded image and video to assets folder
+        if ($data['image'] != '') {
+            // Get image type
+            $imageType = '';
+            for ($i = strlen($data['image']) - 1; $i >= 0; $i--) {
+                if ($data['image'][$i] == '.') {
+                    $imageType = substr($data['image'], $i + 1);
+                    break;
+                }
+            }
+
+            if ($imageType == 'jpg' || $imageType == 'png') {
+                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
+            } else {
+                $videoPath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/videos/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $videoPath);
+            }
+        } else {
+            $data['image'] = 'default.jpg';
+        }
+
         if ($this->model('ProductModel')->createProduct($data)) {
             json_response_success("success");
         } else {
@@ -59,13 +81,34 @@ class ProductController extends Controller {
         $data['id'] = $id;
         $data['name'] = $_POST['name'];
         $data['image'] = $_FILES['image']['name'];
-        $data['video'] = $_FILES['video']['name'];
         $data['description'] = $_POST['description'];
         $data['idCategory'] = $_POST['idCategory'];
         $data['price'] = $_POST['price'];
         $data['stock'] = $_POST['stock'];
 
         // TODO: sanitize input
+
+        // Move uploaded image and video to assets folder
+        if ($data['image'] != '') {
+            // Get image type
+            $imageType = '';
+            for ($i = strlen($data['image']) - 1; $i >= 0; $i--) {
+                if ($data['image'][$i] == '.') {
+                    $imageType = substr($data['image'], $i + 1);
+                    break;
+                }
+            }
+
+            if ($imageType == 'jpg' || $imageType == 'png') {
+                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
+            } else {
+                $videoPath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/videos/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $videoPath);
+            }
+        } else {
+            $data['image'] = 'default.jpg';
+        }
 
         if ($this->model('ProductModel')->editProduct($data)) {
             json_response_success("success");

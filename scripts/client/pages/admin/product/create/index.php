@@ -17,12 +17,11 @@
         <input type="text" name="description">
         <label for="stock">Stock</label>
         <input type="text" name="stock">
+        <!-- TODO: dropdown category -->
         <label for="idCategory">Category</label>
         <input type="text" name="idCategory">
-        <label for="image">Image</label>
+        <label for="image">Image/ Video</label>
         <input type="file" name="image">
-        <label for="video">Video</label>
-        <input type="file" name="video">
         <input type="submit">
     </form>
 </body>

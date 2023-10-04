@@ -7,3 +7,6 @@ RewriteRule ^$ /client/ [L]
 RewriteRule ^pages/(.*)$ /client/pages/$1 [L,NC]
 RewriteRule ^public/(.*)$ /client/public/$1 [L,NC]
 RewriteRule ^api/(.*)$ /server/api/$1 [L,NC]
+
+php_value upload_max_filesize 300M
+php_value post_max_size 300M

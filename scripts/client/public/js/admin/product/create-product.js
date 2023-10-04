@@ -13,7 +13,7 @@ let createProduct = async (event) => {
 
       if (res["status"]) {
         alert("Product created!");
-        window.location.href = "http://localhost:8080/pages/admin/product";
+        window.location.href = "/pages/admin/product";
       } else {
         alert("Failed to create product!");
       }
@@ -22,7 +22,7 @@ let createProduct = async (event) => {
 
   xhr.open(
     "POST",
-    "http://localhost:8000/api/ProductController/createProduct",
+    "/api/ProductController/createProduct",
     true
   );
   xhr.setRequestHeader("Accept", "application/json");

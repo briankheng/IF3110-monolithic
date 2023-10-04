@@ -15,14 +15,14 @@
                     <th>id</th>
                     <th>name</th>
                     <th>image</th>
-                    <th>video</th>
                     <th>description</th>
-                    <th>idCategory</th>
+                    <th>category</th>
                     <th>price</th>
                     <th>stock</th>
                     <th>action</th>
                 </tr>
             </thead>
+            <!-- TODO: pagination -->
             <tbody id="productList"></tbody>
         </table>
     </div>

@@ -3,10 +3,8 @@ const urlParams = new URLSearchParams(queryString);
 var query = urlParams.get('query');
 var order_by_name = urlParams.get('order_by_name');
 var order_by_price = urlParams.get('order_by_price');
-var order_by = null;
-var order_type = null;
 var filter_category = null;
-var product = null;
+var filter_price = null;
 var totalPageProduct = null;
 var currentPageProduct = null;
 
@@ -19,6 +17,12 @@ window.onload = function() {
         setCategory('None');
     } else {
         setCategory(urlParams.get('filter_category'));
+    }
+
+    if (urlParams.get('filter_price') == null) {
+        setPrice('None');
+    } else {
+        setPrice(urlParams.get('filter_price'));
     }
 
     // Order mechanism
@@ -49,6 +53,9 @@ function queryProduct() {
     if (filter_category != null && filter_category != 'None') {
         param += 'filter_category='+filter_category+'&';
     }
+    if (filter_price != null && filter_price != 'None') {
+        param += 'filter_price='+filter_price+'&';
+    }
     window.location.href = "http://localhost:8000/pages/product?" + param;
 }
 
@@ -74,7 +81,9 @@ function selectProduct(numPage) {
         "order_by_price": order_by_price,
         "filter_category": filter_category,
         "order_by_name": order_by_name,
+        "filter_price": filter_price
     };
+    console.log(query, order_by_price, filter_category, order_by_name, filter_price);
     xhttp.open("POST","http://localhost:8000/api/productapi/queryproduct/"+numPage+"/8/",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");
@@ -93,6 +102,44 @@ function clearProduct() {
         pageProductContainer.removeChild(pageProductContainer.firstChild);
     }
     document.getElementById("pagenumProduct").innerHTML = "";
+}
+
+function showFilterCategory(value) {
+    document.querySelector(".filter-category").value = value;
+    setCategory(value);
+}
+
+function showFilterPrice(value) {
+    document.querySelector(".filter-price").value = value;
+    setPrice(value);
+}
+
+function showSort(value) {
+    document.querySelector(".sort-type").value = value;
+    if (value === 'Name (A to Z)') {
+        setOrder('nama', 'ASC');
+    } else if (value === 'Name (Z to A)') {
+        setOrder('nama', 'DESC');
+    } else if (value === 'Price (Lowest First)') {
+        setOrder('harga', 'ASC');
+    } else {
+        setOrder('harga', 'DESC');
+    }
+}
+  
+let dropdown1 = document.querySelector(".dropdown1")
+dropdown1.onclick = function() {
+    dropdown1.classList.toggle("active")
+}
+
+let dropdown2 = document.querySelector(".dropdown2")
+dropdown2.onclick = function() {
+    dropdown2.classList.toggle("active")
+}
+
+let dropdown3 = document.querySelector(".dropdown3")
+dropdown3.onclick = function() {
+    dropdown3.classList.toggle("active")
 }
 
 function appendData(data, target) {
@@ -160,63 +207,40 @@ function paginationProduct() {
 function setCategory(inputCategory) {
     if (inputCategory == filter_category) {
         filter_category = null;
-        document.getElementById("filter"+inputCategory).style.backgroundColor = "#282828";
-        document.getElementById("filterNone").style.backgroundColor = "#16e957";
     } else {
-        if (filter_category != null) {
-            document.getElementById('filter'+inputCategory).style.backgroundColor = "#282828";
-        }
         filter_category = inputCategory;
     }
 }
 
+function setPrice(inputPrice) {
+    if (inputPrice == filter_price) {
+        filter_price = null;
+    } else {
+        filter_price = inputPrice;
+    }
+    console.log(filter_price);
+}
+
 // Add an event listener to the select element
-function setOrder(type, order) { 
+function setOrder(type, order) {
     if (order_by_price != null && order_by_price != '') {
         if (type == "nama") {
-            document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_price = null;
             order_by_name = order;
         } else {
-            document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
         }
     } else if (order_by_name != null && order_by_name != '') {
         if (type=="nama") {
-            document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_name = order;
         } else {
-            document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
             order_by_name = null;
         }
     } else {
         order_by_name = "ASC";
-        document.getElementById("sortnamaASC").style.backgroundColor = "#16e957";
     }
 }
-
-// Sorting event handler
-document.getElementById("sortnamaASC")
-    .addEventListener("click", function () {
-    setOrder("nama","ASC");
-});
-document.getElementById("sortnamaDESC")
-    .addEventListener("click", function () {
-    setOrder("nama","DESC");
-});
-document.getElementById("sorthargaASC")
-    .addEventListener("click", function () {
-    setOrder("harga","ASC");
-});
-document.getElementById("sorthargaDESC")
-    .addEventListener("click", function () {
-    setOrder("harga","DESC");
-});
 
 // Enter key
 document.getElementById("queryproduct")

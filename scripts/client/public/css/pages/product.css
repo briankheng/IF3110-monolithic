@@ -15,6 +15,13 @@
     justify-content: space-between;
 }
 
+@media only screen and (max-width: 1075px) {
+    .productMenu {
+        flex-direction: column;
+        overflow-x: auto;
+    }
+}
+
 .pageTitle {
     float: left;
     font-size: 1.5rem;
@@ -36,7 +43,7 @@
     align-items: center;
     flex-wrap: nowrap;
     margin: 2vh 0;
-    column-gap: 3vw;
+    column-gap: 2vw;
 }
 
 .queryMenu:hover {
@@ -102,6 +109,57 @@
     display: flex;
     flex-direction: column;
     z-index: 3;
+}
+
+.dropdown1, .dropdown2, .dropdown3 {
+    width: 200px;
+    height: 46px;
+}
+
+.dropdown1 input, .dropdown2 input, .dropdown3 input {
+    display: flex;
+    width: 180px;
+    height: 30px;
+    margin: 0;
+    cursor: pointer;
+    background-color: inherit;
+    color: white;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 7px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.dropdown1 input::placeholder, .dropdown2 input::placeholder, .dropdown3 input::placeholder {
+    color: white;
+}
+
+.dropdown1 .options, .dropdown2 .options, .dropdown3 .options {
+    width: 200px;
+    position: relative;
+    z-index: 200;
+    color: white;
+    background-color: black;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.dropdown1.active .options, .dropdown2.active .options, .dropdown3.active .options {
+    display: block;
+}
+
+.dropdown1 .options div, .dropdown2 .options div, .dropdown3 .options div {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.dropdown1 .options div:hover, .dropdown2 .options div:hover, .dropdown3.options div:hover {
+    background: #62baea;
+    color: #fff;
 }
 
 .queryResult {
