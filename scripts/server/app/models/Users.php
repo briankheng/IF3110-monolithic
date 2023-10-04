@@ -34,4 +34,20 @@ class Users {
     
         return $this->db->single();
     }
+
+    public function getUserInfo($data) {
+        $this->db->query('SELECT username, name, balance FROM users WHERE id = :id');
+        $this->db->bind(':id', $data);
+    
+        return $this->db->single();
+    }
+
+    public function changeAccountSettings($data) {
+        $this->db->query('UPDATE users SET name = :name, password = :password WHERE id = :id');
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':id', $data['id']);
+    
+        return $this->db->execute();
+    }
 }

@@ -42,7 +42,8 @@ class Auth extends Controller {
             } else {
                 echo "Invalid username or password.\n";
             }
-        }     
+
+        }        
     }
 
     public function logout() {
@@ -58,4 +59,24 @@ class Auth extends Controller {
         }
     }
 
+    public function getInfo() {
+        $user = $this->model('Users')->getUserInfo($_SESSION['user_id']);
+        echo json_encode($user);
+    }
+
+    public function changeAccSettings() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $id = $_SESSION['user_id'];
+    
+            $data = [
+                'name' => $name,
+                'password' => $password,
+                'id' => $id
+            ];
+    
+            $user = $this->model('Users')->changeAccountSettings($data);
+        }     
+    } 
 }
