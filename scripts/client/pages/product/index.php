@@ -43,7 +43,7 @@
     // Function to populate the category dropdown
     function populateCategoryDropdown() {
         $.ajax({
-            url: 'http://localhost:8000/api/productapi/showAllcategories',
+            url: 'http://localhost:8000/server/api/productapi/showAllcategories',
             method: 'GET',
             dataType: 'json',
             success: function (data) {

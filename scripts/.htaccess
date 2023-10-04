@@ -1,0 +1,8 @@
+Options -Multiviews
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^pages/(.*)$ /client/pages/$1 [L,NC]
+RewriteRule ^public/(.*)$ /client/public/$1 [L,NC]
+RewriteRule ^api/(.*)$ /server/api/$1 [L,NC]

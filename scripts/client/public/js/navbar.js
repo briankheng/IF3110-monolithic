@@ -32,14 +32,14 @@ function infoNavbarAdded() {
 
 function logout() {
     if (document.getElementById("logout").innerHTML == "Login") {
-        window.location.href = "http://localhost:8080/pages/login";
+        window.location.href = "http://localhost:8000/pages/login";
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
                 let res = JSON.parse(this.responseText);
                 if (res['status']) {
-                    window.location.href = "http://localhost:8080/pages/home";
+                    window.location.href = "http://localhost:8000/pages/home";
                 }
             }
         };
@@ -66,7 +66,7 @@ function searchProducts() {
 
 function searchProducts() {
     query = document.getElementById("queryproduct").value;
-    window.location.href = "http://localhost:8080/pages/product?query=" + query;
+    window.location.href = "http://localhost:8000/pages/product?query=" + query;
 }
 
 document.getElementById("queryproduct")

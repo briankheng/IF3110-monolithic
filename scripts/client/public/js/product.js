@@ -49,7 +49,7 @@ function queryProduct() {
     if (filter_category != null && filter_category != 'None') {
         param += 'filter_category='+filter_category+'&';
     }
-    window.location.href = "http://localhost:8080/pages/product?" + param;
+    window.location.href = "http://localhost:8000/pages/product?" + param;
 }
 
 function selectProduct(numPage) {
@@ -142,7 +142,7 @@ function appendData(data, target) {
 };
 
 function rerouteproduct(id){
-    window.location.href = "http://localhost:8080/pages/detailProduct?product_id="+id;
+    window.location.href = "http://localhost:8000/detailProduct?product_id="+id;
 }
 
 function paginationProduct() {
