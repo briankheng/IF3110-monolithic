@@ -1,12 +1,12 @@
 #history {
     display: flex;
+    flex-direction: column;
     background-color: #6e6e71;
     justify-content: center;
     align-items: center;  
     height: 100vh;
     color: black;
-    
-    font-family: 'Roboto', Helvetica, sans-serif;
+    font-family: 'Poppins', Helvetica, sans-serif;
 }
 
 .history-ctn {
@@ -15,7 +15,9 @@
     border-radius: 1.5%;
     font-size: smaller;
     width: 95vh;
-    height: 60vh;
+    height: 75vh;
+    box-shadow: 0px 0px 30px rgb(69, 63, 63);
+    
 }
 
 .history-title {
@@ -25,10 +27,36 @@
 
 .separator {
     border-top: 2px solid #414142;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
-#history-grid {
+.table-separator {
+    border-top: 2px solid #414142;
+    margin: 5% 0;
+}
+
+.topup-history {
+    height: 35%;
+}
+
+.buy-history {
+    height: 35%;
+}
+
+.topup-history-title {
+    padding: 2% 3%;
+    background-color: rgb(74, 254, 74);
+    border-radius: 50px;
+}
+
+.buy-history-title {
+    padding: 2% 3%;
+    background-color: rgb(255, 114, 114);
+    border-radius: 50px;
+}
+
+#buy-history-grid, #topup-history-grid {
+    padding: 1% 3%;
     display: grid;
     grid-template-columns: auto auto;
     font-size: small;
@@ -39,26 +67,4 @@
 
     max-height: 50vh; 
     overflow-y: auto; 
-}
-
-.add-balance {
-    padding: 2% 3%;
-    background-color: #76E889;
-    border: 0.5px solid #1F1F1F;
-    border-radius: 2%;
-}
-
-.reduce-balance {
-    padding: 2% 3%;
-    background-color: #FF496D;
-    border: 0.5px solid #1F1F1F;
-    border-radius: 2%;
-}
-
-#history-grid .grid-value:nth-child(2n+1) {
-    padding: 2% 3%;
-}
-
-#history-grid .grid-value:nth-child(2n) {
-    padding: 2% 3%;
 }
