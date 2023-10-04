@@ -33,7 +33,7 @@ window.onload = function() {
     } else {
         setOrder("nama", "ASC");
     }
-    infoNavbar();
+    infoNavbarAdded();
     selectProduct(1);
 }
 
@@ -193,7 +193,7 @@ function appendData(data, target) {
 };
 
 function rerouteproduct(id){
-    window.location.href = "http://localhost:8000/detailProduct?product_id="+id;
+    window.location.href = "http://localhost:8000/pages/detailProduct?product_id="+id;
 }
 
 function paginationProduct() {

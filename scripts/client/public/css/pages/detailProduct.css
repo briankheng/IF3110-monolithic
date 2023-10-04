@@ -1,0 +1,4 @@
+.detailProduct {
+    display: flex;
+    flex-direction: row;
+}
