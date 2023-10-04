@@ -25,7 +25,24 @@ class Auth extends Controller {
     }
 
     public function login() {
-           
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+    
+            $user = $this->model('Users')->getPassword($username);
+            if ($user === false) {
+                echo "Username not found.\n";
+                return;
+            }
+            $true_password = $user['password'];
+            if (password_verify($password, $true_password)) {
+                $_SESSION['user_id'] = $user['id'];
+                echo "Login successful.";
+
+            } else {
+                echo "Invalid username or password.\n";
+            }
+        }     
     }
 
     public function logout() {
