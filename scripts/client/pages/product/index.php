@@ -13,10 +13,19 @@
                     </div>
                 </div>
                 <div class="dropdown2">
+                    <input class="filter-price" type="text" placeholder="Select filter price" readonly>
+                    <div class="options" id="categoryFilter">
+                        <div onclick="showFilterPrice('< 5K')">< 5K</div>
+                        <div onclick="showFilterPrice('5K - 30K')">5K - 30K</div>
+                        <div onclick="showFilterPrice('30K - 100K')">30K - 100K</div>
+                        <div onclick="showFilterPrice('> 100K')">> 100K</div>
+                    </div>
+                </div>
+                <div class="dropdown3">
                     <input class="sort-type" type="text" placeholder="Select sort method" readonly>
                     <div class="options">
                         <div onclick="showSort('Name (A to Z)')">Name (A to Z)</div>
-                        <div onclick="showSort('Name (Z to A)')">Name (A to Z)</div>
+                        <div onclick="showSort('Name (Z to A)')">Name (Z to A)</div>
                         <div onclick="showSort('Price (Lowest First)')">Price (Lowest First)</div>
                         <div onclick="showSort('Price (Highest First)')">Price (Highest First)</div>
                     </div>

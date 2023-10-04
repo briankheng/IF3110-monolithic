@@ -41,6 +41,7 @@ class ProductAPI extends Controller {
         $order_by_price = NULL;
         $filter_category = NULL;
         $order_by_name = 'ASC';
+        $filter_price = NULL;
         $page = (int) $page - 1;
 
         if (isset($_POST['order_by_price'])) {
@@ -53,6 +54,12 @@ class ProductAPI extends Controller {
             }
         }
 
+        if (isset($_POST['filter_price'])) {
+            if($_POST['filter_price'] != 'None') {
+                $filter_price = $_POST['filter_price'];
+            }
+        }
+
         if (isset($_POST['query'])) {
             $query = $_POST['query'];
         }
@@ -61,7 +68,7 @@ class ProductAPI extends Controller {
             $order_by_name = $_POST['order_by_name'];
         }
 
-        $res = $this->model('Product')->queryProduct($query, $order_by_price, $order_by_name, $filter_category);
+        $res = $this->model('Product')->queryProduct($query, $order_by_price, $order_by_name, $filter_category, $filter_price);
         $total = count($res);
         $res = array_slice($res, $page * $limit_page, $limit_page);
 
