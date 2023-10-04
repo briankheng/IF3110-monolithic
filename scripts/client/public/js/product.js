@@ -95,6 +95,34 @@ function clearProduct() {
     document.getElementById("pagenumProduct").innerHTML = "";
 }
 
+function showFilterCategory(value) {
+    document.querySelector(".filter-category").value = value;
+    setCategory(value);
+}
+
+function showSort(value) {
+    document.querySelector(".sort-type").value = value;
+    if (value === 'Name (A to Z)') {
+        setOrder('nama', 'ASC');
+    } else if (value === 'Name (Z to A)') {
+        setOrder('nama', 'DESC');
+    } else if (value === 'Price (Lowest First)') {
+        setOrder('harga', 'ASC');
+    } else {
+        setOrder('harga', 'DESC');
+    }
+}
+  
+let dropdown1 = document.querySelector(".dropdown1")
+dropdown1.onclick = function() {
+    dropdown1.classList.toggle("active")
+}
+
+let dropdown2 = document.querySelector(".dropdown2")
+dropdown2.onclick = function() {
+    dropdown2.classList.toggle("active")
+}
+
 function appendData(data, target) {
     var mainContainer = document.getElementById(target);
     for (var i = 0; i < data.length; i++) {
@@ -160,63 +188,32 @@ function paginationProduct() {
 function setCategory(inputCategory) {
     if (inputCategory == filter_category) {
         filter_category = null;
-        document.getElementById("filter"+inputCategory).style.backgroundColor = "#282828";
-        document.getElementById("filterNone").style.backgroundColor = "#16e957";
     } else {
-        if (filter_category != null) {
-            document.getElementById('filter'+inputCategory).style.backgroundColor = "#282828";
-        }
         filter_category = inputCategory;
     }
 }
 
 // Add an event listener to the select element
-function setOrder(type, order) { 
+function setOrder(type, order) {
+    console.log(type, order);
     if (order_by_price != null && order_by_price != '') {
         if (type == "nama") {
-            document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_price = null;
             order_by_name = order;
         } else {
-            document.getElementById("sortharga"+order_by_price).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
         }
     } else if (order_by_name != null && order_by_name != '') {
         if (type=="nama") {
-            document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortnama"+order).style.backgroundColor = "#16e957";
             order_by_name = order;
         } else {
-            document.getElementById("sortnama"+order_by_name).style.backgroundColor = "#282828";
-            document.getElementById("sortharga"+order).style.backgroundColor = "#16e957";
             order_by_price = order;
             order_by_name = null;
         }
     } else {
         order_by_name = "ASC";
-        document.getElementById("sortnamaASC").style.backgroundColor = "#16e957";
     }
 }
-
-// Sorting event handler
-document.getElementById("sortnamaASC")
-    .addEventListener("click", function () {
-    setOrder("nama","ASC");
-});
-document.getElementById("sortnamaDESC")
-    .addEventListener("click", function () {
-    setOrder("nama","DESC");
-});
-document.getElementById("sorthargaASC")
-    .addEventListener("click", function () {
-    setOrder("harga","ASC");
-});
-document.getElementById("sorthargaDESC")
-    .addEventListener("click", function () {
-    setOrder("harga","DESC");
-});
 
 // Enter key
 document.getElementById("queryproduct")
