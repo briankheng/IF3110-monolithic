@@ -17,6 +17,7 @@
         <input type="text" name="description">
         <label for="stock">Stock</label>
         <input type="text" name="stock">
+        <!-- TODO: dropdown category -->
         <label for="idCategory">Category</label>
         <input type="text" name="idCategory">
         <label for="image">Image/ Video</label>

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE users (
     id SERIAL PRIMARY KEY NOT NULL,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -39,14 +39,15 @@ CREATE TABLE buyHistory (
     CONSTRAINT UC_IDBuyHistory UNIQUE (id)
 );
 
-CREATE TABLE topupHistory (
+CREATE TABLE topUp (
     id SERIAL PRIMARY KEY NOT NULL,
     idUser INTEGER NOT NULL,
-    nominal INTEGER NOT NULL,
-    topupDate DATE NOT NULL,
+    amount INTEGER NOT NULL,
+    topUpDate DATE NOT NULL,
+    status VARCHAR(50) NOT NULL,
     FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
-    CONSTRAINT UC_IDTopupHistory UNIQUE (id)
-);
+    CONSTRAINT UC_IDTopUp UNIQUE (id)
+)
 
 CREATE TABLE favorite (
     id SERIAL PRIMARY KEY NOT NULL,

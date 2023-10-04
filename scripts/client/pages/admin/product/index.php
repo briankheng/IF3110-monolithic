@@ -22,6 +22,7 @@
                     <th>action</th>
                 </tr>
             </thead>
+            <!-- TODO: pagination -->
             <tbody id="productList"></tbody>
         </table>
     </div>
