@@ -12,13 +12,12 @@ window.onload = () => {
         let product = res["data"];
         let form = document.getElementById("editProductForm");
 
-        form["name"].value = product.name;
+        form["name"].value = product.product_name;
         form["price"].value = product.price;
         form["description"].value = product.description;
         form["stock"].value = product.stock;
         form["idCategory"].value = product.idCategory;
         form["image"].value = product.image;
-        form["video"].value = product.video;
       } else {
         alert("Failed to get product!");
       }
@@ -50,7 +49,7 @@ let editProduct = async (event) => {
 
       if (res["status"]) {
         alert("Product Edited!");
-        window.location.href = "http://localhost:8080/pages/admin/product";
+        window.location.href = "/pages/admin/product";
       } else {
         alert("Failed to edit product!");
       }
@@ -59,7 +58,7 @@ let editProduct = async (event) => {
 
   xhr.open(
     "POST",
-    `http://localhost:8000/api/ProductController/editProduct/${id}`,
+    `/api/ProductController/editProduct/${id}`,
     true
   );
   xhr.setRequestHeader("Accept", "application/json");

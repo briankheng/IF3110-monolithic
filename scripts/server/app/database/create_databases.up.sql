@@ -19,7 +19,6 @@ CREATE TABLE product (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(500) NOT NULL,
     image VARCHAR(255),
-    video VARCHAR(255),
     description VARCHAR(255) NOT NULL,
     idCategory INTEGER NOT NULL,
     price INTEGER NOT NULL,
