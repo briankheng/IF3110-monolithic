@@ -3,7 +3,7 @@
     background-color: #6e6e71;
     justify-content: center;
     align-items: center;  
-    width: 100%;
+    min-height: 85vh;
     
     font-family: 'Poppins', Helvetica, sans-serif;
 }
@@ -14,6 +14,7 @@
     flex-direction: column;
     background-color: #3d4143;
     width: 55vh;
+    box-shadow: 0px 0px 30px rgb(69, 63, 63);
     
     padding: 4% 2.5% 3%;
     border-radius: 1.5%;
