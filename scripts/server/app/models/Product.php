@@ -14,7 +14,6 @@ class Product {
                 product.id AS product_id,
                 product.name AS product_name,
                 product.image,
-                product.video,
                 product.description,
                 category.name AS category_name,
                 price,
@@ -38,13 +37,13 @@ class Product {
         $likeQuery = '%' . $query . '%';
         $filterCategory = '%' . $filterByCategory . '%';
         $pricequery = NULL;
-        if ($filterByPrice == "< 5K") {
+        if ($filterByPrice == '< 5K') {
             $pricequery = 'price < 5000';
-        } else if ($filterByPrice == "5K - 30K") {
+        } else if ($filterByPrice == '5K - 30K') {
             $pricequery = 'price BETWEEN 5000 AND 30000';
-        } else if ($filterByPrice == "30K - 100K") {
+        } else if ($filterByPrice == '30K - 100K') {
             $pricequery = 'price BETWEEN 30000 AND 100000';
-        } else if ($filterByPrice == "> 100K") {
+        } else if ($filterByPrice == '> 100K') {
             $pricequery = 'price > 100000';
         }
 
@@ -52,7 +51,6 @@ class Product {
             product.id AS product_id,
             product.name AS product_name,
             product.image,
-            product.video,
             product.description,
             category.name AS category_name,
             price,
@@ -64,24 +62,24 @@ class Product {
                 if (isset($filterByCategory)) {
                     if (isset($filterByPrice)) {
                         if (isset($orderByPrice)) {
-                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery OR price = :query) AND category.name like :filterCategory AND ' . $pricequery . ' ORDER BY price ' . $orderByPrice);
+                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR price = :query) AND category.name LIKE :filterCategory AND ' . $pricequery . ' ORDER BY price ' . $orderByPrice);
                             $this->db->bind(':query', $query);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
                         } else {
-                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery OR price = :query) AND category.name like :filterCategory AND ' . $pricequery . ' ORDER BY product.name ' . $orderByName);
+                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR price = :query) AND category.name LIKE :filterCategory AND ' . $pricequery . ' ORDER BY product.name ' . $orderByName);
                             $this->db->bind(':query', $query);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
                         }
                     } else {
                         if (isset($orderByPrice)) {
-                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery OR price = :query) AND category.name like :filterCategory ORDER BY price ' . $orderByPrice);
+                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR price = :query) AND category.name LIKE :filterCategory ORDER BY price ' . $orderByPrice);
                             $this->db->bind(':query', $query);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
                         } else {
-                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery OR price = :query) AND category.name like :filterCategory ORDER BY product.name ' . $orderByName);
+                            $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR price = :query) AND category.name LIKE :filterCategory ORDER BY product.name ' . $orderByName);
                             $this->db->bind(':query', $query);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
@@ -114,31 +112,31 @@ class Product {
                 if (isset($filterByCategory)) {
                     if (isset($filterByPrice)) {
                         if (isset($orderByPrice)) {
-                            $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) AND category.name LIKE :filterCategory AND ' . $pricequery . ' ORDER BY price " . $orderByPrice);
+                            $this->db->query($initSelection . ' WHERE product.name LIKE :likeQuery AND category.name LIKE :filterCategory AND ' . $pricequery . ' ORDER BY price ' . $orderByPrice);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
-                        } else{
-                            $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) AND category.name LIKE :filterCategory AND ' . $pricequery . ' ORDER BY product.name " . $orderByName);
+                        } else {
+                            $this->db->query($initSelection . ' WHERE product.name LIKE :likeQuery AND category.name LIKE :filterCategory AND '. $pricequery . ' ORDER BY product.name '. $orderByName);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
                         }
                     } else {
                         if (isset($orderByPrice)) {
-                            $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) AND category.name LIKE :filterCategory ORDER BY price " . $orderByPrice);
+                            $this->db->query($initSelection . ' WHERE product.name LIKE :likeQuery AND category.name LIKE :filterCategory ORDER BY price ' . $orderByPrice);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
-                        } else{
-                            $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) AND category.name LIKE :filterCategory ORDER BY product.name " . $orderByName);
+                        } else {
+                            $this->db->query($initSelection . ' WHERE product.name LIKE :likeQuery AND category.name LIKE :filterCategory ORDER BY product.name ' . $orderByName);
                             $this->db->bind(':likeQuery', $likeQuery);
                             $this->db->bind(':filterCategory', $filterCategory);
                         }
                     }
                 } else {
                     if (isset($orderByPrice)) {
-                        $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) ORDER BY price " . $orderByPrice);
+                        $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) ORDER BY price ' . $orderByPrice);
                         $this->db->bind(':likeQuery', $likeQuery);
                     } else {
-                        $this->db->query($initSelection . " WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) ORDER BY product.name " . $orderByName);
+                        $this->db->query($initSelection . ' WHERE (product.name LIKE :likeQuery OR category.name LIKE :likeQuery) ORDER BY product.name ' . $orderByName);
                         $this->db->bind(':likeQuery', $likeQuery);
                     }
                 }
@@ -166,10 +164,8 @@ class Product {
                 if (isset($filterByPrice)) {
                     if (isset($orderByPrice)) {
                         $this->db->query($initSelection . ' WHERE ' . $pricequery . ' ORDER BY price ' . $orderByPrice);
-                        $this->db->bind(':pricequery', $pricequery);
                     } else {
                         $this->db->query($initSelection . ' WHERE ' . $pricequery . ' ORDER BY product.name ' . $orderByName);
-                        $this->db->bind(':pricequery', $pricequery);
                     }
                 } else {
                     if (isset($orderByPrice)) {

@@ -83,7 +83,11 @@ function selectProduct(numPage) {
         "order_by_name": order_by_name,
         "filter_price": filter_price
     };
-    console.log(query, order_by_price, filter_category, order_by_name, filter_price);
+    console.log(query);
+    console.log(order_by_price);
+    console.log(filter_category); 
+    console.log(order_by_name);
+    console.log(filter_price);
     xhttp.open("POST","http://localhost:8000/api/productapi/queryproduct/"+numPage+"/8/",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");
@@ -157,7 +161,7 @@ function appendData(data, target) {
         if (target=='queryResultProduct') {
             mainContainer.innerHTML += 
                 '<div class="card" id='+ data[i].product_id+' onclick="rerouteproduct(this.id)"> \
-                    <img src="' + data[i].image + '" class="cardImage"> \
+                    <img src="/../public/assets/images/' + data[i].image + '" class="cardImage"> \
                     <div class="productdesc"> \
                         <div class="stockCategory"> \
                             <div class="category"> \
@@ -218,7 +222,6 @@ function setPrice(inputPrice) {
     } else {
         filter_price = inputPrice;
     }
-    console.log(filter_price);
 }
 
 // Add an event listener to the select element

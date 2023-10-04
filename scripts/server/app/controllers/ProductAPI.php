@@ -48,15 +48,15 @@ class ProductAPI extends Controller {
             $order_by_price = $_POST['order_by_price'];
         }
 
-        if (isset($_POST['filter_category'])) {
-            if($_POST['filter_category'] != 'None') {
-                $filter_category = $_POST['filter_category'];
-            }
-        }
-
         if (isset($_POST['filter_price'])) {
             if($_POST['filter_price'] != 'None') {
                 $filter_price = $_POST['filter_price'];
+            }
+        }
+
+        if (isset($_POST['filter_category'])) {
+            if($_POST['filter_category'] != 'None') {
+                $filter_category = $_POST['filter_category'];
             }
         }
 
