@@ -1,8 +1,31 @@
 <?php
 
 class Auth extends Controller {
+    public function signup() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            
+            // Hashing
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $name = $_POST['name'];
+            $role = $_POST['role'];
+
+            $data['username'] = $_POST['username'];
+            $data['password'] = $password;
+            $data['name'] = $_POST['name'];
+            $data['role'] = $_POST['role'];
+            
+            if ($this->model('Users')->signup($data)) {
+                json_response_success("success");
+            } else {
+                json_response_fail("fail");
+            }
+        }
+    }
+
     public function login() {
-        
+           
     }
 
     public function logout() {
@@ -17,4 +40,5 @@ class Auth extends Controller {
             json_response_fail(NOT_LOGGED_IN);
         }
     }
+
 }
