@@ -22,7 +22,8 @@
         <?php include '../../public/css/pages/signup.css'; ?>
         <?php include '../../public/css/pages/login.css'; ?>
         <?php include '../../public/css/pages/settings.css'; ?>
-        
+        <?php include '../../public/css/pages/history.css'; ?>
+
     </style>
 
     <title><?= $data['title'] ?? "KBL" ?></title>
