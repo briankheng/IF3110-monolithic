@@ -10,18 +10,18 @@
         <div class="acct-title">Account</div>
         <hr class="separator">
         <div class="acct-form-ctn">
-            <form id="settings-form" method="post" action="index.php" class="grid-container">
+            <form id="settings-form" method="post" action="index.php" class="grid-container" role="form">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" readonly disabled>
 
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" aria-required="true">
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" aria-required="true">
 
                 <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password">
+                <input type="password" id="confirm-password" name="confirm-password" aria-required="true">
 
                 <label for="balance">Balance</label>
                 <input type="text" id="balance" name="balance" readonly disabled>
