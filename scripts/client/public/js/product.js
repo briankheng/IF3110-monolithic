@@ -68,7 +68,7 @@ function queryProduct() {
     if (filter_price != null && filter_price != 'None') {
         param += 'filter_price='+filter_price+'&';
     }
-    window.location.href = "http://localhost:8000/pages/product?" + param;
+    window.location.href = "http://localhost:8000/pages/home?" + param;
 }
 
 const debouncedSearchQuery = debounce(queryProduct, 300);
