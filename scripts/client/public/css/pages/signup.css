@@ -79,6 +79,7 @@ button[type=submit]:hover {
     color: red;
     margin-top: 3%;
     font-size: smaller;
+    margin-bottom: 3%;
 }
 
 .lgn-link-ctn {
