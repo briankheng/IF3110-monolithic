@@ -5,11 +5,11 @@
     align-items: center;  
     height: 100vh;
     
-    font-family: 'Roboto', Helvetica, sans-serif;
+    font-family: 'Poppins', Helvetica, sans-serif;
 }
 
 .acct-ctn {
-    background-color: #414142;
+    background-color: #3d4143;
     padding: 2% 2.5% 2%;
     border-radius: 1.5%;
     box-shadow: 0px 0px 30px rgb(69, 63, 63);
