@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . "/../template/header.php" ?>
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
+<style>
+    <?php include '../../public/css/pages/settings.css'; ?>
+</style>
+
 <section id="settings">
     <div class="acct-ctn">
         <div class="acct-title">Account</div>
