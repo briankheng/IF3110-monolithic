@@ -63,7 +63,7 @@ class Auth extends Controller {
 
     public function getInfo() {
         if (!isset($_SESSION['user_id'])) {
-            echo "User not logged in.";
+            echo "User is not logged in.";
             return;
         }
         $user = $this->model('Users')->getUserInfo($_SESSION['user_id']);
