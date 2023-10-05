@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="filterCollapse">
-                    <div class="filterParent" type="button" onclick="queryProduct()">Apply Filter</div>
+                    <div class="filterParent" id="startquery" type="button">Apply Filter</div>
                 </div>
             </div>
         </div>

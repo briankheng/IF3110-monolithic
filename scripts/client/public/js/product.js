@@ -59,6 +59,9 @@ function queryProduct() {
     window.location.href = "http://localhost:8000/pages/product?" + param;
 }
 
+const debouncedSearchQuery = debounce(queryProduct, 300);
+document.getElementById('startquery').addEventListener('click', debouncedSearchQuery);
+
 function selectProduct(numPage) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
