@@ -9,8 +9,14 @@ var totalPageProduct = null;
 var currentPageProduct = null;
 
 window.onload = function() {
+    var userRole = role;
+
     // Setup the query
-    document.getElementById("queryproduct").value = query;
+    if (userRole === 'user') {
+        document.getElementById("queryproduct1").value = query;
+    } else if (userRole === 'admin') {
+        document.getElementById("queryproduct2").value = query;
+    }
 
     // Filter mechanism
     if (urlParams.get('filter_category') == null) {
@@ -261,7 +267,17 @@ function setOrder(type, order) {
 }
 
 // Enter key
-document.getElementById("queryproduct")
+document.getElementById("queryproduct1")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    // Enter
+    if (event.keyCode == 13) {
+        // Click
+        document.getElementById("productqueryimg").click();
+    }
+});
+
+document.getElementById("queryproduct2")
     .addEventListener("keyup", function(event) {
     event.preventDefault();
     // Enter

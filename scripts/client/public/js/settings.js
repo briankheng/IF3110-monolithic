@@ -1,4 +1,5 @@
 window.onload = function() {
+    infoNavbarAdded();
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8000/api/auth/getInfo', true);
     xhr.onreadystatechange = function () {

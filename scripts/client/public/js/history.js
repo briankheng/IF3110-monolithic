@@ -1,4 +1,6 @@
 window.onload = function() {
+    infoNavbarAdded();
+    
     // Get Buy History
     var xhr1 = new XMLHttpRequest();
     xhr1.open('GET', 'http://localhost:8000/api/historycontroller/getBuyHistory', true);

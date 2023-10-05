@@ -8,7 +8,7 @@
                 </div>
                 <div class="navSearch">
                     <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png"/>
-                    <input class="navSearchInput" type="text" id="queryproduct" placeholder="&nbsp;Search for products or categories" >
+                    <input class="navSearchInput" type="text" id="queryproduct1" placeholder="&nbsp;Search for products or categories" >
                 </div>
             </div>
             <div class="navRight">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="navSearch">
                     <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png"/>
-                    <input class="navSearchInput" type="text" id="queryproduct" placeholder="&nbsp;Search for products or categories" >
+                    <input class="navSearchInput" type="text" id="queryproduct2" placeholder="&nbsp;Search for products or categories" >
                 </div>
             </div>
             <div class="navRight">

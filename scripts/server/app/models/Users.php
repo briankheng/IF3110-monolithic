@@ -42,6 +42,13 @@ class Users {
         return $this->db->single();
     }
 
+    public function getUserById($data) {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+        $this->db->bind(':id', $data);
+    
+        return $this->db->single();
+    }
+
     public function changeAccountSettings($data) {
         $this->db->query('UPDATE users SET name = :name, password = :password WHERE id = :id');
         $this->db->bind(':name', $data['name']);

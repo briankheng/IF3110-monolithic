@@ -1,4 +1,5 @@
-var products;
+let username = undefined;
+let role = undefined;
 
 function initPage() {
     infoNavbarAdded();
@@ -11,12 +12,18 @@ function infoNavbarAdded() {
             let res = JSON.parse(this.responseText);
             uname = document.getElementById("unameuser");
             if (res['status']) {
-                if (res['data'].isAdmin) {
+                // Role-based navbar
+                if (res['data'].role == 'admin') {
+                    role = "admin";
+                    username = res['data'].username;
                     document.getElementById("unameadmin").innerHTML = res['data'].username;
+                    putNavbar(true);
                 } else {
+                    role = "user";
+                    username = res['data'].username;
                     document.getElementById("unameuser").innerHTML = res['data'].username;
+                    putNavbar(false);
                 }
-                putNavbar(res['data'].isAdmin);
             } else {
                 uname.innerHTML = "Guest";
                 document.getElementById("logout").innerHTML = "Login";
@@ -65,7 +72,14 @@ function searchProducts() {
 }
 
 function searchProducts() {
-    query = document.getElementById("queryproduct").value;
+    var userRole = role;
+    var query;
+
+    if (userRole === 'user') {
+        query = document.getElementById("queryproduct1").value;
+    } else if (userRole === 'admin') {
+        query = document.getElementById("queryproduct2").value;
+    }
     window.location.href = "http://localhost:8000/pages/product?query=" + query;
 }
 
@@ -87,7 +101,18 @@ const debouncedSearchProducts = debounce(searchProducts, 300);
 // Call debouncedSearchProducts when the search icon is clicked
 document.getElementById('productqueryimg').addEventListener('click', debouncedSearchProducts);
 
-document.getElementById("queryproduct")
+document.getElementById("queryproduct1")
+    .addEventListener("keyup", function(event) {
+    // console.log("searching");
+    event.preventDefault();
+    // If the user presses the "Enter" key on the keyboard
+    if (event.keyCode == 13) {
+        // Trigger the button element with a click
+        document.getElementById("productqueryimg").click();
+    }
+});
+
+document.getElementById("queryproduct2")
     .addEventListener("keyup", function(event) {
     // console.log("searching");
     event.preventDefault();

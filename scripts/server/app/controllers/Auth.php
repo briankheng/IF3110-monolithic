@@ -53,8 +53,9 @@ class Auth extends Controller {
     }
 
     public function info() {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION["user"])) {
-            json_response_success($_SESSION["user"]);
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION["user_id"])) {
+            $user_data = $this->model('Users')->getUserById($_SESSION["user_id"]);
+            json_response_success($user_data);
         } else {
             json_response_fail(NOT_LOGGED_IN);
         }
