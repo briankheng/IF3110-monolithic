@@ -105,18 +105,18 @@ class ProductAPI extends Controller {
         $total = $_POST['total'];
 
         try {
-            // Mengurangi stok produk
-            $res1 = $this->model('Product')->updateStock($product_id, $amount);
-            if (!$res1) {
-                // If updating stock fails, rollback the transaction
-                throw new Exception("Insufficient stock quantity, please enter a value below the stock limit");
-            }
-
             // Mengurangi jumlah duit
-            $res2 = $this->model('Users')->updateCash($user_id, $total * $amount);
-            if (!$res2) {
+            $res1 = $this->model('Users')->updateCash($user_id, $total * $amount);
+            if (!$res1) {
                 // If updating user's cash fails, rollback the transaction
                 throw new Exception("Insufficient amount of money");
+            }
+
+            // Mengurangi stok produk
+            $res2 = $this->model('Product')->updateStock($product_id, $amount);
+            if (!$res2) {
+                // If updating stock fails, rollback the transaction
+                throw new Exception("Insufficient stock quantity, please enter a value below the stock limit");
             }
 
             // Nambah history beli
