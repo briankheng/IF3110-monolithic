@@ -12,10 +12,6 @@
                 </div>
             </div>
             <div class="navRight">
-                <div class="navItems checkges" onclick="redirectToProduct()">
-                    <img class="navIcon" src="../../public/images/product.png"/>
-                    <span class="navText">Product</span>
-                </div>
                 <div class="navItems checkges" onclick="redirectToHistory()">
                     <img class="navIcon" src="../../public/images/history.png"/>
                     <span class="navText">History</span>
