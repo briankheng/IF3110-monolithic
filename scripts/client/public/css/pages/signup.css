@@ -20,6 +20,25 @@
 
 }
 
+@media screen and (min-width: 600px) {
+    .reg-ctn {
+        width: 75%;
+        margin: 3% 0;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .reg-ctn {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reg-ctn {
+        width: 25%;
+    }
+}
+
 .reg-title {
     display: flex;
     font-weight: 700;
@@ -42,11 +61,6 @@ label {
     font-size: medium;
 }
 
-.required-field {
-    color: red;
-}
-
-
 #register-form input[type=text], input[type=password], input[type=name]{
     width: 100%;
     box-sizing: border-box;
@@ -59,9 +73,43 @@ label {
     color: #d1d1d1;
 }
 
+@media screen and (min-width: 1200px) {
+    .reg-title, label {
+        font-size: large;
+    }
+
+    #register-form input[type=text], input[type=password], input[type=name]{
+        font-size: large;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .reg-title, label {
+        font-size: medium;
+    }
+
+    #register-form input[type=text], input[type=password], input[type=name]{
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    label {
+        font-size: small;
+    }
+
+    #register-form input[type=text], input[type=password], input[type=name]{
+        font-size: small;
+    }
+}
+
+.required-field {
+    color: red;
+}
+
 button[type=submit] {
     width: 100%;
-    margin-top: 8%;
+    margin-top: 4%;
     margin-bottom: 5%;
     padding: 3% 0;
     background-color: #1c893f;
@@ -86,7 +134,8 @@ button[type=submit]:hover {
     display: flex;
     font-size: large;
     justify-content: center;
-    margin-bottom: 10% 10%;
+    margin-top: 3%;
+    margin-bottom: 5%;
 }
 
 .lgn-link {
