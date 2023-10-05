@@ -54,7 +54,8 @@ document.getElementById('register-form').addEventListener('submit', function(eve
                 alert("Account created!");
                 window.location.href = "http://localhost:8000/client/pages/login";
             } else {
-                alert("Failed to create account!");
+                alert("Username already exists! Failed to create account!");
+                window.location.href = "http://localhost:8000/client/pages/signup"
             }
         }
     };
