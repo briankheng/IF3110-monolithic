@@ -37,6 +37,7 @@ class Auth extends Controller {
             $true_password = $user['password'];
             if (password_verify($password, $true_password)) {
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['role'] = $user['role'];
                 echo "Login successful.";
 
             } else {
@@ -60,6 +61,10 @@ class Auth extends Controller {
     }
 
     public function getInfo() {
+        if (!isset($_SESSION['user_id'])) {
+            echo "User not logged in.";
+            return;
+        }
         $user = $this->model('Users')->getUserInfo($_SESSION['user_id']);
         echo json_encode($user);
     }
