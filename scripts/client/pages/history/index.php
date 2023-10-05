@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . "/../template/header.php" ?>
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
+<style>
+    <?php include '../../public/css/pages/history.css'; ?>
+</style>
+
 <section id="history">
     <div class="history-ctn">
         <div class="history-title">History</div>

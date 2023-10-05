@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . "/../template/header.php" ?>
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
+<style>
+    <?php include '../../public/css/pages/login.css'; ?>
+</style>
+
 <section id="login">
     <div class="lgn-ctn">
         <div class="lgn-title">Welcome Back!</div>

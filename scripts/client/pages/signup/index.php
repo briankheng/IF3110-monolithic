@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . "/../template/header.php" ?>
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
+<style>
+    <?php include '../../public/css/pages/signup.css'; ?>
+</style>
+
 <section id="signup">
     <div class="reg-ctn">
         <div class="reg-title">Create an Account</div>
