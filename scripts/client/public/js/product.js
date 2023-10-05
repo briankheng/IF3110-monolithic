@@ -17,19 +17,31 @@ window.onload = function() {
         setCategory('None');
     } else {
         setCategory(urlParams.get('filter_category'));
+        document.querySelector("#catlast").value = urlParams.get('filter_category');
     }
 
     if (urlParams.get('filter_price') == null) {
         setPrice('None');
     } else {
         setPrice(urlParams.get('filter_price'));
+        document.querySelector("#prilast").value = urlParams.get('filter_price');
     }
 
     // Order mechanism
     if (order_by_name != null) {
         setOrder('nama', order_by_name);
+        if (order_by_name == 'ASC') {
+            document.querySelector("#sortip").value = 'Name (A to Z)';
+        } else {
+            document.querySelector("#sortip").value = 'Name (Z to A)';
+        }
     } else if (order_by_price != null){
         setOrder('harga', order_by_price);
+        if (order_by_price == 'ASC') {
+            document.querySelector("#sortip").value = 'Price (Lowest First)';
+        } else {
+            document.querySelector("#sortip").value = 'Price (Highest First)';
+        }
     } else {
         setOrder("nama", "ASC");
     }
@@ -58,6 +70,9 @@ function queryProduct() {
     }
     window.location.href = "http://localhost:8000/pages/product?" + param;
 }
+
+const debouncedSearchQuery = debounce(queryProduct, 300);
+document.getElementById('startquery').addEventListener('click', debouncedSearchQuery);
 
 function selectProduct(numPage) {
     var xhttp = new XMLHttpRequest();

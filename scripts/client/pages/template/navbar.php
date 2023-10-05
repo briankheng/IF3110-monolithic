@@ -7,7 +7,7 @@
                     <h1 class="navTitle">&nbsp;KBL</h1>
                 </div>
                 <div class="navSearch">
-                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png" onclick="searchProducts()"/>
+                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png"/>
                     <input class="navSearchInput" type="text" id="queryproduct" placeholder="&nbsp;Search for products or categories" >
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     <h1>&nbsp;KBL</h1>
                 </div>
                 <div class="navSearch">
-                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png" onclick="searchProduct()"/>
+                    <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png"/>
                     <input class="navSearchInput" type="text" id="queryproduct" placeholder="&nbsp;Search for products or categories" >
                 </div>
             </div>

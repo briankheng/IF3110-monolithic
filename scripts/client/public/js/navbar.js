@@ -69,6 +69,24 @@ function searchProducts() {
     window.location.href = "http://localhost:8000/pages/product?query=" + query;
 }
 
+// debounce
+function debounce(func, delay) {
+    let timeoutId;
+
+    return function() {
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+            func.apply(this, arguments);
+        }, delay);
+    };
+}
+
+// Create a debounced version of searchProducts
+const debouncedSearchProducts = debounce(searchProducts, 300);
+// Call debouncedSearchProducts when the search icon is clicked
+document.getElementById('productqueryimg').addEventListener('click', debouncedSearchProducts);
+
 document.getElementById("queryproduct")
     .addEventListener("keyup", function(event) {
     // console.log("searching");

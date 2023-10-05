@@ -7,13 +7,13 @@
             <div class="pageTitle">Product page</div>
             <div class="queryMenu">
                 <div class="dropdown1">
-                    <input class="filter-category" type="text" placeholder="Select filter category" readonly>
+                    <input class="filter-category" id="catlast" type="text" placeholder="Select filter category" readonly>
                     <div class="options" id="categoryFilter">
                         <!-- List of category -->
                     </div>
                 </div>
                 <div class="dropdown2">
-                    <input class="filter-price" type="text" placeholder="Select filter price" readonly>
+                    <input class="filter-price" id="prilast" type="text" placeholder="Select filter price" readonly>
                     <div class="options" id="categoryFilter">
                         <div onclick="showFilterPrice('< 5K')">< 5K</div>
                         <div onclick="showFilterPrice('5K - 30K')">5K - 30K</div>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="dropdown3">
-                    <input class="sort-type" type="text" placeholder="Select sort method" readonly>
+                    <input class="sort-type" id="sortip" type="text" placeholder="Select sort method" readonly>
                     <div class="options">
                         <div onclick="showSort('Name (A to Z)')">Name (A to Z)</div>
                         <div onclick="showSort('Name (Z to A)')">Name (Z to A)</div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="filterCollapse">
-                    <div class="filterParent" type="button" onclick="queryProduct()">Apply Filter</div>
+                    <div class="filterParent" id="startquery" type="button">Apply Filter</div>
                 </div>
             </div>
         </div>
