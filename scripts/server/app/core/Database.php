@@ -9,13 +9,13 @@ class Database {
         $option = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
         try {
-            // $dsn = 'pgsql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
-            // $this->dbh = new PDO($dsn, DB_USER, DB_PASSWORD, $option);
-            $this->dbh = new PDO(
+            $dsn = 'pgsql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
+            $this->dbh = new PDO($dsn, DB_USER, DB_PASSWORD, $option);
+            /* $this->dbh = new PDO(
                 "pgsql:host=ep-wandering-sound-44516679.ap-southeast-1.aws.neon.tech;port=5432;dbname=neondb;options='endpoint=ep-wandering-sound-44516679';sslmode=require",
                 "mikeleo03",
                 "47EevsXYILOx"
-            );
+            ); */
         } catch (PDOException $e) {
             die($e->getMessage());
         }

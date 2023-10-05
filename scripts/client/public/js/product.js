@@ -98,11 +98,6 @@ function selectProduct(numPage) {
         "order_by_name": order_by_name,
         "filter_price": filter_price
     };
-    console.log(query);
-    console.log(order_by_price);
-    console.log(filter_category); 
-    console.log(order_by_name);
-    console.log(filter_price);
     xhttp.open("POST","http://localhost:8000/api/productapi/queryproduct/"+numPage+"/8/",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");

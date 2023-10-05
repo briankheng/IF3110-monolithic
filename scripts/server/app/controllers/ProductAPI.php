@@ -92,4 +92,45 @@ class ProductAPI extends Controller {
             json_response_fail(PRODUCT_NOT_FOUND);
         }
     }
+
+    public function buyProduct() {
+        // Blocking other method
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        $user_id = $_SESSION['user_id'];
+        $product_id = $_POST['product_id'];
+        $amount = $_POST['amount'];
+        $total = $_POST['total'];
+
+        try {
+            // Mengurangi stok produk
+            $res1 = $this->model('Product')->updateStock($product_id, $amount);
+            if (!$res1) {
+                // If updating stock fails, rollback the transaction
+                throw new Exception("Insufficient stock quantity, please enter a value below the stock limit");
+            }
+
+            // Mengurangi jumlah duit
+            $res2 = $this->model('Users')->updateCash($user_id, $total * $amount);
+            if (!$res2) {
+                // If updating user's cash fails, rollback the transaction
+                throw new Exception("Insufficient amount of money");
+            }
+
+            // Nambah history beli
+            $res3 = $this->model('History')->addHistoryBuy($user_id, $product_id, $amount, $total);
+            if (!$res3) {
+                // If adding purchase history fails, rollback the transaction
+                throw new Exception("History update failed");
+            }
+
+            json_response_success("Item successfully purchased");
+
+        } catch (Exception $e) {
+            // Handle any exceptions that may occur during the transaction
+            json_response_fail($e->getMessage());
+        }
+    }
 }

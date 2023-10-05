@@ -7,7 +7,7 @@ window.onload = function() {
     xhr1.onreadystatechange = function () {
         if (xhr1.readyState == 4 && xhr1.status == 200) {
             if (this.responseText == "User is not logged in.") {
-                window.location.href = "http://localhost:8000/client/pages/login";
+                window.location.href = "http://localhost:8000/pages/login";
             }
             var response = JSON.parse(xhr1.responseText);
             var data = response.data;

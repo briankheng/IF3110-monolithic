@@ -4,6 +4,7 @@ var product_id = urlParams.get('product_id');
 var product = null;
 let stock = 0;
 let nums = 0;
+let price = 0;
 
 window.onload = function() {
     infoNavbarAdded();
@@ -21,6 +22,7 @@ function getProduct() {
                 console.log(product);             
                 appendData(products["data"]);
                 stock = products["data"].stock;
+                price = products["data"].price;
             } else {
                 console.log("kosonkkkkk");
             }
@@ -66,4 +68,33 @@ function addAmount() {
     if (parseInt(document.getElementById("numberamount").value) < stock) {
         document.getElementById("numberamount").value = parseInt(document.getElementById("numberamount").value) + 1;
     }
+}
+
+function buyProduct() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            let res = JSON.parse(this.responseText);
+            if (res['status']) {
+                alert("Item successfully purchased!");
+                window.location.href = "http://localhost:8000/pages/home";
+            } else {
+                alert(res['data']);
+            }
+        }
+    };
+
+    let nums = parseInt(document.getElementById("numberamount").value);
+
+    let data = {
+        "product_id": product_id,
+        "amount": nums,
+        "total": price
+    };
+    xhttp.open("POST","http://localhost:8000/api/productapi/buyProduct",true);
+    xhttp.setRequestHeader("Accept", "application/json");
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.withCredentials = true;
+    xhttp.send(JSON.stringify(data));
 }

@@ -26,7 +26,7 @@
                     <input type="text" id="numberamount" name="Amount" aria-required="true">
                     <div type="button" class="buttonOp" onclick="addAmount()">+</div>
                 </div>
-                <div type="button" class="buttonSec">Buy</div>
+                <div type="button" class="buttonSec" onclick="buyProduct()">Buy</div>
             <div>
         </div>
     </div>

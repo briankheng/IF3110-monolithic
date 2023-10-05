@@ -57,4 +57,29 @@ class Users {
     
         return $this->db->execute();
     }
+
+    public function updateCash($user_id, $amount) {
+        // Check if the user has sufficient balance
+        $this->db->query('SELECT balance FROM users WHERE id = :id');
+        $this->db->bind(':id', $user_id);
+        
+        try {
+            $result = $this->db->single(); // Fetch the user's current balance
+            $currentBalance = $result['balance'];
+            
+            if ($currentBalance >= $amount) {
+                // If the balance is sufficient, update it
+                $this->db->query('UPDATE users SET balance = balance - :amount WHERE id = :id');
+                $this->db->bind(':amount', $amount);
+                $this->db->bind(':id', $user_id);
+                
+                return $this->db->execute();
+            } else {
+                // If the balance is insufficient, return false
+                return false;
+            }
+        } catch (PDOException $e) {
+            return false;
+        }
+    }    
 }

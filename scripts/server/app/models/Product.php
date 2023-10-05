@@ -207,4 +207,16 @@ class Product {
             return  false;
         }
     }
+
+    public function updateStock($product_id, $amount) {
+        $this->db->query('UPDATE product SET stock = stock - :amount WHERE id = :id');
+        $this->db->bind(':amount', $amount);
+        $this->db->bind(':id', $product_id);
+        
+        try {
+            return $this->db->execute();
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }
