@@ -14,6 +14,7 @@ class ProductModel {
                             product.image,
                             product.description,
                             category.name AS category_name,
+                            category.id AS category_id,
                             product.price,
                             product.stock
                         FROM product
@@ -30,6 +31,7 @@ class ProductModel {
                             product.image,
                             product.description,
                             category.name AS category_name,
+                            category.id AS category_id,
                             product.price,
                             product.stock
                         FROM product
@@ -55,6 +57,7 @@ class ProductModel {
                             product.image,
                             product.description,
                             category.name AS category_name,
+                            category.id AS category_id,
                             product.price,
                             product.stock
                         FROM product
