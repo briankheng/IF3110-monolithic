@@ -29,7 +29,7 @@ class Users {
     }
 
     public function getPassword($data) {
-        $this->db->query('SELECT id, password FROM users WHERE username = :username');
+        $this->db->query('SELECT id, password, role FROM users WHERE username = :username');
         $this->db->bind(':username', $data);
     
         return $this->db->single();
