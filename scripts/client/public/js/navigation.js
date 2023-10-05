@@ -24,10 +24,6 @@ function redirectToSettings() {
     window.location.href = "http://localhost:8000/pages/settings";
 }
 
-function redirectToProduct() {
-    window.location.href = "http://localhost:8000/pages/product";
-}
-
 function redirectToHistory() {
     window.location.href = "http://localhost:8000/pages/history";
 }
