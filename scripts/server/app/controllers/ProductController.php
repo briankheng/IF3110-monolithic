@@ -94,8 +94,6 @@ class ProductController extends Controller {
         $data['price'] = $_POST['price'];
         $data['stock'] = $_POST['stock'];
 
-        // TODO: sanitize input
-
         // Move uploaded image and video to assets folder
         if ($data['image'] != '') {
             // Get image type
