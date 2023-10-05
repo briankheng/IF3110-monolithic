@@ -14,7 +14,7 @@ function infoNavbarAdded() {
                 } else {
                     putNavbar("user");
                 }
-                document.getElementById("unameuser").innerHTML = res['data'].username;
+                document.getElementById("unameuser").innerHTML = res['data'].name;
             } else {
                 putNavbar("guest");
                 document.getElementById("unameuser").innerHTML = "Guest";

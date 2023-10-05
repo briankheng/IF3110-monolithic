@@ -41,9 +41,10 @@ h1.navTitle {
     font-size: 1.5em;
     margin-block-start: 0.2em;
     margin-block-end: 0.2em;
+    font-weight: 700;
 }
 
-.navLogo:hover {
+.navLogoSide:hover {
     cursor: pointer;
 }
 

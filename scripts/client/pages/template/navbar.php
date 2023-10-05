@@ -2,9 +2,9 @@
     <nav class="navbar">
         <div class="navCt">
             <div class="navLeft">
-                <div class="navLogoSide">
-                    <img class="navLogo" src="../../public/images/logo.png" onclick="redirectToHome()"/>
-                    <h1 class="navTitle">&nbsp;KBL</h1>
+                <div class="navLogoSide" onclick="redirectToHome()">
+                    <img class="navLogo" src="../../public/images/logo.png"/>
+                    <h1 class="navTitle">KBL</h1>
                 </div>
                 <div class="navSearch">
                     <img class="navSearchIcon" id="productqueryimg" src="../../public/images/search-black.png"/>
