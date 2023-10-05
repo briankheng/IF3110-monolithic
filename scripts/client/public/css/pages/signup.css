@@ -94,7 +94,7 @@ label {
 }
 
 @media screen and (min-width: 600px) {
-    label {
+    .reg-title, label {
         font-size: small;
     }
 
