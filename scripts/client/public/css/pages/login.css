@@ -20,6 +20,25 @@
     border-radius: 1.5%;
 }
 
+@media screen and (min-width: 600px) {
+    .lgn-ctn {
+        width: 75%;
+        margin: 3% 0;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .lgn-ctn {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .lgn-ctn {
+        width: 25%;
+    }
+}
+
 .lgn-title {
     display: flex;
     font-weight: 700;
@@ -51,11 +70,6 @@ label {
     font-size: small;
 }
 
-.required-field {
-    color: red;
-}
-
-
 #login-form input[type=text], input[type=password], input[type=name]{
     width: 100%;
     box-sizing: border-box;
@@ -67,6 +81,40 @@ label {
     background-color: #1F1F1F;
     color: #d1d1d1;
     font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 1200px) {
+    .lgn-title, label {
+        font-size: large;
+    }
+
+    #login-form input[type=text], input[type=password], input[type=name]{
+        font-size: large;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .lgn-title, label {
+        font-size: medium;
+    }
+
+    #login-form input[type=text], input[type=password], input[type=name]{
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .lgn-title, label {
+        font-size: small;
+    }
+
+    #login-form input[type=text], input[type=password], input[type=name]{
+        font-size: small;
+    }
+}
+
+.required-field {
+    color: red;
 }
 
 button[type=submit] {
@@ -91,7 +139,8 @@ button[type=submit]:hover {
     display: flex;
     font-size: large;
     justify-content: center;
-    margin-bottom: 10% 10%;
+    margin-top: 7%;
+    margin-bottom: 5%;
 }
 
 .reg-link {

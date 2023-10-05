@@ -10,12 +10,12 @@
         <div class="lgn-title">Welcome Back!</div>
         <div class="lgn-sub-title">We're excited to see you again!</div>
         <div class="lgn-form-ctn">
-            <form id="login-form" method="post" action="index.php">
+            <form id="login-form" method="post" action="index.php" role="form">
                 <label for="username">USERNAME <span class="required-field">*</span></label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" aria-required="true">
 
                 <label for="password">PASSWORD <span class="required-field">*</span></label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" aria-required="true">
                 
                 <div class="space"></div>
                 
