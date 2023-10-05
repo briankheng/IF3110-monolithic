@@ -6,10 +6,9 @@ window.onload = function() {
     xhr1.open('GET', 'http://localhost:8000/api/historycontroller/getBuyHistory', true);
     xhr1.onreadystatechange = function () {
         if (xhr1.readyState == 4 && xhr1.status == 200) {
-            if (this.responseText = "User is not logged in.") {
+            if (this.responseText == "User is not logged in.") {
                 window.location.href = "http://localhost:8000/client/pages/login";
             }
-
             var response = JSON.parse(xhr1.responseText);
             var data = response.data;
             var grid = document.getElementById('buy-history-grid'); 
