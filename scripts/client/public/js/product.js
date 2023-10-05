@@ -9,14 +9,8 @@ var totalPageProduct = null;
 var currentPageProduct = null;
 
 window.onload = function() {
-    var userRole = role;
-
     // Setup the query
-    if (userRole === 'user') {
-        document.getElementById("queryproduct1").value = query;
-    } else if (userRole === 'admin') {
-        document.getElementById("queryproduct2").value = query;
-    }
+    document.getElementById("queryproduct").value = query;
 
     // Filter mechanism
     if (urlParams.get('filter_category') == null) {
@@ -74,7 +68,7 @@ function queryProduct() {
     if (filter_price != null && filter_price != 'None') {
         param += 'filter_price='+filter_price+'&';
     }
-    window.location.href = "http://localhost:8000/pages/product?" + param;
+    window.location.href = "http://localhost:8000/pages/home?" + param;
 }
 
 const debouncedSearchQuery = debounce(queryProduct, 300);
@@ -267,17 +261,7 @@ function setOrder(type, order) {
 }
 
 // Enter key
-document.getElementById("queryproduct1")
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    // Enter
-    if (event.keyCode == 13) {
-        // Click
-        document.getElementById("productqueryimg").click();
-    }
-});
-
-document.getElementById("queryproduct2")
+document.getElementById("queryproduct")
     .addEventListener("keyup", function(event) {
     event.preventDefault();
     // Enter
