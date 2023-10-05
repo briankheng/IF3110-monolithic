@@ -75,4 +75,50 @@
     padding: 15px 6px;
     width: 100px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.buttonOp {
+    background-color: black;
+    margin-top: 1rem;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    padding: 15px 15px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#numberamount {
+    background-color: inherit;
+    margin-top: 1rem;
+    border: none;
+    font-size: 20px;
+    color: white;
+    width: 1.5rem;
+    padding: 15px 15px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.buttonSec:hover, .buttonOp:hover {
+    background-color: #44494c;
+    cursor: pointer;
+}
+
+.buySection {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
+    align-items: center;
+}
+
+.amountsec {
+    display: flex;
+    flex-direction: row;
+    column-gap: 7px;
 }

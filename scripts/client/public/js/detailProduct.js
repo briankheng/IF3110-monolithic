@@ -2,13 +2,16 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var product_id = urlParams.get('product_id');
 var product = null;
+let stock = 0;
+let nums = 0;
 
 window.onload = function() {
     infoNavbarAdded();
     getProduct();
 }
 
-function getProduct(){
+function getProduct() {
+    document.getElementById("numberamount").value = 0;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
@@ -17,6 +20,7 @@ function getProduct(){
                 product = products["data"];  
                 console.log(product);             
                 appendData(products["data"]);
+                stock = products["data"].stock;
             } else {
                 console.log("kosonkkkkk");
             }
@@ -50,4 +54,16 @@ function appendData(productDetail) {
 
     var div7 = document.getElementById("productDesc");
     div7.innerHTML += productDetail.description;
+}
+
+function subsAmount() {
+    if (parseInt(document.getElementById("numberamount").value) > 0) {
+        document.getElementById("numberamount").value = parseInt(document.getElementById("numberamount").value) - 1;
+    }
+}
+
+function addAmount() {
+    if (parseInt(document.getElementById("numberamount").value) < stock) {
+        document.getElementById("numberamount").value = parseInt(document.getElementById("numberamount").value) + 1;
+    }
 }

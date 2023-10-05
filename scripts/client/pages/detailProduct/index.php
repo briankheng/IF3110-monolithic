@@ -20,7 +20,14 @@
             </div>
             <div id="productPrice"></div>
             <div id="productDesc"></div>
-            <button type="button" class="buttonSec">Buy</button>
+            <div class="buySection">
+                <div class="amountsec">
+                    <div type="button" class="buttonOp" onclick="subsAmount()">-</div>
+                    <input type="text" id="numberamount" name="Amount" aria-required="true">
+                    <div type="button" class="buttonOp" onclick="addAmount()">+</div>
+                </div>
+                <div type="button" class="buttonSec">Buy</div>
+            <div>
         </div>
     </div>
 </section>
