@@ -12,9 +12,8 @@
 
                 <label for="password">PASSWORD <span class="required-field">*</span></label>
                 <input type="password" id="password" name="password">
-
-                <!-- Error Message -->
-                <div id="error-message"></div>
+                
+                <div class="space"></div>
                 
                 <button type="submit">Login</button>
             </form>

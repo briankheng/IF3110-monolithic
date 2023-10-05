@@ -71,8 +71,6 @@ label {
 
 button[type=submit] {
     width: 100%;
-    margin-top: 9%;
-    margin-bottom: 5%;
     padding: 3% 0;
     background-color: #1c893f;
     border: none;
@@ -81,15 +79,12 @@ button[type=submit] {
     color: #FFFCF9;
 }
 
-#error-message {
-    color: red;
-    margin-top: 3%;
-    font-size: smaller;
+.space {
+    margin-top: 5%;
 }
 
 button[type=submit]:hover {
     background-color: #16702E;
-    ;
 }
 
 .reg-link-ctn {
