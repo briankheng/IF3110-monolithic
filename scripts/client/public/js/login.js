@@ -1,11 +1,6 @@
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    var errorMessage = document.getElementById('error-message');
-
-    // Clear previous messages
-    errorMessage.textContent = '';
-
     let form = document.getElementById("login-form");
     let formData = new FormData(form);
     let xhr = new XMLHttpRequest();
@@ -17,7 +12,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
                 alert("Login success!");
                 window.location.href = "http://localhost:8000/client/pages/home";
             } else {
-                alert("Login not success!");
+                alert("Invalid username or password. Please try again.");
+                window.location.href = "http://localhost:8000/client/pages/login";
             }
         }
     };
