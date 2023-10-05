@@ -23,6 +23,12 @@ class ProductController extends Controller {
         json_response_success($products);
     }
 
+    public function getProductsByPage($page) {
+        $products = $this->model('ProductModel')->getProductsByPage($page);
+
+        json_response_success($products);
+    }
+
     public function searchProduct($keyword) {
         $products = $this->model('ProductModel')->searchProduct($keyword);
 

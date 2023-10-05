@@ -25,15 +25,15 @@ function redirectToTopup() {
 }
 
 function redirectToAdminProduct() {
-    window.location.href = "http://localhost:8000/pages/admin/product";
+    window.location.href = "http://localhost:8000/pages/admin-product";
 }
 
 function redirectToCreateProduct() {
-    window.location.href = "http://localhost:8000/pages/admin/product/create";
+    window.location.href = "http://localhost:8000/pages/admin-product-create";
 }
 
 function redirectToEditProduct(id) {
-    window.location.href = "http://localhost:8000/pages/admin/product/edit?id=" + id;
+    window.location.href = "http://localhost:8000/pages/admin-product-edit?id=" + id;
 }
 
 function redirectToHandleTopup() {

@@ -48,6 +48,26 @@ class ProductModel {
         return $this->db->resultSet();
     }
 
+    public function getProductsByPage($page) {
+        $this->db->query('SELECT 
+                            product.id AS product_id,
+                            product.name AS product_name,
+                            product.image,
+                            product.description,
+                            category.name AS category_name,
+                            product.price,
+                            product.stock
+                        FROM product
+                        INNER JOIN category ON product.idCategory = category.id
+                        ORDER BY product.name
+                        LIMIT :limit
+                        OFFSET :offset');
+        $this->db->bind(':offset', (int) ($page - 1) * ROWS_PER_PAGE);
+        $this->db->bind(':limit', (int) ROWS_PER_PAGE);
+
+        return $this->db->resultSet();
+    }
+
     public function searchProduct($keyword) {
         $this->db->query('SELECT * FROM product WHERE name LIKE :keyword');
         $this->db->bind(':keyword', '%' . $keyword . '%');
