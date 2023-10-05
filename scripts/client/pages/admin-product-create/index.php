@@ -1,31 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once __DIR__ . "/../template/header.php" ?>
+<?php require_once __DIR__ . "/../template/navbar.php" ?>
+<style><?php include '../../public/css/pages/admin-product-create.css'; ?></style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Product</title>
-</head>
+<section id="create-product">
+    <div class="create-product-container">
+        <div class="create-product-title">Create New Product!</div>
+        <div class="create-product-form-container">
+            <form id="product-form" enctype="multipart/form-data" onsubmit="createProduct(event)">
+                <label for="name">Product Name <span class="required-field">*</span></label>
+                <input type="text" name="name" required>
 
-<body>
-    <form id="createProductForm" enctype="multipart/form-data" onsubmit="createProduct(event)">
-        <label for="name">Name</label>
-        <input type="text" name="name">
-        <label for="price">Price</label>
-        <input type="text" name="price">
-        <label for="description">Description</label>
-        <input type="text" name="description">
-        <label for="stock">Stock</label>
-        <input type="text" name="stock">
-        <!-- TODO: dropdown category -->
-        <label for="idCategory">Category</label>
-        <input type="text" name="idCategory">
-        <label for="image">Image/ Video</label>
-        <input type="file" name="image">
-        <input type="submit">
-    </form>
-</body>
+                <label for="description">Description <span class="required-field">*</span></label>
+                <textarea name="description" required></textarea>
+                
+                <label for="price">Price <span class="required-field">*</span></label>
+                <input type="number" name="price" required>
 
-<script type="text/javascript" src="../../../../public/js/admin/product/create-product.js"></script>
+                <label for="stock">Stock <span class="required-field">*</span></label>
+                <input type="number" name="stock" required>
 
-</html>
+                <!-- Dropdown Category -->
+                <label for="idCategory">Category <span class="required-field">*</span></label>
+                <select name="idCategory" id="category-dropdown" required></select>
+
+                <!-- Image/ Video -->
+                <label for="image">Image/ Video</label>
+                <input type="file" name="image" accept="image/*, video/mp4">
+
+                <!-- Error Message -->
+                <div id="error-message"></div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<?php require_once __DIR__ . "/../template/footer.php" ?>
+
+<script type="text/javascript" src="/../../public/js/admin-product-create.js"></script>

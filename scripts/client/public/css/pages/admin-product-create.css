@@ -1,0 +1,131 @@
+#create-product {
+    display: flex;
+    flex-direction: column;
+    background-color: #6e6e71;
+    justify-content: center;
+    align-items: center;  
+    min-height: 85vh;
+    
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+.create-product-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #3d4143;
+    width: 20%;
+    padding: 4% 2.5% 2%;
+    border-radius: 1.5%;
+    box-shadow: 0px 0px 30px rgb(69, 63, 63);
+}
+
+.create-product-title {
+    display: flex;
+    font-weight: 700;
+    margin-top: -2%;
+    margin-bottom: 0.5%;
+    justify-content: center;
+    font-size: larger;
+    color: #f1f1f1;
+}
+
+.create-product-form-container {
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-top: 10%;
+    color: #d1d1d1;
+    font-size: medium;
+}
+
+#product-form input[type=text], input[type=number], input[type=file]{
+    width: 100%;
+    box-sizing: border-box;
+    border: 0.5px solid #1F1F1F;
+    border-radius: 2px;
+    padding: 2% 3%;
+    margin-top: 5px;
+    font-size: medium;
+    background-color: #1F1F1F;
+    color: #d1d1d1;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0.5px solid #1F1F1F;
+    border-radius: 2px;
+    padding: 2% 3%;
+    margin-top: 5px;
+    font-size: medium;
+    background-color: #1F1F1F;
+    color: #d1d1d1;
+    resize: none;
+    height: 100px;
+}
+
+.required-field {
+    color: red;
+}
+
+button[type=submit] {
+    width: 100%;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    padding: 3% 0;
+    background-color: #1c893f;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    color: #FFFCF9;
+}
+
+button[type=submit]:hover {
+    background-color: #16702E;
+}
+
+#error-message {
+    color: red;
+    margin-top: 3%;
+    font-size: smaller;
+    margin-bottom: 3%;
+}
+
+#category-dropdown {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0.5px solid #1F1F1F;
+    border-radius: 2px;
+    padding: 2% 3%;
+    margin-top: 5px;
+    font-size: medium;
+    background-color: #1F1F1F;
+    color: #d1d1d1;
+}
+
+.category-option {
+    background-color: #1F1F1F;
+    color: #d1d1d1;
+}
+
+/* Responsive Layout */
+@media (max-width: 1366px) {
+    .create-product-container {
+        width: 30%;
+    }
+}
+
+@media (max-width: 896px) {
+    .create-product-container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .create-product-container {
+        width: 100%;
+    }
+}

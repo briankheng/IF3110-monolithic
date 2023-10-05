@@ -68,6 +68,13 @@ class ProductModel {
         return $this->db->resultSet();
     }
 
+    public function getProductByName($name) {
+        $this->db->query('SELECT * FROM product WHERE name = :name');
+        $this->db->bind(':name', $name);
+
+        return $this->db->single();
+    }
+
     public function searchProduct($keyword) {
         $this->db->query('SELECT * FROM product WHERE name LIKE :keyword');
         $this->db->bind(':keyword', '%' . $keyword . '%');

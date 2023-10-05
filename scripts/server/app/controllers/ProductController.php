@@ -37,18 +37,20 @@ class ProductController extends Controller {
 
     public function createProduct() {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            json_response_fail(INVALID_REQUEST_METHOD);
+            return json_response_fail(INVALID_REQUEST_METHOD);
         }
 
         $data['name'] = $_POST['name'];
-        $data['image'] = $_FILES['image']['name'];
         $data['description'] = $_POST['description'];
-        $data['idCategory'] = $_POST['idCategory'];
         $data['price'] = $_POST['price'];
         $data['stock'] = $_POST['stock'];
+        $data['idCategory'] = $_POST['idCategory'];
+        $data['image'] = $_FILES['image']['name'];
 
-        // TODO: sanitize input
-
+        // Check if product name already exists
+        if ($this->model('ProductModel')->getProductByName($data['name'])) {
+            return json_response_fail("Product name already exists!");
+        }
         
         // Move uploaded image and video to assets folder
         if ($data['image'] != '') {
@@ -73,9 +75,9 @@ class ProductController extends Controller {
         }
 
         if ($this->model('ProductModel')->createProduct($data)) {
-            json_response_success("success");
+            return json_response_success("Success to create product!");
         } else {
-            json_response_fail("fail");
+            return json_response_fail("Fail to create product!");
         }
     }
 

@@ -72,7 +72,7 @@ let setPagination = async (page) => {
             if (res['status']) {
                 let paginationContainer = document.getElementById('pagination-container');
                 paginationContainer.innerHTML = '';
-                let totalPage = res['data'].length / ROWS_PER_PAGE;
+                let totalPage = Math.ceil(res['data'].length / ROWS_PER_PAGE);
                 let paginationList = document.createElement('ul');
                 paginationList.className = 'pagination-list';
                 for (let i = 0; i < totalPage; i++) {

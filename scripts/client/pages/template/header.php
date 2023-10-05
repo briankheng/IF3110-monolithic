@@ -20,10 +20,6 @@
         /* page css part */
         <?php include '../../public/css/pages/product.css'; ?>
         <?php include '../../public/css/pages/detailProduct.css'; ?>
-        <?php include '../../public/css/pages/admin-product.css'; ?>
-        <?php include '../../public/css/pages/admin-product-edit.css'; ?>
-        <?php include '../../public/css/pages/admin-product-create.css'; ?>
-
     </style>
 
     <title><?= $data['title'] ?? "KBL" ?></title>
