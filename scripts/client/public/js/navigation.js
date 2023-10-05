@@ -1,15 +1,27 @@
 function putNavbar(isAdmin) {
-    if (isAdmin) {
+    if (isAdmin == "admin") {
         document.getElementById("navCtAdmin").style.display = "flex";
         document.getElementById("navCt").style.display = "none";
+    } else if (isAdmin == "user") {
+        document.getElementById("navCtAdmin").style.display = "none";
+        document.getElementById("navCt").style.display = "flex";
     } else {
         document.getElementById("navCtAdmin").style.display = "none";
         document.getElementById("navCt").style.display = "flex";
+        document.getElementById("set").style.display = "none";
+        var elements = document.querySelectorAll(".checkges");
+        elements.forEach(function(element) {
+            element.style.display = "none";
+        });
     }
 }
 
-function redirectToHome(){
+function redirectToHome() {
     window.location.href = "http://localhost:8000/pages/home";
+}
+
+function redirectToSettings() {
+    window.location.href = "http://localhost:8000/pages/settings";
 }
 
 function redirectToProduct() {

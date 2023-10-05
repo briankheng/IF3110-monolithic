@@ -17,17 +17,17 @@ function infoNavbarAdded() {
                     role = "admin";
                     username = res['data'].username;
                     document.getElementById("unameadmin").innerHTML = res['data'].username;
-                    putNavbar(true);
+                    putNavbar("admin");
                 } else {
                     role = "user";
                     username = res['data'].username;
                     document.getElementById("unameuser").innerHTML = res['data'].username;
-                    putNavbar(false);
+                    putNavbar("user");
                 }
             } else {
                 uname.innerHTML = "Guest";
                 document.getElementById("logout").innerHTML = "Login";
-                putNavbar(false);
+                putNavbar("guest");
             }
         }
     };

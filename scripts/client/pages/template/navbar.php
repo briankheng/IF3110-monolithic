@@ -12,15 +12,15 @@
                 </div>
             </div>
             <div class="navRight">
-                <div class="navItems" onclick="redirectToProduct()">
+                <div class="navItems checkges" onclick="redirectToProduct()">
                     <img class="navIcon" src="../../public/images/product.png"/>
                     <span class="navText">Product</span>
                 </div>
-                <div class="navItems" onclick="redirectToHistory()">
+                <div class="navItems checkges" onclick="redirectToHistory()">
                     <img class="navIcon" src="../../public/images/history.png"/>
                     <span class="navText">History</span>
                 </div>
-                <div class="navItems" onclick="redirectToTopup()">
+                <div class="navItems checkges" onclick="redirectToTopup()">
                     <img class="navIcon" src="../../public/images/topup.png"/>
                     <span class="navText">Topup</span>
                 </div>
@@ -31,6 +31,7 @@
                         <i class="fa fa-caret-down"></i>
                     </div>
                     <div class="navDrop">
+                        <div class="navChild" onclick="redirectToSettings()" id="set">Settings</div>
                         <div class="navChild" onclick="logout()" id="logout">Log out</div>
                     </div>
                 </div>
@@ -67,6 +68,7 @@
                         <i class="fa fa-caret-down"></i>
                     </div>
                     <div class="navDrop">
+                        <div class="navChild" onclick="redirectToSettings()" id="set">Settings</div>
                         <div class="navChild" onclick="logout()" id="logout">Log out</div>
                     </div>
                 </div>
