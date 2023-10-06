@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="listTitle">Showing 14 items...</div>
+        <div class="listTitle">Showing <input class="numsie" type="text" id="numsofObj" value="" placeholder="0" readonly> items...</div>
         <div id="queryResultProduct" class="queryResultProduct"></div>
         <div class="pagination" id="pagenumProduct"></div>
 	</div>

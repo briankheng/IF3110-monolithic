@@ -10,10 +10,10 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             console.log(this.responseText);
             if (this.responseText == "Login successful.") {
                 alert("Login success!");
-                window.location.href = "http://localhost:8000/client/pages/home";
+                window.location.href = "http://localhost:8000/pages/home";
             } else {
                 alert("Invalid username or password. Please try again.");
-                window.location.href = "http://localhost:8000/client/pages/login";
+                window.location.href = "http://localhost:8000/pages/login";
             }
         }
     };

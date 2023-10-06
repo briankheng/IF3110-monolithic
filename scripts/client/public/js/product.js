@@ -81,7 +81,9 @@ function selectProduct(numPage) {
             let res = JSON.parse(this.responseText);
             currentPageProduct = numPage;
             if (res['status']) {
+                console.log(res['data']['total']);
                 products = res['data'];
+                document.querySelector("#numsofObj").value = String(res['data']['total']);
                 totalPageProduct = res['data']['pages'];
                 clearProduct();
                 appendData(products['products'], "queryResultProduct");

@@ -196,7 +196,7 @@ class ProductController extends Controller {
 
         // Pagination
         if ($res) {
-            json_response_success(array("products" => $res, "pages" => ceil($total/$limit_page)));
+            json_response_success(array("products" => $res, "pages" => ceil($total/$limit_page), "total" => $total));
         } else {
             json_response_fail(PRODUCT_NOT_FOUND);
         }

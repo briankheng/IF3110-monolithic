@@ -52,10 +52,10 @@ document.getElementById('register-form').addEventListener('submit', function(eve
             console.log(res);
             if (res["status"]) {
                 alert("Account created!");
-                window.location.href = "http://localhost:8000/client/pages/login";
+                window.location.href = "http://localhost:8000/pages/login";
             } else {
                 alert("Username already exists! Failed to create account!");
-                window.location.href = "http://localhost:8000/client/pages/signup"
+                window.location.href = "http://localhost:8000/pages/signup"
             }
         }
     };

@@ -8,6 +8,26 @@
     row-gap: 0.25vh;
 }
 
+#numsofObj {
+    background-color: inherit;
+    font-size: 1.5rem;
+    width: 1.7rem;
+    color: white;
+    border: none;
+    justify-items: center;
+    text-align: center;
+}
+
+#numsofObj::placeholder {
+    background-color: inherit;
+    font-size: 1.5rem;
+    width: 1.7rem;
+    color: white;
+    border: none;
+    justify-items: center;
+    text-align: center;
+}
+
 .productMenu {
     width: 100%;
     display: flex;
@@ -38,6 +58,8 @@
     font-size: 1.5rem;
     align-items: center;
     margin-bottom: 1.5rem;
+    display: inline;
+    white-space: nowrap;
 }
 
 @media only screen and (max-width: 768px) {
