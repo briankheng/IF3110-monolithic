@@ -14,7 +14,7 @@
                 </div>
                 <div class="dropdown2">
                     <input class="filter-price" id="prilast" type="text" placeholder="Select filter price" readonly>
-                    <div class="options" id="categoryFilter">
+                    <div class="options">
                         <div onclick="showFilterPrice('< 5K')">< 5K</div>
                         <div onclick="showFilterPrice('5K - 30K')">5K - 30K</div>
                         <div onclick="showFilterPrice('30K - 100K')">30K - 100K</div>
@@ -52,7 +52,7 @@
     // Function to populate the category dropdown
     function populateCategoryDropdown() {
         $.ajax({
-            url: 'http://localhost:8000/server/api/categorycontroller/showAllcategories',
+            url: 'http://localhost:8000/api/CategoryController/showAllcategories',
             method: 'GET',
             dataType: 'json',
             success: function (data) {

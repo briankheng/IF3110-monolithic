@@ -20,7 +20,7 @@ class CategoryController extends Controller {
         if ($res) {
             json_response_success($res);
         } else {
-            json_response_fail(PRODUCT_NOT_FOUND);
+            json_response_fail(CATEGORY_NOT_FOUND);
         }
     }
 }
