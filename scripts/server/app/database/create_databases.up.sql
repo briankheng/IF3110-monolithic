@@ -43,8 +43,8 @@ CREATE TABLE topUp (
     id SERIAL PRIMARY KEY NOT NULL,
     idUser INTEGER NOT NULL,
     amount INTEGER NOT NULL,
-    topUpDate DATE NOT NULL,
-    status VARCHAR(50) NOT NULL,
+    date DATE NOT NULL,
+    status INTEGER NOT NULL,
     FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
     CONSTRAINT UC_IDTopUp UNIQUE (id)
 );

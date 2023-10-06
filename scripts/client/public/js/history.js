@@ -38,7 +38,7 @@ window.onload = function() {
             var grid = document.getElementById('topup-history-grid');
             data.forEach(item => {
                 var divDate = document.createElement('div');
-                divDate.textContent = item.topupdate;
+                divDate.textContent = item.date;
                 divDate.className = 'grid-value';
                 grid.appendChild(divDate);
 

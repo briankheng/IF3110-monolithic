@@ -23,7 +23,7 @@ VALUES (1, 1, 2, 200, '2023-10-01'),
        (1, 2, 3, 300, '2023-10-02'),
        (2, 3, 1, 100, '2023-10-03');
        
-INSERT INTO topUp (idUser, amount, topupDate, status)
+INSERT INTO topUp (idUser, amount, date, status)
 VALUES (1, 5000, '2023-10-01', 'Success'),
        (1, 10000, '2023-10-02', 'Success'),
        (2, 15000, '2023-10-03', 'Failed');
