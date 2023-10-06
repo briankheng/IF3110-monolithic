@@ -65,7 +65,7 @@ function searchProducts() {
 
 function searchProducts() {
     query = document.getElementById("queryproduct").value;
-    window.location.href = "http://localhost:8000/pages/product?query=" + query;
+    window.location.href = "http://localhost:8000/pages/home?query=" + query;
 }
 
 // debounce
