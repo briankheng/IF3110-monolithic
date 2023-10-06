@@ -44,14 +44,13 @@ class UserController extends Controller {
         }
     }
 
-    public function editUser() {
+    public function editUser($id) {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
-        $data['id'] = $_POST['id'];
+        $data['id'] = $id;
         $data['username'] = $_POST['username'];
-        $data['password'] = $_POST['password'];
         $data['name'] = $_POST['name'];
         $data['balance'] = $_POST['balance'];
 
@@ -60,9 +59,6 @@ class UserController extends Controller {
         if ($user && $user['id'] != $data['id']) {
             return json_response_fail("Username already exists!");
         }
-
-        // Hashing password
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         if ($this->model('UserModel')->editUser($data)) {
             json_response_success("User updated successfully!");
