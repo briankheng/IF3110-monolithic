@@ -6,7 +6,7 @@ function putNavbar(userRole) {
             { text: "Topup", icon: "topup.png", onClick: "http://localhost:8000/pages/topup" }
         ],
         admin: [
-            { text: "Edit Product", icon: "edit-product.png", onClick: redirectToEditProduct },
+            { text: "Edit Product", icon: "edit-product.png", onClick: redirectToAdminProduct },
             { text: "Handle Topup", icon: "topup.png", onClick: redirectToAdminTopUp },
             { text: "Users", icon: "user-manage.png", onClick: redirectToAdminUser }
         ],

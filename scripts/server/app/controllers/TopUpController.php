@@ -28,9 +28,22 @@ class TopUpController extends Controller {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
-        $data['idUser'] = $_POST['idUser'];
+        $data['username'] = $_POST['username'];
         $data['amount'] = $_POST['amount'];
         $data['status'] = $_POST['status'];
+
+        $user = $this->model('UserModel')->getUserByUsername($data['username']);
+
+        // Check if user exists
+        if (!$user) {
+            return json_response_fail("User not found!");
+        }
+        $data['idUser'] = $user['id'];
+
+        // Add amount to user's balance if status is 1
+        if ($data['status'] == 1) {
+            $this->model('UserModel')->addUserBalance($user['id'], $data['amount']);
+        }
 
         // Get current date
         $data['date'] = date('Y-m-d');
@@ -106,6 +119,10 @@ class TopUpController extends Controller {
 
         $data['id'] = $id;
         $data['status'] = 1;
+
+        // Add amount to user's balance
+        $topUp = $this->model('TopUpModel')->getTopUpById($id);
+        $this->model('UserModel')->addUserBalance($topUp['user_id'], $topUp['amount']);
 
         if ($this->model('TopUpModel')->editTopUp($data)) {
             json_response_success("Top up approved successfully!");
