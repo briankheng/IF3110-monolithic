@@ -18,3 +18,8 @@ define('USERNAME_REGISTERED','username_registered');
 
 // PRODUCT API RESPONSE
 define('PRODUCT_NOT_FOUND','product_not_found');
+
+// TOPUP API RESPONSE
+define('TOPUP_REQ_NOT_FOUND','topup_req_not_found');
+define('TOPUP_HIST_NOT_FOUND','topup_hist_not_found');
+define('TOPUP_CREATION_FAILED', 'topup_creation_failed');

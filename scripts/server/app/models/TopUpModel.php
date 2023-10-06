@@ -66,6 +66,40 @@ class TopUpModel {
 
         return $this->db->execute();
     }
+    
+    public function getTopUpRequested($id) {
+        $this->db->query('SELECT * FROM topUp WHERE idUser = :id AND status = 0 ORDER BY id');
+        $this->db->bind(':id', $id);
+
+        try {
+            return $this->db->resultSet();
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function getTopUpHistory($id) {
+        $this->db->query('SELECT * FROM topUp WHERE idUser = :id AND (status = 1 OR status = 2) ORDER BY id');
+        $this->db->bind(':id', $id);
+
+        try {
+            return $this->db->resultSet();
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function createTopUpRequest($id, $amount) {
+        $this->db->query('INSERT INTO topUp (idUser, amount, date, status) VALUES (:idUser, :amount, CURRENT_DATE, 0)');
+        $this->db->bind(':idUser', $id);
+        $this->db->bind(':amount', $amount);
+        
+        try {
+            return $this->db->execute();
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 
     public function editTopUp($data) {
         $this->db->query('UPDATE topUp SET status = :status WHERE id = :id');

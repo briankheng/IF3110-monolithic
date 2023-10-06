@@ -25,7 +25,7 @@ class TopUpController extends Controller {
 
     public function createTopUp() {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            return json_response_fail(INVALID_REQUEST_METHOD);
+            return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
         $data['idUser'] = $_POST['idUser'];
@@ -39,6 +39,63 @@ class TopUpController extends Controller {
             json_response_success("Top up created successfully!");
         } else {
             json_response_fail("Failed to create top up!");
+        }
+    }
+
+    public function getTopUpRequested() {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        if (!$_SESSION['user_id']) {
+            return json_response_fail(NOT_LOGGED_IN);
+        }
+
+        $data = $_SESSION['user_id'];
+        $res = $this->model('TopUpModel')->getTopUpRequested($data);
+
+        if ($res) {
+            json_response_success($res);
+        } else {
+            json_response_fail(TOPUP_REQ_NOT_FOUND);
+        }
+    }
+
+    public function getTopUpHistory() {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        if (!$_SESSION['user_id']) {
+            return json_response_fail(NOT_LOGGED_IN);
+        }
+
+        $data = $_SESSION['user_id'];
+        $res = $this->model('TopUpModel')->getTopUpHistory($data);
+
+        if ($res) {
+            json_response_success($res);
+        } else {
+            json_response_fail(TOPUP_HIST_NOT_FOUND);
+        }
+    }
+
+    public function createTopUpRequest() {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        if (!$_SESSION['user_id']) {
+            return json_response_fail(NOT_LOGGED_IN);
+        }
+
+        $data = $_SESSION['user_id'];
+        $res = $this->model('TopUpModel')->createTopUpRequest($data, $_POST['amount']);
+
+        if ($res) {
+            json_response_success($res);
+        } else {
+            json_response_fail(TOPUP_CREATION_FAILED);
         }
     }
 

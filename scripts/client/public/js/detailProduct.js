@@ -52,7 +52,7 @@ function appendData(productDetail) {
     div6.innerHTML += productDetail.price.toLocaleString("id-ID", {
         style: "currency",
         currency: "IDR",
-    });;
+    });
 
     var div7 = document.getElementById("productDesc");
     div7.innerHTML += productDetail.description;
