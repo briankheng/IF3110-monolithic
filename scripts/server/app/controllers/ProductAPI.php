@@ -99,6 +99,10 @@ class ProductAPI extends Controller {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
+        if (!isset($_SESSION['user_id'])) {
+            return json_response_fail(NOT_LOGGED_IN);
+        }
+
         $user_id = $_SESSION['user_id'];
         $product_id = $_POST['product_id'];
         $amount = $_POST['amount'];

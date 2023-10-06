@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 var product_id = urlParams.get('product_id');
 var product = null;
 let stock = 0;
-let nums = 0;
+let nums = 1;
 let price = 0;
 
 window.onload = function() {
@@ -12,7 +12,7 @@ window.onload = function() {
 }
 
 function getProduct() {
-    document.getElementById("numberamount").value = 0;
+    document.getElementById("numberamount").value = 1;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
@@ -23,8 +23,6 @@ function getProduct() {
                 appendData(products["data"]);
                 stock = products["data"].stock;
                 price = products["data"].price;
-            } else {
-                console.log("kosonkkkkk");
             }
         }
     };
@@ -59,7 +57,7 @@ function appendData(productDetail) {
 }
 
 function subsAmount() {
-    if (parseInt(document.getElementById("numberamount").value) > 0) {
+    if (parseInt(document.getElementById("numberamount").value) > 1) {
         document.getElementById("numberamount").value = parseInt(document.getElementById("numberamount").value) - 1;
     }
 }
@@ -80,7 +78,12 @@ function buyProduct() {
                 alert("Item successfully purchased!");
                 window.location.href = "http://localhost:8000/pages/home";
             } else {
-                alert(res['data']);
+                if (res['data'] == 'not_logged_in') {
+                    alert("You are not logged in, please log in first!");
+                    window.location.href = "http://localhost:8000/pages/login";
+                } else {
+                    alert(res['data']);
+                }
             }
         }
     };
