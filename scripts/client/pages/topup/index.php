@@ -6,17 +6,21 @@
         <div class="historyTopupSec">
             <div class="toupUpReq">
                 <div class="topuptitle">Pending</div>
+                <div class="col-name1">
+                    <div>Date</div>
+                    <div>Amount</div>
+                </div>
                 <div class="topupgrid1" id="pending-grid">
-                    <div class="col-name">Date</div>
-                    <div class="col-name">Amount</div>
                 </div>
             </div>
             <div class="toupUpAcc">
                 <div class="topuptitle">History</div>
+                <div class="col-name2">
+                    <div>Date</div>
+                    <div>Status</div>
+                    <div>Amount</div>
+                </div>
                 <div class="topupgrid2" id="historytopup-grid">
-                    <div class="col-name">Date</div>
-                    <div class="col-name">Status</div>
-                    <div class="col-name">Amount</div>
                 </div>
             </div>
         </div>
