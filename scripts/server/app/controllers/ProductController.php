@@ -153,19 +153,6 @@ class ProductController extends Controller {
         }
     }
 
-    public function showAllcategories() {
-        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
-            return json_response_fail(METHOD_NOT_ALLOWED);
-        }
-
-        $res = $this->model('CategoryModel')->showAllcategories();
-        if ($res) {
-            json_response_success($res);
-        } else {
-            json_response_fail(PRODUCT_NOT_FOUND);
-        }
-    }
-
     public function queryProduct($page = 1, $limit_page = 10) {
         // Blocking other method
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -232,7 +219,7 @@ class ProductController extends Controller {
 
         try {
             // Mengurangi jumlah duit
-            $res1 = $this->model('UsersModel')->updateCash($user_id, $total * $amount);
+            $res1 = $this->model('UserModel')->updateCash($user_id, $total * $amount);
             if (!$res1) {
                 // If updating user's cash fails, rollback the transaction
                 throw new Exception("Insufficient amount of money");

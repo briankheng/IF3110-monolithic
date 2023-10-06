@@ -10,4 +10,17 @@ class CategoryController extends Controller {
 
         return json_response_success($categories);
     }
+
+    public function showAllcategories() {
+        if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+            return json_response_fail(METHOD_NOT_ALLOWED);
+        }
+
+        $res = $this->model('CategoryModel')->getAllCategories();
+        if ($res) {
+            json_response_success($res);
+        } else {
+            json_response_fail(PRODUCT_NOT_FOUND);
+        }
+    }
 }

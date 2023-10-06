@@ -10,6 +10,10 @@ class CategoryModel {
     public function getAllCategories() {
         $this->db->query('SELECT * FROM category ORDER BY id');
 
-        return $this->db->resultSet();
+        try {
+            return $this->db->resultSet();
+        } catch (PDOException $e) {
+            return  false;
+        }
     }
 }
