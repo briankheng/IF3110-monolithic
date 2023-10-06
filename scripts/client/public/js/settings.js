@@ -45,7 +45,6 @@ document.getElementById('settings-form').addEventListener('submit', function(eve
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var responseText = xhr.responseText;
-            alert($_SESSION['user_id']);
             if (responseText.trim() === '') {
                 window.location.href = 'http://localhost:8000/client/pages/login';
             }
