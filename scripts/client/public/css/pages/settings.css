@@ -16,6 +16,23 @@
     
 }
 
+@media screen and (max-width: 900px) {
+    .acct-ctn {
+        width: fit-content;
+        height: fit-content;
+        margin: 3% 0;
+        padding: 5% 10% 25%;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1280px) {
+    .acct-ctn {
+        width: 80%;
+        margin: 3% 0;
+    }
+}
+
+
 .acct-title {
     display: flex;
     font-weight: 700;
@@ -88,13 +105,37 @@ button[type=submit]:hover {
 }
 
 @media screen and (max-width: 900px) {
+    .acct-title {
+        font-size: medium;
+    }
+
     .grid-container {
         grid-template-columns : auto; 
         width : auto;
         margin: 3% 0;
+        gap: 2%;
+        font-size: small;
+    }
+
+    #balance {
+        margin-bottom: 5%;
     }
     
     button[type=submit] {
         grid-column : span 1; 
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1280px) {
+    .grid-container {
+        grid-template-columns : auto; 
+        width : auto;
+        margin: 3% 0;
+        gap: 4%;
+        font-size: small;
+    }
+
+    #balance {
+        margin-bottom: 8%;
     }
 }
