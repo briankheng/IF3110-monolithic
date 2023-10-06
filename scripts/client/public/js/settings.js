@@ -4,7 +4,7 @@ window.onload = function() {
     xhr.open('GET', 'http://localhost:8000/api/auth/getInfo', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            if (this.responseText == "User is not logged in.") { 
+            if (this.responseText == "NOT_LOGGED_IN") { 
                 window.location.href = "http://localhost:8000/client/pages/login";
             }
             var data = JSON.parse(xhr.responseText);

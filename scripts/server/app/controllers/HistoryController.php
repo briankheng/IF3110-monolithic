@@ -4,7 +4,7 @@ class HistoryController extends Controller {
 
     public function getTopUpHistory() {
         if (!$_SESSION['user_id']) {
-            echo "User is not logged in.";
+            echo "NOT_LOGGED_IN";
             return;
         }
         $data = $_SESSION['user_id'];
@@ -15,7 +15,7 @@ class HistoryController extends Controller {
 
     public function getBuyHistory() {
         if (!$_SESSION['user_id']) {
-            echo "User is not logged in.";
+            echo "NOT_LOGGED_IN";
             return;
         }
         $data = $_SESSION['user_id'];
