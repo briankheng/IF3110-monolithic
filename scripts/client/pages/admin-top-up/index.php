@@ -3,7 +3,7 @@
 <style><?php include '../../public/css/pages/admin-top-up.css'; ?></style>
 
 <div id="top-up-header">
-    <h1 id="top-up-title">Admin's Top Up Page</h1>
+    <h1 id="top-up-title">Admin's Top Up</h1>
     <button id="top-up-create-btn" onClick="redirectToCreateTopUp()">Create Top Up</button>
 </div>
 <div id="top-up-container"></div>

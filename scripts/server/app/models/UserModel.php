@@ -9,7 +9,8 @@ class UserModel {
     }
 
     public function getAllUsers() {
-        $this->db->query('SELECT * FROM users ORDER BY id');
+        $this->db->query('SELECT * FROM users WHERE role = :role ORDER BY id');
+        $this->db->bind(':role', 'user');
 
         return $this->db->resultSet();
     }
@@ -53,7 +54,8 @@ class UserModel {
     }
 
     public function getUsersByPage($page) {
-        $this->db->query('SELECT * FROM users ORDER BY id LIMIT :limit OFFSET :offset');
+        $this->db->query('SELECT * FROM users WHERE role = :role ORDER BY id LIMIT :limit OFFSET :offset');
+        $this->db->bind(':role', 'user');
         $this->db->bind(':limit', (int) ROWS_PER_PAGE);
         $this->db->bind(':offset', ($page - 1) * ROWS_PER_PAGE);
 
@@ -110,5 +112,34 @@ class UserModel {
         } catch (PDOException $e) {
             return false;
         }
-    }   
+    }
+    
+    public function createUser($data) {
+        $this->db->query('INSERT INTO users (username, password, name, role, balance) VALUES (:username, :password, :name, :role, :balance)');
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':role', $data['role']);
+        $this->db->bind(':balance', $data['balance']);
+
+        return $this->db->execute();
+    }
+
+    public function editUser($data) {
+        $this->db->query('UPDATE users SET username = :username, password = :password, name = :name, balance = :balance WHERE id = :id');
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':balance', $data['balance']);
+
+        return $this->db->execute();
+    }
+
+    public function deleteUser($id) {
+        $this->db->query('DELETE FROM users WHERE id = :id');
+        $this->db->bind(':id', $id);
+
+        return $this->db->execute();
+    }
 }

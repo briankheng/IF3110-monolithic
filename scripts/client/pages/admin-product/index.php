@@ -3,7 +3,7 @@
 <style><?php include '../../public/css/pages/admin-product.css'; ?></style>
     
 <div id="product-header">
-    <h1 id="product-title">Admin's Product Page</h1>
+    <h1 id="product-title">Admin's Product</h1>
     <button id="product-create-btn" onclick="redirectToCreateProduct()">Create Product</button>
 </div>
 <div id="product-container"></div>

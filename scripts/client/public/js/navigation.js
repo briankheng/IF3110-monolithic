@@ -74,3 +74,11 @@ function redirectToCreateTopUp() {
 function redirectToAdminUser() {
     window.location.href = "http://localhost:8000/pages/admin-user";
 }
+
+function redirectToCreateUser() {
+    window.location.href = "http://localhost:8000/pages/admin-user-create";
+}
+
+function redirectToEditUser(id) {
+    window.location.href = "http://localhost:8000/pages/admin-user-edit?id=" + id;
+}
