@@ -20,10 +20,11 @@
 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 900px) {
     .reg-ctn {
-        width: 75%;
+        width: 80%;
         margin: 3% 0;
+        padding: 7% 5%;
     }
 }
 
