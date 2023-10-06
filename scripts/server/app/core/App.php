@@ -19,7 +19,7 @@ class App {
         if (isset($url[0]) && file_exists(__DIR__ . '/../controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
         } else {
-            echo json_encode(Array('status' => false, 'message' => API_NOT_FOUND));
+            echo json_encode(Array('status' => false, 'message' => "api_not_found"));
             return;
         }
 

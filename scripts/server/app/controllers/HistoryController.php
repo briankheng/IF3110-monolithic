@@ -8,7 +8,7 @@ class HistoryController extends Controller {
             return;
         }
         $data = $_SESSION['user_id'];
-        $topUpHistory = $this->model('History')->getAllTopUpHistory($data);
+        $topUpHistory = $this->model('HistoryModel')->getAllTopUpHistory($data);
 
         json_response_success($topUpHistory);
     }
@@ -19,7 +19,7 @@ class HistoryController extends Controller {
             return;
         }
         $data = $_SESSION['user_id'];
-        $buyHistory = $this->model('History')->getAllBuyHistory($data);
+        $buyHistory = $this->model('HistoryModel')->getAllBuyHistory($data);
     
         json_response_success($buyHistory);
     }

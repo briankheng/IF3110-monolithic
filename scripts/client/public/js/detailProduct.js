@@ -26,7 +26,7 @@ function getProduct() {
             }
         }
     };
-    xhttp.open("GET", "http://localhost:8000/api/productapi/getproduct?product_id="+product_id, true);
+    xhttp.open("GET", "http://localhost:8000/api/productcontroller/getproduct?product_id="+product_id, true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.withCredentials = true;
     xhttp.send();
@@ -95,7 +95,7 @@ function buyProduct() {
         "amount": nums,
         "total": price
     };
-    xhttp.open("POST","http://localhost:8000/api/productapi/buyProduct",true);
+    xhttp.open("POST","http://localhost:8000/api/productcontroller/buyProduct",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.withCredentials = true;

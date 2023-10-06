@@ -16,7 +16,7 @@ class Auth extends Controller {
             $data['name'] = $_POST['name'];
             $data['role'] = $_POST['role'];
             
-            if ($this->model('Users')->signup($data)) {
+            if ($this->model('UserModel')->signup($data)) {
                 json_response_success("success");
             } else {
                 json_response_fail("fail");
@@ -29,7 +29,7 @@ class Auth extends Controller {
             $username = $_POST['username'];
             $password = $_POST['password'];
     
-            $user = $this->model('Users')->getPassword($username);
+            $user = $this->model('UserModel')->getPassword($username);
             if ($user === false) {
                 echo "Username not found.\n";
                 return;
@@ -54,7 +54,7 @@ class Auth extends Controller {
 
     public function info() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION["user_id"])) {
-            $user_data = $this->model('Users')->getUserById($_SESSION["user_id"]);
+            $user_data = $this->model('UserModel')->getUserById($_SESSION["user_id"]);
             json_response_success($user_data);
         } else {
             json_response_fail(NOT_LOGGED_IN);
@@ -66,7 +66,7 @@ class Auth extends Controller {
             echo "NOT_LOGGED_IN";
             return;
         }
-        $user = $this->model('Users')->getUserInfo($_SESSION['user_id']);
+        $user = $this->model('UserModel')->getUserInfo($_SESSION['user_id']);
         echo json_encode($user);
     }
 
@@ -82,7 +82,7 @@ class Auth extends Controller {
                 'id' => $id
             ];
     
-            $user = $this->model('Users')->changeAccountSettings($data);
+            $user = $this->model('UserModel')->changeAccountSettings($data);
         }     
     } 
 }

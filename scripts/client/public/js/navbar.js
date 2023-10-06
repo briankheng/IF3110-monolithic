@@ -57,7 +57,7 @@ function searchProducts() {
             appendData(products['data']);
         }
     };
-    xhttp.open("GET","http://localhost:8000/api/productapi/showAllproducts",true);
+    xhttp.open("GET","http://localhost:8000/api/productcontroller/showAllproducts",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.withCredentials = true;
     xhttp.send();
