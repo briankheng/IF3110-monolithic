@@ -1,6 +1,6 @@
 <?php
 
-class History {
+class HistoryModel {
     private $db;
 
     public function __construct() {
