@@ -43,13 +43,6 @@ class ProductModel {
         return $this->db->single();
     }
 
-    public function getProductsByCategory($idCategory) {
-        $this->db->query('SELECT * FROM product WHERE idCategory = :idCategory');
-        $this->db->bind(':idCategory', (int) $idCategory);
-
-        return $this->db->resultSet();
-    }
-
     public function getProductsByPage($page) {
         $this->db->query('SELECT 
                             product.id AS product_id,
@@ -76,13 +69,6 @@ class ProductModel {
         $this->db->bind(':name', $name);
 
         return $this->db->single();
-    }
-
-    public function searchProduct($keyword) {
-        $this->db->query('SELECT * FROM product WHERE name LIKE :keyword');
-        $this->db->bind(':keyword', '%' . $keyword . '%');
-
-        return $this->db->resultSet();
     }
 
     public function createProduct($data) {

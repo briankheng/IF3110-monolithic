@@ -51,8 +51,6 @@ function redirectToSettings() {
     window.location.href = "http://localhost:8000/pages/settings";
 }
 
-
-
 function redirectToAdminProduct() {
     window.location.href = "http://localhost:8000/pages/admin-product";
 }
@@ -65,10 +63,14 @@ function redirectToEditProduct(id) {
     window.location.href = "http://localhost:8000/pages/admin-product-edit?id=" + id;
 }
 
-function redirectToHandleTopup() {
-    window.location.href = "http://localhost:8000/pages/admin/handle-top-up";
+function redirectToAdminTopUp() {
+    window.location.href = "http://localhost:8000/pages/admin-top-up";
 }
 
-function redirectToEditUsers() {
-    window.location.href = "http://localhost:8000/pages/admin/edit-user";
+function redirectToCreateTopUp() {
+    window.location.href = "http://localhost:8000/pages/admin-top-up-create";
+}
+
+function redirectToAdminUser() {
+    window.location.href = "http://localhost:8000/pages/admin-user";
 }

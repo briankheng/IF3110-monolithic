@@ -17,20 +17,8 @@ class ProductController extends Controller {
         json_response_success($product);
     }
 
-    public function getProductsByCategory($idCategory) {
-        $products = $this->model('ProductModel')->getProductsByCategory($idCategory);
-
-        json_response_success($products);
-    }
-
     public function getProductsByPage($page) {
         $products = $this->model('ProductModel')->getProductsByPage($page);
-
-        json_response_success($products);
-    }
-
-    public function searchProduct($keyword) {
-        $products = $this->model('ProductModel')->searchProduct($keyword);
 
         json_response_success($products);
     }
@@ -75,9 +63,9 @@ class ProductController extends Controller {
         }
 
         if ($this->model('ProductModel')->createProduct($data)) {
-            return json_response_success("Success to create product!");
+            return json_response_success("Product created successfully!");
         } else {
-            return json_response_fail("Fail to create product!");
+            return json_response_fail("Failed to create product!");
         }
     }
 
@@ -117,9 +105,9 @@ class ProductController extends Controller {
         }
 
         if ($this->model('ProductModel')->editProduct($data)) {
-            json_response_success("success");
+            json_response_success("Product edited successfully!");
         } else {
-            json_response_fail("fail");
+            json_response_fail("Failed to edit product!");
         }
     }
 
@@ -129,9 +117,9 @@ class ProductController extends Controller {
         }
 
         if ($this->model('ProductModel')->deleteProduct($id)) {
-            json_response_success("success");
+            json_response_success("Product deleted successfully!");
         } else {
-            json_response_fail("fail");
+            json_response_fail("Failed to delete product!");
         }
     }
 }

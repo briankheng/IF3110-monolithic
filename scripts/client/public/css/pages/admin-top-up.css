@@ -1,0 +1,168 @@
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+#top-up-header {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#top-up-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#top-up-create-btn {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #16E957;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#top-up-container {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+
+.top-up-card {
+    width: 90%;    
+    background-color: #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.top-up-info {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.top-up-user {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.top-up-date {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.top-up-amount {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.amount-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+.top-up-status {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.top-up-action {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    margin-left: 15%;
+}
+
+.top-up-action-item {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#pagination-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.pagination-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination-item {
+    margin: 0 5px;
+}
+
+.active {
+    color: #000;
+    font-weight: bold;
+}

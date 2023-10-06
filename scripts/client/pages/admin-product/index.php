@@ -2,7 +2,10 @@
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 <style><?php include '../../public/css/pages/admin-product.css'; ?></style>
     
-<button class="btn" onclick="redirectToCreateProduct()"><img src="/public/images/edit-product.png" alt="create-product" class="create-product-icon">Create Product</button>
+<div id="product-header">
+    <h1 id="product-title">Admin's Product Page</h1>
+    <button id="product-create-btn" onclick="redirectToCreateProduct()">Create Product</button>
+</div>
 <div id="product-container"></div>
 <div id="pagination-container"></div>
 
