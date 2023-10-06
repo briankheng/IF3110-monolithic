@@ -47,7 +47,7 @@ class TopUpController extends Controller {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
-        if (!$_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             return json_response_fail(NOT_LOGGED_IN);
         }
 
@@ -66,7 +66,7 @@ class TopUpController extends Controller {
             return json_response_fail(METHOD_NOT_ALLOWED);
         }
 
-        if (!$_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             return json_response_fail(NOT_LOGGED_IN);
         }
 

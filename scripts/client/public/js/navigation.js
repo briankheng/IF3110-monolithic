@@ -7,8 +7,8 @@ function putNavbar(userRole) {
         ],
         admin: [
             { text: "Edit Product", icon: "edit-product.png", onClick: redirectToEditProduct },
-            { text: "Handle Topup", icon: "topup.png", onClick: redirectToHandleTopup },
-            { text: "Users", icon: "user-manage.png", onClick: redirectToEditUsers }
+            { text: "Handle Topup", icon: "topup.png", onClick: redirectToAdminTopUp },
+            { text: "Users", icon: "user-manage.png", onClick: redirectToAdminUser }
         ],
         guest : [],
     };
