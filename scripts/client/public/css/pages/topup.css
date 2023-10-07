@@ -3,6 +3,7 @@
     padding-right: 2.5rem;
     margin-top: 1rem;
     height: 80vh;
+    overflow-y: auto;
 }
 
 .topupContainer {
@@ -11,6 +12,65 @@
     height: 100%;
     flex-direction: row;
     column-gap: 2%;
+}
+
+@media only screen and (max-width: 1035px) {
+    #topup {
+        height: 100% !important;
+    }
+
+    .topupContainer {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .mainTopupSec {
+        width: 100% !important;
+        height: 100%;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        display: flex;
+    }
+
+    .historyTopupSec {
+        width: 100% !important;
+        height: 100%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+    }
+
+    .toupUpReq {
+        margin-bottom: 2rem;
+    }
+
+    .topuplogo {
+        width: 20% !important;
+    }
+
+    .topupSec {
+        margin-top: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 655px) {
+    .topuplogo {
+        width: 20% !important;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    .topuplogo {
+        width: 40% !important;
+    }
+
+    #amount {
+        width: 15rem !important;
+        height: 1rem !important;
+        padding: 1rem;
+        border-radius: 25px;
+        font-size: 1rem;
+    }
 }
 
 .historyTopupSec {
