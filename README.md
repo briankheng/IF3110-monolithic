@@ -1,5 +1,5 @@
-# Monopoly Game
-Tugas Besar IF3110 Web Based Development
+# KBL E-Commerce
+Tugas Besar 1 IF3110 Web Based Development
 <br />
 
 ## Table of Contents
