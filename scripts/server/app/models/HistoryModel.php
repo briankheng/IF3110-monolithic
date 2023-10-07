@@ -8,7 +8,7 @@ class HistoryModel {
     }
 
     public function getAllTopUpHistory($data) {
-        $this->db->query('SELECT date, amount FROM topUp where idUser = :idUser');
+        $this->db->query('SELECT date, amount FROM topUp where idUser = :idUser and status = 1');
         $this->db->bind(':idUser', $data);
 
         try {
