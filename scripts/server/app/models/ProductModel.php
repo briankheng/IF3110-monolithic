@@ -43,7 +43,7 @@ class ProductModel {
                             product.price,
                             product.stock
                         FROM product
-                        INNER JOIN category ON product.idCategory = category.id
+                        INNER JOIN category ON product.idCategory = category.id WHERE stock > 0 
                         ORDER BY product.name');
 
         return $this->db->resultSet();
@@ -59,7 +59,7 @@ class ProductModel {
                             price,
                             stock
                         FROM product
-                        INNER JOIN category ON product.idCategory = category.id
+                        INNER JOIN category ON product.idCategory = category.id 
                         WHERE product.id = :id
                         ORDER BY product.name');
         $this->db->bind(':id', (int) $id);
@@ -83,7 +83,7 @@ class ProductModel {
                             product.price,
                             product.stock
                         FROM product
-                        INNER JOIN category ON product.idCategory = category.id
+                        INNER JOIN category ON product.idCategory = category.id 
                         WHERE product.id = :id
                         ORDER BY product.name');
         $this->db->bind(':id', (int) $id);
@@ -102,7 +102,8 @@ class ProductModel {
                             product.price,
                             product.stock
                         FROM product
-                        INNER JOIN category ON product.idCategory = category.id
+                        INNER JOIN category ON product.idCategory = category.id 
+                        WHERE stock > 0
                         ORDER BY product.name
                         LIMIT :limit
                         OFFSET :offset');

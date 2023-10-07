@@ -6,9 +6,9 @@ function putNavbar(userRole) {
             { text: "Topup", icon: "topup.png", onClick: "http://localhost:8000/pages/topup" }
         ],
         admin: [
-            { text: "Edit Product", icon: "edit-product.png", onClick: redirectToAdminProduct },
-            { text: "Handle Topup", icon: "topup.png", onClick: redirectToAdminTopUp },
-            { text: "Users", icon: "user-manage.png", onClick: redirectToAdminUser }
+            { text: "Edit Product", icon: "edit-product.png", onClick: "http://localhost:8000/pages/admin-product" },
+            { text: "Handle Topup", icon: "topup.png", onClick: "http://localhost:8000/pages/admin-top-up" },
+            { text: "Users", icon: "user-manage.png", onClick: "http://localhost:8000/pages/admin-user" }
         ],
         guest : [],
     };
@@ -51,10 +51,6 @@ function redirectToSettings() {
     window.location.href = "http://localhost:8000/pages/settings";
 }
 
-function redirectToAdminProduct() {
-    window.location.href = "http://localhost:8000/pages/admin-product";
-}
-
 function redirectToCreateProduct() {
     window.location.href = "http://localhost:8000/pages/admin-product-create";
 }
@@ -63,16 +59,8 @@ function redirectToEditProduct(id) {
     window.location.href = "http://localhost:8000/pages/admin-product-edit?id=" + id;
 }
 
-function redirectToAdminTopUp() {
-    window.location.href = "http://localhost:8000/pages/admin-top-up";
-}
-
 function redirectToCreateTopUp() {
     window.location.href = "http://localhost:8000/pages/admin-top-up-create";
-}
-
-function redirectToAdminUser() {
-    window.location.href = "http://localhost:8000/pages/admin-user";
 }
 
 function redirectToCreateUser() {
