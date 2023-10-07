@@ -26,7 +26,7 @@
         </div>
         <div class="mainTopupSec">
             <div class="topuplogo">
-                <img class="mainlogo" src="/../public/images/topup.png"></img>
+                <img class="mainlogo" src="/../public/images/topup.png" alt="topuplogo"></img>
             </div>
             <div class="topupSec">
                 <div class="topupSectitle">Top up Page</div>
