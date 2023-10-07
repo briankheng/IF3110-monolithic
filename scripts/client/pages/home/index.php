@@ -1,6 +1,11 @@
 <?php require_once __DIR__ . "/../template/header.php" ?>
 <?php require_once __DIR__ . "/../template/navbar.php" ?>
 
+<style>
+    /* page css part */
+    <?php include '../../public/css/pages/product.css'; ?>
+</style>
+
 <section id="product">
     <div class="queryCt">
         <div class="productMenu">

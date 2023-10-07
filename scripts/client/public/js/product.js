@@ -172,26 +172,31 @@ function appendData(data, target) {
         }
         if (target=='queryResultProduct') {
             mainContainer.innerHTML += 
-                '<div class="card" id='+ data[i].product_id+' onclick="rerouteproduct(this.id)"> \
-                    <img src="/../public/assets/images/' + data[i].image + '" class="cardImage"> \
+                `<div class="card" onclick="rerouteproduct(${data[i].product_id})"> \
+                    <div class="cardImage"> \
+                        ${data[i].image.includes('.mp4') ? 
+                        `<video src="/public/assets/videos/${data[i].image}" alt="Product Image" autoplay loop muted></video>` :
+                        `<img src="/public/assets/images/${data[i].image}" alt="Product Image">`
+                        }
+                    </div> \
                     <div class="productdesc"> \
                         <div class="stockCategory"> \
                             <div class="category"> \
-                                <img src="/public/images/category.png" class="cardIcon">'
-                                + data[i].category_name + 
-                            '</div> \
+                                <img src="/public/images/category.png" class="cardIcon">
+                                ${data[i].category_name}
+                            </div> \
                             <div class="stock"> \
-                                <img src="/public/images/quantity.png" class="cardIcon">' 
-                                + data[i].stock + 
-                            '</div> \
+                                <img src="/public/images/quantity.png" class="cardIcon"> 
+                                ${data[i].stock} 
+                            </div> \
                         </div> \
-                        <div class="productTitle">' + data[i].product_name + '</div> \
-                        <div class="price">' + data[i].price.toLocaleString("id-ID", {
+                        <div class="productTitle"> ${data[i].product_name} </div> \
+                        <div class="price"> ${data[i].price.toLocaleString("id-ID", {
                             style: "currency",
                             currency: "IDR",
-                        }); + '</div> \
+                        })}</div> \
                     </div> \
-                </div>';
+                </div>`;
         }
     }
     mainContainer.style.display = "flex";

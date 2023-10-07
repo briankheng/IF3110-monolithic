@@ -10,8 +10,8 @@
 
 #numsofObj {
     background-color: inherit;
-    font-size: 1.5rem;
-    width: 1.7rem;
+    font-size: 1.25rem;
+    width: 1.5rem;
     color: white;
     border: none;
     justify-items: center;
@@ -20,8 +20,8 @@
 
 #numsofObj::placeholder {
     background-color: inherit;
-    font-size: 1.5rem;
-    width: 1.7rem;
+    font-size: 1.25rem;
+    width: 1.5rem;
     color: white;
     border: none;
     justify-items: center;
@@ -35,7 +35,7 @@
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 1175px) {
+@media only screen and (max-width: 1315px) {
     .productMenu {
         flex-direction: column;
     }
@@ -48,14 +48,15 @@
 
 .pageTitle {
     float: left;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     flex-wrap: nowrap;
     display: flex;
     align-items: center;
 }
 
 .listTitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     align-items: center;
     margin-bottom: 1.5rem;
     display: inline;
@@ -68,6 +69,14 @@
     }
 
     .listTitle {
+        font-size: 1.2rem;
+    }
+
+    #numsofObj {
+        font-size: 1.2rem;
+    }
+
+    #numsofObj::placeholder {
         font-size: 1.2rem;
     }
 
@@ -86,6 +95,10 @@
 
 @media only screen and (max-width: 440px) {
     .pageTitle {
+        font-size: 1rem;
+    }
+
+    #numsofObj::placeholder {
         font-size: 1rem;
     }
 
@@ -231,31 +244,45 @@
     }
 }
 
-@media screen and (min-width: 1010px) {
+@media screen and (max-width: 1260px) {
     .card {
-        width: 25%;
+        width: calc(34% - 70px) !important;
     }
 }
 
-@media screen and (min-width: 936px) {
+@media screen and (max-width: 920px) {
     .card {
-        width: 40%;
+        width: calc(50% - 60px) !important;
     }
+}
+
+@media screen and (max-width: 570px) {
+    .card {
+        width: 100% !important;
+    }
+}
+
+#queryResultProduct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .card {
     background-color: #121212;
     border-radius: 17px;
-    padding: 8px;
-    margin: 8px;
+    padding: 20px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    width: 20vw;
+    justify-content: space-between;
+    width: calc(25% - 60px);
     font-size: 10px;
     cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
@@ -270,21 +297,23 @@
 }
 
 .cardImage {
-    width: 19vw;
-    height: 30vh;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cardImage img, .cardImage video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
-    margin-top: 1vh;
-    margin-bottom: 2vh;
 }
 
 .productdesc {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    width: 90%;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .productTitle {
