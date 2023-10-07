@@ -131,7 +131,7 @@ class ProductController extends Controller {
                 move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
             }
         } else {
-            $data['image'] = 'default.jpg';
+            $data['image'] = $this->model('ProductModel')->getProductById($id)['image'];
         }
 
         if ($this->model('ProductModel')->editProduct($data)) {
