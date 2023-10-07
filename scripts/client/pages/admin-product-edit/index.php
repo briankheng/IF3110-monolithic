@@ -17,10 +17,10 @@
                 <textarea name="description" required></textarea>
                 
                 <label for="price">Price <span class="required-field">*</span></label>
-                <input type="number" name="price" required>
+                <input type="number" name="price" required min="0">
 
                 <label for="stock">Stock <span class="required-field">*</span></label>
-                <input type="number" name="stock" required>
+                <input type="number" name="stock" required min="0">
 
                 <!-- Dropdown Category -->
                 <label for="idCategory">Category <span class="required-field">*</span></label>
