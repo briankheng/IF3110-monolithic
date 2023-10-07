@@ -73,15 +73,14 @@
 
 #buy-history-grid, #topup-history-grid {
     padding: 1% 3%;
+    margin-top: 1%;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 45%;
     font-size: small;
     font-weight: 400;
-    align-items: center;
     gap: 2vh;
-    align-items: center;
 
-    max-height: 50vh; 
+    height: 65%; 
     overflow-y: auto; 
 }
 
