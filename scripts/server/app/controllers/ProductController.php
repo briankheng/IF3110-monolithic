@@ -81,12 +81,12 @@ class ProductController extends Controller {
                 }
             }
 
-            if ($imageType == 'jpg' || $imageType == 'png') {
-                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
-                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
-            } else {
+            if (strtolower($imageType) == 'mp4') {
                 $videoPath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/videos/' . $data['image'];
                 move_uploaded_file($_FILES['image']['tmp_name'], $videoPath);
+            } else {
+                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
             }
         } else {
             $data['image'] = 'default.jpg';
@@ -123,12 +123,12 @@ class ProductController extends Controller {
                 }
             }
 
-            if ($imageType == 'jpg' || $imageType == 'png') {
-                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
-                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
-            } else {
+            if (strtolower($imageType) == 'mp4') {
                 $videoPath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/videos/' . $data['image'];
                 move_uploaded_file($_FILES['image']['tmp_name'], $videoPath);
+            } else {
+                $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/client/public/assets/images/' . $data['image'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
             }
         } else {
             $data['image'] = 'default.jpg';
