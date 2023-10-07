@@ -11,6 +11,47 @@
     column-gap: 4%;
 }
 
+@media only screen and (max-width: 920px) {
+    .detailContainer {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        column-gap: 4%;
+    }
+
+    .detailImage {
+        width: 90% !important;
+        margin-bottom: 2rem;
+    }
+
+    #productImage {
+        width: 100% !important;
+    }
+
+    .productInfo {
+        width: 100% !important;
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #productName {
+        font-size: 3rem !important;
+        margin-bottom: 0.1rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #productName {
+        font-size: 2.5rem !important;
+        margin-bottom: 0.1rem;
+    }
+
+    #productPrice {
+        font-size: 1.25rem !important;  
+    }
+}
+
 .detailImage {
     width: 38%;
     border-radius: 2rem;
