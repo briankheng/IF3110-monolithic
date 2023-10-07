@@ -19,7 +19,10 @@ window.onload = function() {
                 grid.appendChild(divDate);
 
                 var divTotalPrice = document.createElement('div');
-                divTotalPrice.textContent = item.totalprice;
+                divTotalPrice.textContent = item.totalprice.toLocaleString("id-ID", {
+                    style: "currency",
+                    currency: "IDR",
+                });;
                 divTotalPrice.className = 'grid-value';
                 grid.appendChild(divTotalPrice);
             });
@@ -43,7 +46,10 @@ window.onload = function() {
                 grid.appendChild(divDate);
 
                 var divNominal = document.createElement('div');
-                divNominal.textContent = item.amount;
+                divNominal.textContent = item.amount.toLocaleString("id-ID", {
+                    style: "currency",
+                    currency: "IDR",
+                });;
                 divNominal.className = 'grid-value';
                 grid.appendChild(divNominal);
             });
