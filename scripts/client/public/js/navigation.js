@@ -2,13 +2,13 @@ function putNavbar(userRole) {
     // Create an object to store navigation data for different roles
     const navData = {
         user: [
-            { text: "History", icon: "history.png", onClick: "http://localhost:8000/pages/history" },
-            { text: "Topup", icon: "topup.png", onClick: "http://localhost:8000/pages/topup" }
+            { text: "History", icon: "history.png", alt: "history", onClick: "http://localhost:8000/pages/history" },
+            { text: "Topup", icon: "topup.png", alt: "topup", onClick: "http://localhost:8000/pages/topup" }
         ],
         admin: [
-            { text: "Edit Product", icon: "edit-product.png", onClick: "http://localhost:8000/pages/admin-product" },
-            { text: "Handle Topup", icon: "topup.png", onClick: "http://localhost:8000/pages/admin-top-up" },
-            { text: "Users", icon: "user-manage.png", onClick: "http://localhost:8000/pages/admin-user" }
+            { text: "Edit Product", icon: "edit-product.png", alt: "editpro", onClick: "http://localhost:8000/pages/admin-product" },
+            { text: "Handle Topup", icon: "topup.png", alt: "topup", onClick: "http://localhost:8000/pages/admin-top-up" },
+            { text: "Users", icon: "user-manage.png", alt: "user", onClick: "http://localhost:8000/pages/admin-user" }
         ],
         guest : [],
     };
@@ -21,7 +21,7 @@ function putNavbar(userRole) {
         function createNavItem(item) {
             navRight.innerHTML += `
             <div class="navItems" onclick="window.location.href='${item.onClick}'">
-                <img class="navIcon" src="../../public/images/${item.icon}"/>
+                <img class="navIcon" src="../../public/images/${item.icon}" alt="${item.alt}"/>
                 <span class="navText">${item.text}</span>
             </div>`;
         }
@@ -32,7 +32,7 @@ function putNavbar(userRole) {
     navRight.innerHTML += 
         '<div class="navCollapse"> \
             <div class="navItems"> \
-                <img class="navIcon" src="../../public/images/user.png"/> \
+                <img class="navIcon" src="../../public/images/user.png" alt="profile"/> \
                 <span class="navText" id="unameuser"></span> \
                 <i class="fa fa-caret-down"></i> \
             </div> \

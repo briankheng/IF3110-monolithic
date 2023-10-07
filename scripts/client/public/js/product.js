@@ -182,11 +182,11 @@ function appendData(data, target) {
                     <div class="productdesc"> \
                         <div class="stockCategory"> \
                             <div class="category"> \
-                                <img src="/public/images/category.png" class="cardIcon">
+                                <img src="/public/images/category.png" class="cardIcon" alt="category">
                                 ${data[i].category_name}
                             </div> \
                             <div class="stock"> \
-                                <img src="/public/images/quantity.png" class="cardIcon"> 
+                                <img src="/public/images/quantity.png" class="cardIcon" alt="stock"> 
                                 ${data[i].stock} 
                             </div> \
                         </div> \
