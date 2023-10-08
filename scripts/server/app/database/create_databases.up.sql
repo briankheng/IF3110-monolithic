@@ -1,0 +1,50 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    balance INTEGER NOT NULL DEFAULT 0,
+    CONSTRAINT UC_IDUser UNIQUE (id),
+    CONSTRAINT UC_Username UNIQUE (username)
+);
+
+CREATE TABLE category (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    CONSTRAINT UC_IDCategory UNIQUE (id)
+);
+
+CREATE TABLE product (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(500) NOT NULL,
+    image VARCHAR(255),
+    description VARCHAR(255) NOT NULL,
+    idCategory INTEGER NOT NULL,
+    price INTEGER NOT NULL,
+    stock INTEGER NOT NULL,
+    FOREIGN KEY (idCategory) REFERENCES category(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDProduct UNIQUE (id)
+);
+
+CREATE TABLE buyHistory (
+    id SERIAL PRIMARY KEY NOT NULL,
+    idUser INTEGER NOT NULL,
+    idProduct INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    totalPrice INTEGER NOT NULL,
+    buyDate DATE NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (idProduct) REFERENCES product(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDBuyHistory UNIQUE (id)
+);
+
+CREATE TABLE topUp (
+    id SERIAL PRIMARY KEY NOT NULL,
+    idUser INTEGER NOT NULL,
+    amount INTEGER NOT NULL,
+    date DATE NOT NULL,
+    status INTEGER NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE,
+    CONSTRAINT UC_IDTopUp UNIQUE (id)
+);

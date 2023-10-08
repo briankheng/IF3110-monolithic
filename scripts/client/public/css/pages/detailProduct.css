@@ -1,0 +1,165 @@
+#detailProduct {
+    padding-top: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.detailContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    column-gap: 4%;
+}
+
+@media only screen and (max-width: 920px) {
+    .detailContainer {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        column-gap: 4%;
+    }
+
+    .detailImage {
+        width: 90% !important;
+        margin-bottom: 2rem;
+    }
+
+    #productImage {
+        width: 100% !important;
+    }
+
+    .productInfo {
+        width: 100% !important;
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #productName {
+        font-size: 3rem !important;
+        margin-bottom: 0.1rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #productName {
+        font-size: 2.5rem !important;
+        margin-bottom: 0.1rem;
+    }
+
+    #productPrice {
+        font-size: 1.25rem !important;  
+    }
+}
+
+.detailImage {
+    width: 38%;
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: black;
+}
+
+#productImage {
+    border-radius: 1.8rem;
+    width: 100%;
+    height: auto;
+}
+
+.productInfo {
+    width: 58%;
+}
+
+#productName {
+    font-size: 4.5rem;
+    margin-bottom: 0.1rem;
+}
+
+.productStockCategory {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+
+.detailIcon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.categorySec, .stockSec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#productCategory, #productStock {
+    font-size: 1.2rem;
+}
+
+#productPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#productDesc {
+    font-size: 1rem;
+}
+
+.buttonSec {
+    background-color: black;
+    margin-top: 1rem;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    padding: 15px 6px;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.buttonOp {
+    background-color: black;
+    margin-top: 1rem;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    padding: 15px 15px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#numberamount {
+    background-color: inherit;
+    margin-top: 1rem;
+    border: none;
+    font-size: 20px;
+    color: white;
+    width: 1.5rem;
+    padding: 15px 15px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.buttonSec:hover, .buttonOp:hover {
+    background-color: #44494c;
+    cursor: pointer;
+}
+
+.buySection {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
+    align-items: center;
+}
+
+.amountsec {
+    display: flex;
+    flex-direction: row;
+    column-gap: 7px;
+}

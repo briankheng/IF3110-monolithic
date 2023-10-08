@@ -1,0 +1,95 @@
+#history {
+    display: flex;
+    flex-direction: column;
+    background-color: #6e6e71;
+    justify-content: center;
+    align-items: center;  
+    height: 100vh;
+    color: black;
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+.history-ctn {
+    background-color: #f1f1f1;
+    padding: 2% 2.5% 2%;
+    border-radius: 1.5%;
+    width: 50vw;
+    height: 75vh;
+    box-shadow: 0px 0px 30px rgb(69, 63, 63);
+    
+}
+
+@media screen and (max-width: 900px) {
+    .history-ctn {
+        width: 70%;
+        margin: 3% 0;
+        padding: 2% 3% 7%; 
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1280px) {
+    .history-ctn {
+        width: 65%;
+        margin: 3% 0;
+        padding: 2% 3% 7%; 
+    }
+}
+
+
+.history-title {
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.separator {
+    border-top: 2px solid #414142;
+    margin-bottom: 2%;
+}
+
+.table-separator {
+    border-top: 2px solid #414142;
+    margin: 5% 0;
+}
+
+.topup-history {
+    height: 35%;
+}
+
+.buy-history {
+    height: 35%;
+}
+
+.topup-history-title {
+    padding: 2% 3%;
+    background-color: rgb(74, 254, 74);
+    border-radius: 50px;
+}
+
+.buy-history-title {
+    padding: 2% 3%;
+    background-color: rgb(255, 114, 114);
+    border-radius: 50px;
+}
+
+#buy-history-grid, #topup-history-grid {
+    padding: 1% 3%;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: auto 45%;
+    font-size: small;
+    font-weight: 400;
+    gap: 2vh;
+
+    height: 65%; 
+    overflow-y: auto; 
+}
+
+@media screen and (max-width : 900px) {
+    .history-title {
+        font-size: large;
+    }
+    .topup-history-title,
+    .buy-history-title {
+        font-size : medium; 
+    }
+}

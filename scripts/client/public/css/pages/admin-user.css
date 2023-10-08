@@ -1,0 +1,139 @@
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+#user-header {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#user-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#user-create-btn {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #16E957;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#user-container {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+
+.user-card {
+    width: 90%;    
+    background-color: #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.user-info {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.user-user {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.user-balance {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance-icon {
+    width: 2vw;
+    height: 2vh;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.user-action {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    margin-left: 15%;
+}
+
+.user-action-item {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#pagination-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.pagination-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination-item {
+    margin: 0 5px;
+}
+
+.active {
+    color: #000;
+    font-weight: bold;
+}
