@@ -78,7 +78,7 @@ class App {
                 'showAllcategories'
             ],
             'Auth' => [
-                'info', 'login', 'signup'
+                'info', 'login', 'signup', 'isAdmin'
             ]
         ];        
 
@@ -115,6 +115,9 @@ class App {
             'CategoryController' => [
                 'getAllCategories'
             ],
+            'Auth' => [
+                'isAdmin'
+            ]
         ];
 
         $controllerName = get_class($this->controller);

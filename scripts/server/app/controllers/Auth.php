@@ -80,5 +80,17 @@ class Auth extends Controller {
     
             $user = $this->model('UserModel')->changeAccountSettings($data);
         }     
-    } 
+    }
+
+    public function isAdmin() {
+        if (isset($_SESSION["role"])) {
+            if ($_SESSION["role"] == 'admin') {
+                json_response_success("success");
+            } else {
+                json_response_fail("not");
+            }
+        } else {
+            json_response_fail("not");
+        }
+    }
 }

@@ -1,5 +1,25 @@
 window.onload = function () {
   infoNavbarAdded();
+
+  // Check role
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+          if (this.status == 200) {
+              console.log(this.responseText);
+          } else {
+              var errorData = JSON.parse(xhttp.responseText);
+              alert(errorData.message);
+              window.location.href = errorData.location;
+          }
+      }
+  };
+
+  xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.withCredentials = true;
+  xhttp.send();
 };
 
 let createUser = async (event) => {
@@ -20,10 +40,6 @@ let createUser = async (event) => {
           let errorMessage = document.getElementById("error-message");
           errorMessage.textContent = res["data"];
         }
-      } else {
-        var errorData = JSON.parse(xhr.responseText);
-        alert(errorData.message);
-        window.location.href = errorData.location;
       }
     }
   };
