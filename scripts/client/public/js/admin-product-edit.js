@@ -28,11 +28,11 @@ let getProductById = async (id) => {
           alert("Failed to get product!");
         }
       } else {
-        var errorData = JSON.parse(xhttp.responseText);
+        var errorData = JSON.parse(xhr.responseText);
         alert(errorData.message);
         window.location.href = errorData.location;
       }
-    };
+    }
 
   xhr.open(
     "GET",
@@ -77,7 +77,7 @@ let setDropdownCategory = async (activeCategoryId) => {
           alert("Failed to get categories!");
         }
       } else {
-        var errorData = JSON.parse(xhttp.responseText);
+        var errorData = JSON.parse(xhr.responseText);
         alert(errorData.message);
         window.location.href = errorData.location;
       }
@@ -91,7 +91,8 @@ let setDropdownCategory = async (activeCategoryId) => {
   xhr.setRequestHeader("Accept", "application/json");
   xhr.withCredentials = true;
   xhr.send();
-}
+  }
+};
 
 let editProduct = async (event) => {
   event.preventDefault();
@@ -121,7 +122,7 @@ let editProduct = async (event) => {
         alert(errorData.message);
         window.location.href = errorData.location;
       }
-    };
+    }
 
   xhr.open(
     "POST",
@@ -131,4 +132,5 @@ let editProduct = async (event) => {
   xhr.setRequestHeader("Accept", "application/json");
   xhr.withCredentials = true;
   xhr.send(formData);
-}}};
+  }
+};

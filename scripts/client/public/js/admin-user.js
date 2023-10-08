@@ -10,37 +10,43 @@ window.onload = function() {
 let getUsersByPage = async (page) => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let res = JSON.parse(this.responseText);
-            if (res['status']) {
-                let users = res['data'];
-                let userContainer = document.getElementById('user-container');
-                userContainer.innerHTML = '';
-                for (let i = 0; i < users.length; i++) {
-                    let user = users[i];
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                let res = JSON.parse(this.responseText);
+                if (res['status']) {
+                    let users = res['data'];
+                    let userContainer = document.getElementById('user-container');
+                    userContainer.innerHTML = '';
+                    for (let i = 0; i < users.length; i++) {
+                        let user = users[i];
 
-                    let userCard = document.createElement('div');
-                    userCard.className = 'user-card';
-                    userCard.innerHTML = `
-                        <div class="user-info">
-                            <div class="user-user">
-                                <img src="/public/images/user.png" alt="User Icon" class="user-icon">
-                                <p>${user.username}</p>
+                        let userCard = document.createElement('div');
+                        userCard.className = 'user-card';
+                        userCard.innerHTML = `
+                            <div class="user-info">
+                                <div class="user-user">
+                                    <img src="/public/images/user.png" alt="User Icon" class="user-icon">
+                                    <p>${user.username}</p>
+                                </div>
+                                <div class="user-balance">
+                                    <img src="/public/images/amount.png" alt="Balance Icon" class="balance-icon">
+                                    <p>${user.balance.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</p>
+                                </div>
                             </div>
-                            <div class="user-balance">
-                                <img src="/public/images/amount.png" alt="Balance Icon" class="balance-icon">
-                                <p>${user.balance.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</p>
+                            <div class="user-action">
+                                <a href="/pages/admin-user-edit?id=${user.id}" class="user-action-item">Edit</a>
+                                <a href="#" onclick="deleteUser(${user.id})" class="user-action-item">Delete</a>
                             </div>
-                        </div>
-                        <div class="user-action">
-                            <a href="/pages/admin-user-edit?id=${user.id}" class="user-action-item">Edit</a>
-                            <a href="#" onclick="deleteUser(${user.id})" class="user-action-item">Delete</a>
-                        </div>
-                        `;
-                    userContainer.appendChild(userCard);
+                            `;
+                        userContainer.appendChild(userCard);
+                    }
+                } else {
+                    alert('Failed to get Users!');
                 }
             } else {
-                alert('Failed to get Users!');
+                var errorData = JSON.parse(xhr.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
             }
         }
     }
@@ -98,14 +104,20 @@ let deleteUser = async (id) => {
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let res = JSON.parse(this.responseText);
+    if (this.readyState == 4) {
+        if (this.status == 200) {
+            let res = JSON.parse(this.responseText);
 
-      if (res["status"]) {
-        window.location.href = "/pages/admin-user";
-      } else {
-        alert("Failed to delete user!");
-      }
+            if (res["status"]) {
+                window.location.href = "/pages/admin-user";
+            } else {
+                alert("Failed to delete user!");
+            }
+        } else {
+            var errorData = JSON.parse(xhr.responseText);
+            alert(errorData.message);
+            window.location.href = errorData.location;
+        }
     }
   };
 

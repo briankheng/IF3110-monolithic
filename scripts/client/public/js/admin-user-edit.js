@@ -10,18 +10,24 @@ let getUserById = async (id) => {
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let res = JSON.parse(this.responseText);
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        let res = JSON.parse(this.responseText);
 
-      if (res["status"]) {
-        let user = res["data"];
-        let form = document.getElementById("user-form");
+        if (res["status"]) {
+          let user = res["data"];
+          let form = document.getElementById("user-form");
 
-        form["username"].value = user.username;
-        form["name"].value = user.name;
-        form["balance"].value = user.balance;
+          form["username"].value = user.username;
+          form["name"].value = user.name;
+          form["balance"].value = user.balance;
+        } else {
+          alert("Failed to get user!");
+        }
       } else {
-        alert("Failed to get user!");
+          var errorData = JSON.parse(xhr.responseText);
+          alert(errorData.message);
+          window.location.href = errorData.location;
       }
     }
   };
@@ -45,14 +51,20 @@ let editUser = async (event) => {
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let res = JSON.parse(this.responseText);
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        let res = JSON.parse(this.responseText);
 
-      if (res["status"]) {
-        window.location.href = "/pages/admin-user";
+        if (res["status"]) {
+          window.location.href = "/pages/admin-user";
+        } else {
+          let errorMessage = document.getElementById("error-message");
+          errorMessage.textContent = res["data"];
+        }
       } else {
-        let errorMessage = document.getElementById("error-message");
-        errorMessage.textContent = res["data"];
+        var errorData = JSON.parse(xhr.responseText);
+        alert(errorData.message);
+        window.location.href = errorData.location;
       }
     }
   };

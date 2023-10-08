@@ -10,9 +10,7 @@ window.onload = function() {
 let getProductsByPage = async (page) => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-        console.log(this.readyState);
         if (this.readyState == 4) {
-            console.log(this.status);
             if (this.status == 200) {
                 let res = JSON.parse(this.responseText);
                 if (res['status']) {
@@ -59,8 +57,7 @@ let getProductsByPage = async (page) => {
                     alert('Failed to get products!');
                 }
             } else {
-                console.log("haiya");
-                var errorData = JSON.parse(xhttp.responseText);
+                var errorData = JSON.parse(xhr.responseText);
                 alert(errorData.message);
                 window.location.href = errorData.location;
             }
@@ -99,7 +96,7 @@ let setPagination = async (page) => {
                     alert('Failed to get pagination!');
                 }
             } else {
-                var errorData = JSON.parse(xhttp.responseText);
+                var errorData = JSON.parse(xhr.responseText);
                 alert(errorData.message);
                 window.location.href = errorData.location;
             }
@@ -136,7 +133,6 @@ let deleteProduct = async (id) => {
                 alert("Failed to delete product!");
             }
         } else {
-            console.log("haiya");
             var errorData = JSON.parse(xhttp.responseText);
             alert(errorData.message);
             window.location.href = errorData.location;

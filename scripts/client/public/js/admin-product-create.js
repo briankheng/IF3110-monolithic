@@ -32,7 +32,7 @@ let setDropdownCategory = async () => {
           alert("Failed to get categories!");
         }
       } else {
-        var errorData = JSON.parse(xhttp.responseText);
+        var errorData = JSON.parse(xhr.responseText);
         alert(errorData.message);
         window.location.href = errorData.location;
       }
@@ -57,15 +57,21 @@ let createProduct = async (event) => {
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let res = JSON.parse(this.responseText);
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        let res = JSON.parse(this.responseText);
 
-      if (res["status"]) {
-        window.location.href = "/pages/admin-product";
-      } else {
-        let errorMessage = document.getElementById("error-message");
-        errorMessage.textContent = res["data"];
+        if (res["status"]) {
+          window.location.href = "/pages/admin-product";
+        } else {
+          let errorMessage = document.getElementById("error-message");
+          errorMessage.textContent = res["data"];
+        }
       }
+    } else {
+      var errorData = JSON.parse(xhr.responseText);
+      alert(errorData.message);
+      window.location.href = errorData.location;
     }
   };
 

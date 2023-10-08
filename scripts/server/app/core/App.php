@@ -112,12 +112,15 @@ class App {
             'UserController' => [
                 'getAllUsers', 'getUsersByPage', 'createUser', 'deleteUser'
             ],
+            'CategoryController' => [
+                'getAllCategories'
+            ],
         ];
 
         $controllerName = get_class($this->controller);
 
         if (isset($accessControl[$controllerName]) && in_array($this->method, $accessControl[$controllerName])) {
-            if (isset($this->role) && $this->role === 'admin') {
+            if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 // Admin has access to the method
                 return true;
             } else {
