@@ -26,7 +26,7 @@ function getProduct() {
             }
         }
     };
-    xhttp.open("GET", "http://localhost:8000/api/productcontroller/getproduct?product_id="+product_id, true);
+    xhttp.open("GET", "http://localhost:8000/api/ProductController/getProduct?product_id="+product_id, true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.withCredentials = true;
     xhttp.send();
@@ -71,19 +71,20 @@ function addAmount() {
 function buyProduct() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            let res = JSON.parse(this.responseText);
-            if (res['status']) {
-                alert("Item successfully purchased!");
-                window.location.href = "http://localhost:8000/pages/home";
-            } else {
-                if (res['data'] == 'not_logged_in') {
-                    alert("You are not logged in, please log in first!");
-                    window.location.href = "http://localhost:8000/pages/login";
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                console.log(this.responseText);
+                let res = JSON.parse(this.responseText);
+                if (res['status']) {
+                    alert("Item successfully purchased!");
+                    window.location.href = "http://localhost:8000/pages/home";
                 } else {
                     alert(res['data']);
                 }
+            } else {
+                var errorData = JSON.parse(xhttp.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
             }
         }
     };
@@ -95,7 +96,7 @@ function buyProduct() {
         "amount": nums,
         "total": price
     };
-    xhttp.open("POST","http://localhost:8000/api/productcontroller/buyProduct",true);
+    xhttp.open("POST","http://localhost:8000/api/ProductController/buyProduct",true);
     xhttp.setRequestHeader("Accept", "application/json");
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.withCredentials = true;

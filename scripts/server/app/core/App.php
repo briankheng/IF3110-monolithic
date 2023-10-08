@@ -45,7 +45,89 @@ class App {
                 $_POST = json_decode(file_get_contents('php://input'), true);
             }            
         }
+
+        if (isset($_SESSION['user_id'])) {
+            $this->user = $_SESSION['user_id'];
+            $this->role = $_SESSION['role'];
+        }
+
+        // Implement logic to check user already login or not
+        if (!$this->checkLogin()) {
+            http_response_code(403); // Forbidden status code
+            echo json_encode(['status' => false, 'message' => 'You need to login first', 'location' => '/pages/login']);
+            return;
+        }
+
+        // Implement logic for role-based access controller
+        if (!$this->checkAccess()) {
+            http_response_code(403); // Forbidden status code
+            echo json_encode(['status' => false, 'message' => 'You are not allowed to access this page', 'location' => '/pages/home']);
+            return;
+        }
+
         call_user_func_array([$this->controller, $this->method], $this->params);
+    }
+
+    protected function checkLogin() {
+        $accessControl1 = [
+            // Define the allowed ednpoint for unloggedin user
+            'ProductController' => [
+                'showAllProducts', 'queryProduct', 'getProduct'
+            ],
+            'CategoryController' => [
+                'showAllcategories'
+            ],
+            'Auth' => [
+                'info', 'login', 'signup'
+            ]
+        ];        
+
+        $controllerName1 = get_class($this->controller);
+
+        if (isset($accessControl1[$controllerName1]) && in_array($this->method, $accessControl1[$controllerName1])) {
+            if (!isset($_SESSION['user_id'])) {
+                return true;
+            } else {
+                return true;
+            }
+        } else {
+            // If the method is not explicitly restricted, restrict
+            if (isset($_SESSION['user_id'])) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    protected function checkAccess() {
+        $accessControl = [
+            // Define the only admin method controller
+            'ProductController' => [
+                'getAllProducts', 'getProductsByPage', 'deleteProduct', 'createProduct', 'editProduct'
+            ],
+            'TopUpController' => [
+                'getAllTopUps', 'getTopUpsByPage', 'createTopUp', 'approveTopUp', 'rejectTopUp', 'deleteTopUp'
+            ],
+            'UserController' => [
+                'getAllUsers', 'getUsersByPage', 'createUser', 'deleteUser'
+            ],
+        ];
+
+        $controllerName = get_class($this->controller);
+
+        if (isset($accessControl[$controllerName]) && in_array($this->method, $accessControl[$controllerName])) {
+            if (isset($this->role) && $this->role === 'admin') {
+                // Admin has access to the method
+                return true;
+            } else {
+                // User doesn't have access to the method
+                return false;
+            }
+        }
+
+        // If the method is not explicitly restricted, allow access
+        return true;
     }
 
     public function parseURL() {
