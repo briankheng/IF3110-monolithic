@@ -91,7 +91,7 @@ After that, open http://localhost:8000/client/pages/home/ in your browser.
 * Edit User
 > ![Lighthouse-Edit-User](./screenshots/lighthouse-edit-user.jpg)
 * Settings
-> ![Lighthouse-Settings](./screenshots/settings.png)
+> ![Lighthouse-Settings](./screenshots/lighthouse-settings.jpg)
 
 ## Pembagian Tugas
 Server-side:
