@@ -94,6 +94,32 @@ After that, open http://localhost:8000/client/pages/home/ in your browser.
 > ![Lighthouse-Settings](./screenshots/settings.png)
 
 ## Pembagian Tugas
+Server-side:
+Register: 13521064
+Login: 13521064
+Settings: 13521064
+History: 13521064
+Admin-Product-CRUD: 13521049
+Admin-Top-Up-CRUD: 13521049
+Admin-User-CRUD: 13521049
+Core Database : 13521108
+Docker : 13521108
+Routing : 13521108
+Home (Filter-sort-search-pagination) : 13521108
+User-Product : 13521108
+
+Client-side:
+Register: 13521064
+Login: 13521064
+Settings: 13521064
+History: 13521064
+Admin-Product-CRUD: 13521049
+Admin-Top-Up-CRUD: 13521049
+Admin-User-CRUD: 13521049
+Docker : 13521108
+Routing : 13521108
+Home (Filter-sort-search-pagination) : 13521108
+User-Product : 13521108
 
 ## Credits
 This project is implemented by:
