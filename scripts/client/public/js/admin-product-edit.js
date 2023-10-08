@@ -3,6 +3,27 @@ let id = urlParams.get("id");
 
 window.onload = async () => {
   infoNavbarAdded();
+
+  // Check role
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+          if (this.status == 200) {
+              console.log(this.responseText);
+          } else {
+              var errorData = JSON.parse(xhttp.responseText);
+              alert(errorData.message);
+              window.location.href = errorData.location;
+          }
+      }
+  };
+
+  xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.withCredentials = true;
+  xhttp.send();
+  
   getProductById(id);
 };
 
@@ -11,8 +32,10 @@ let getProductById = async (id) => {
 
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
+      console.log(1);
       if (this.status == 200) {
         let res = JSON.parse(this.responseText);
+        console.log(res);
 
         if (res["status"]) {
           let product = res["data"];
@@ -28,11 +51,12 @@ let getProductById = async (id) => {
           alert("Failed to get product!");
         }
       } else {
-        var errorData = JSON.parse(xhr.responseText);
-        alert(errorData.message);
-        window.location.href = errorData.location;
+        console.log(3);
       }
+    } else {
+      console.log(2);
     }
+  };
 
   xhr.open(
     "GET",
@@ -42,8 +66,8 @@ let getProductById = async (id) => {
   xhr.setRequestHeader("Accept", "application/json");
   xhr.withCredentials = true;
   xhr.send();
-  }
 }
+
 
 let setDropdownCategory = async (activeCategoryId) => {
   let xhr = new XMLHttpRequest();
@@ -76,12 +100,9 @@ let setDropdownCategory = async (activeCategoryId) => {
         } else {
           alert("Failed to get categories!");
         }
-      } else {
-        var errorData = JSON.parse(xhr.responseText);
-        alert(errorData.message);
-        window.location.href = errorData.location;
       }
     }
+  };
 
   xhr.open(
     "GET",
@@ -91,8 +112,8 @@ let setDropdownCategory = async (activeCategoryId) => {
   xhr.setRequestHeader("Accept", "application/json");
   xhr.withCredentials = true;
   xhr.send();
-  }
-};
+}
+
 
 let editProduct = async (event) => {
   event.preventDefault();
@@ -123,6 +144,7 @@ let editProduct = async (event) => {
         window.location.href = errorData.location;
       }
     }
+  };
 
   xhr.open(
     "POST",
@@ -132,5 +154,5 @@ let editProduct = async (event) => {
   xhr.setRequestHeader("Accept", "application/json");
   xhr.withCredentials = true;
   xhr.send(formData);
-  }
-};
+}
+
