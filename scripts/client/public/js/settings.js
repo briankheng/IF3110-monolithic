@@ -50,7 +50,7 @@ document.getElementById('settings-form').addEventListener('submit', function(eve
             if (xhr.status == 200) {
                 var responseText = xhr.responseText;
                 if (responseText.trim() === '') {
-                    window.location.href = 'http://localhost:8000/client/pages/login';
+                    window.location.href = 'http://localhost:8000/pages/home';
                 }
             } else {
                 var errorData = JSON.parse(xhr.responseText);

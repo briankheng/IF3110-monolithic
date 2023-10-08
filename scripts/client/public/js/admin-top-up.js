@@ -65,7 +65,7 @@ let getTopUpsByPage = async (page) => {
                 window.location.href = errorData.location;
             }
         }
-    }
+    };
     
     xhr.open('GET', `/api/TopUpController/getTopUpsByPage/${page}`, true);
     xhr.setRequestHeader('Accept', 'application/json');
@@ -100,7 +100,7 @@ let setPagination = async (page) => {
                 }
             }
         }
-    }
+    };
     
     xhr.open('GET', `/api/TopUpController/getAllTopUps`, true);
     xhr.setRequestHeader('Accept', 'application/json');
@@ -131,7 +131,7 @@ let handleApproveClick = async (id) => {
                 window.location.href = errorData.location;
             }
         }
-    }
+    };
 
     xhr.open('PUT', `/api/TopUpController/approveTopUp/${id}`, true);
     xhr.setRequestHeader('Accept', 'application/json');
@@ -157,7 +157,7 @@ let handleRejectClick = async (id) => {
                 window.location.href = errorData.location;
             }
         }
-    }
+    };
 
     xhr.open('PUT', `/api/TopUpController/rejectTopUp/${id}`, true);
     xhr.setRequestHeader('Accept', 'application/json');
@@ -176,18 +176,18 @@ let deleteTopUp = async (id) => {
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
         if (this.status == 200) {
-        let res = JSON.parse(this.responseText);
+            let res = JSON.parse(this.responseText);
 
             if (res["status"]) {
                 window.location.href = "/pages/admin-top-up";
             } else {
                 alert("Failed to delete top up!");
             }
+        } else {
+            var errorData = JSON.parse(xhr.responseText);
+            alert(errorData.message);
+            window.location.href = errorData.location;
         }
-    } else {
-        var errorData = JSON.parse(xhr.responseText);
-        alert(errorData.message);
-        window.location.href = errorData.location;
     }
   };
 

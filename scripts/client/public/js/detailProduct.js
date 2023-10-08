@@ -33,9 +33,21 @@ function getProduct() {
 }
 
 function appendData(productDetail) {
-    var div1 = document.getElementById("productImage");
-    div1.src = "/../public/assets/images/" + productDetail.image;
-    div1.style.objectFit = "cover";
+    var imageTag = document.getElementById("imageTag");
+    var videoTag = document.getElementById("videoTag");
+
+    if (productDetail.image.includes('.mp4')) {
+        videoTag.src = "/../public/assets/videos/" + productDetail.image;
+        videoTag.style.display = "block";
+        imageTag.style.display = "none";
+    } else {
+        imageTag.src = "/../public/assets/images/" + productDetail.image;
+        imageTag.style.display = "block";
+        videoTag.style.display = "none";
+    }
+
+    imageTag.style.objectFit = "cover";
+    videoTag.style.objectFit = "cover";
 
     var div2 = document.getElementById("productName");
     div2.innerHTML += productDetail.product_name;

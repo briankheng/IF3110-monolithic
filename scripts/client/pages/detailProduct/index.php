@@ -4,7 +4,8 @@
 <section id="detailProduct">
     <div class="detailContainer">
         <div class="detailImage">
-            <img id="productImage"></img>
+            <img id="imageTag"></img>
+            <video id="videoTag" autoplay loop muted style="display: none;"></video>
         </div>
         <div class="productInfo">
             <div id="productName"></div>
