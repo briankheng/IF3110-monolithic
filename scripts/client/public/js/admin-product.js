@@ -77,10 +77,6 @@ let getProductsByPage = async (page) => {
                 } else {
                     alert('Failed to get products!');
                 }
-            } else {
-                var errorData = JSON.parse(xhr.responseText);
-                alert(errorData.message);
-                window.location.href = errorData.location;
             }
         }
     }
@@ -116,10 +112,6 @@ let setPagination = async (page) => {
                 } else {
                     alert('Failed to get pagination!');
                 }
-            } else {
-                var errorData = JSON.parse(xhr.responseText);
-                alert(errorData.message);
-                window.location.href = errorData.location;
             }
         }
     }

@@ -1,6 +1,10 @@
 window.onload = function () {
   infoNavbarAdded();
+  setDropdownCategory();
+  validateAdmin();
+}
 
+function validateAdmin() {
   // Check role
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -16,12 +20,7 @@ window.onload = function () {
   };
 
   xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
-  xhttp.setRequestHeader("Accept", "application/json");
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  xhttp.withCredentials = true;
   xhttp.send();
-
-  setDropdownCategory();
 }
 
 let setDropdownCategory = async () => {

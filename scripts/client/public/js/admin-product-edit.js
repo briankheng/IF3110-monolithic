@@ -3,7 +3,11 @@ let id = urlParams.get("id");
 
 window.onload = async () => {
   infoNavbarAdded();
+  getProductById(id);
+  validateAdmin();
+};
 
+function validateAdmin() {
   // Check role
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -19,13 +23,8 @@ window.onload = async () => {
   };
 
   xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
-  xhttp.setRequestHeader("Accept", "application/json");
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  xhttp.withCredentials = true;
   xhttp.send();
-  
-  getProductById(id);
-};
+}
 
 let getProductById = async (id) => {
   let xhr = new XMLHttpRequest();
