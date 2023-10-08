@@ -3,14 +3,17 @@ window.onload = function() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8000/api/auth/getInfo', true);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            if (this.responseText == "NOT_LOGGED_IN") { 
-                window.location.href = "http://localhost:8000/client/pages/login";
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+                document.getElementById('username').value = data.username;
+                document.getElementById('name').value = data.name;
+                document.getElementById('balance').value = data.balance;
+            } else {
+                var errorData = JSON.parse(xhr.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
             }
-            var data = JSON.parse(xhr.responseText);
-            document.getElementById('username').value = data.username;
-            document.getElementById('name').value = data.name;
-            document.getElementById('balance').value = data.balance;
         }
     };
     xhr.send();
@@ -43,10 +46,16 @@ document.getElementById('settings-form').addEventListener('submit', function(eve
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8000/api/auth/changeAccSettings', true);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var responseText = xhr.responseText;
-            if (responseText.trim() === '') {
-                window.location.href = 'http://localhost:8000/client/pages/login';
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var responseText = xhr.responseText;
+                if (responseText.trim() === '') {
+                    window.location.href = 'http://localhost:8000/client/pages/login';
+                }
+            } else {
+                var errorData = JSON.parse(xhr.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
             }
         }
     };

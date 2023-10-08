@@ -3,29 +3,32 @@ window.onload = function() {
     
     // Get Buy History
     var xhr1 = new XMLHttpRequest();
-    xhr1.open('GET', 'http://localhost:8000/api/historycontroller/getBuyHistory', true);
+    xhr1.open('GET', 'http://localhost:8000/api/HistoryController/getBuyHistory', true);
     xhr1.onreadystatechange = function () {
-        if (xhr1.readyState == 4 && xhr1.status == 200) {
-            if (this.responseText == "NOT_LOGGED_IN") {
-                window.location.href = "http://localhost:8000/pages/login";
-            }
-            var response = JSON.parse(xhr1.responseText);
-            var data = response.data;
-            var grid = document.getElementById('buy-history-grid'); 
-            data.forEach(item => {
-                var divDate = document.createElement('div');
-                divDate.textContent = item.buydate;
-                divDate.className = 'grid-value';
-                grid.appendChild(divDate);
+        if (xhr1.readyState == 4) {
+            if (xhr1.status == 200) {
+                var response = JSON.parse(xhr1.responseText);
+                var data = response.data;
+                var grid = document.getElementById('buy-history-grid'); 
+                data.forEach(item => {
+                    var divDate = document.createElement('div');
+                    divDate.textContent = item.buydate;
+                    divDate.className = 'grid-value';
+                    grid.appendChild(divDate);
 
-                var divTotalPrice = document.createElement('div');
-                divTotalPrice.textContent = item.totalprice.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                });;
-                divTotalPrice.className = 'grid-value';
-                grid.appendChild(divTotalPrice);
-            });
+                    var divTotalPrice = document.createElement('div');
+                    divTotalPrice.textContent = item.totalprice.toLocaleString("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                    });;
+                    divTotalPrice.className = 'grid-value';
+                    grid.appendChild(divTotalPrice);
+                });
+            } else {
+                var errorData = JSON.parse(xhr1.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
+            }
         }
     };
     xhr1.send();

@@ -6,9 +6,9 @@ window.onload = function() {
 function loadTopupdata() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            let res = JSON.parse(this.responseText);
-            if (res['status']) {
+        if (xhttp.readyState == 4) {
+            if (xhttp.status == 200) {
+                let res = JSON.parse(this.responseText);
                 data = res['data'];
                 var grid = document.getElementById('pending-grid'); 
                 data.forEach(topup => {
@@ -26,11 +26,10 @@ function loadTopupdata() {
                     grid.appendChild(divTotalPrice);
                 });
             } else {
-                if (res['data'] == "not_logged_in") {
-                    alert("You are not logged in, please log in first!");
-                    window.location.href = "http://localhost:8000/pages/login";
-                }
-            };
+                var errorData = JSON.parse(xhttp.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
+            }
         }
     };
     xhttp.open("GET", "http://localhost:8000/api/topupcontroller/getTopUpRequested", true);
@@ -80,14 +79,20 @@ function loadTopupdata() {
 function requestTopup() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            let res = JSON.parse(this.responseText);
-            if (res['status']) {
-                alert("Topup successfully requested!");
-                window.location.href = "http://localhost:8000/pages/topup";
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                console.log(this.responseText);
+                let res = JSON.parse(this.responseText);
+                if (res['status']) {
+                    alert("Topup successfully requested!");
+                    window.location.href = "http://localhost:8000/pages/topup";
+                } else {
+                    alert(res['data']);
+                }
             } else {
-                alert(res['data']);
+                var errorData = JSON.parse(xhttp.responseText);
+                alert(errorData.message);
+                window.location.href = errorData.location;
             }
         }
     };
