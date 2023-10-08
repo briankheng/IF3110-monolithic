@@ -1,26 +1,6 @@
 window.onload = function () {
   infoNavbarAdded();
   setDropdownCategory();
-  validateAdmin();
-}
-
-function validateAdmin() {
-  // Check role
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-          if (this.status == 200) {
-              console.log(this.responseText);
-          } else {
-              var errorData = JSON.parse(xhttp.responseText);
-              alert(errorData.message);
-              window.location.href = errorData.location;
-          }
-      }
-  };
-
-  xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
-  xhttp.send();
 }
 
 let setDropdownCategory = async () => {
@@ -51,6 +31,10 @@ let setDropdownCategory = async () => {
         } else {
           alert("Failed to get categories!");
         }
+      } else {
+        var errorData = JSON.parse(xhr.responseText);
+        alert(errorData.message);
+        window.location.href = errorData.location;
       }
     }
   }

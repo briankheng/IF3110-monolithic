@@ -4,27 +4,7 @@ let id = urlParams.get("id");
 window.onload = async () => {
   infoNavbarAdded();
   getProductById(id);
-  validateAdmin();
 };
-
-function validateAdmin() {
-  // Check role
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-          if (this.status == 200) {
-              console.log(this.responseText);
-          } else {
-              var errorData = JSON.parse(xhttp.responseText);
-              alert(errorData.message);
-              window.location.href = errorData.location;
-          }
-      }
-  };
-
-  xhttp.open("GET","http://localhost:8000/api/Auth/isAdmin",true);
-  xhttp.send();
-}
 
 let getProductById = async (id) => {
   let xhr = new XMLHttpRequest();
